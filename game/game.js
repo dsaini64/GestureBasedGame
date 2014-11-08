@@ -123,7 +123,105 @@ for(var i = 0; i < 5; i++)
     orangeteamdata.push(bunny);
 }
 
+var minionsblueteamdata = [];
 
+var minionsorangeteamdata = [];
+
+var minionsblueteam = [];
+
+var minionsorangeteam = [];
+
+for(var i = 0; i < 5; i++)
+{
+    // create a texture from an image path
+    var texture = PIXI.Texture.fromImage("orange.png");
+    // create a new Sprite using the texture
+    var bunny = new PIXI.Sprite(texture);
+
+    // center the sprites anchor point
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
+
+    bunny.scale.x = 0;
+    bunny.scale.y = 0;
+
+    // move the sprite t the center of the screen
+    bunny.position.x = 200;
+    bunny.position.y = 150;
+
+    stage.addChild(bunny);
+
+    orangeteamdata.push(bunny);
+}
+
+for(var i = 0; i < 5; i++)
+{
+    // create a texture from an image path
+    var texture = PIXI.Texture.fromImage("orange.png");
+    // create a new Sprite using the texture
+    var bunny = new PIXI.Sprite(texture);
+
+    // center the sprites anchor point
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
+
+    bunny.scale.x = 0;
+    bunny.scale.y = 0;
+
+    // move the sprite t the center of the screen
+    bunny.position.x = 200;
+    bunny.position.y = 150;
+
+    stage.addChild(bunny);
+
+    orangeteamdata.push(bunny);
+}
+
+for(var i = 0; i < 5; i++)
+{
+    // create a texture from an image path
+    var texture = PIXI.Texture.fromImage("orange.png");
+    // create a new Sprite using the texture
+    var bunny = new PIXI.Sprite(texture);
+
+    // center the sprites anchor point
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
+
+    bunny.scale.x = 0;
+    bunny.scale.y = 0;
+
+    // move the sprite t the center of the screen
+    bunny.position.x = 200;
+    bunny.position.y = 150;
+
+    stage.addChild(bunny);
+
+    orangeteamdata.push(bunny);
+}
+
+for(var i = 0; i < 5; i++)
+{
+    // create a texture from an image path
+    var texture = PIXI.Texture.fromImage("orange.png");
+    // create a new Sprite using the texture
+    var bunny = new PIXI.Sprite(texture);
+
+    // center the sprites anchor point
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
+
+    bunny.scale.x = 0;
+    bunny.scale.y = 0;
+
+    // move the sprite t the center of the screen
+    bunny.position.x = 200;
+    bunny.position.y = 150;
+
+    stage.addChild(bunny);
+
+    orangeteamdata.push(bunny);
+}
 
 
 
@@ -238,7 +336,7 @@ Leap.loop(controllerOptions, function(frame) {
               } else {
                   swipeDirection = "down";
                   console.log('leap down');
-              }                  
+              }
           }
        }
      }
