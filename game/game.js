@@ -223,6 +223,8 @@ for(var i = 0; i < 5; i++)
     minionsorangeteam.push(bunny);
 }
 
+var texture = PIXI.Texture.fromImage("../game/herpyrectangle.png");
+
 
 
 
@@ -325,9 +327,14 @@ Leap.loop(controllerOptions, function(frame) {
 
 
 
+    // console.log("ddd");
+
   if (frame.gestures.length > 0) {
+
     for (var i = 0; i < frame.gestures.length; i++) {
       var gesture = frame.gestures[i];
+
+      console.log("adsas");
 
       if (gesture.type == "swipe") {
           //Classify swipe as either horizontal or vertical
@@ -370,6 +377,7 @@ document.addEventListener('keydown', function(event) {
 
     if(event.keyCode == 37) {
         keysDown.left = true;
+        // console.log("left");
     }
     if(event.keyCode == 39) {
         keysDown.right = true;
