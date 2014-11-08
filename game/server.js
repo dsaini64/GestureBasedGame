@@ -179,6 +179,7 @@ var update = function(delta) {
         }
 
         minionsblueteam[i].position.x -= 6;
+
         minionsorangeteam[i].position.x += 6;
     }
 

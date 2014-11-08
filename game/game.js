@@ -157,7 +157,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Textuxre.fromImage("orange.png");
+    var texture = PIXI.Texture.fromImage("orange.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -223,7 +223,14 @@ for(var i = 0; i < 5; i++)
     minionsorangeteam.push(bunny);
 }
 
-var rectangletexture = PIXI.Texture.fromImage("../game/herpyrectangle.png");
+var rectangletexture = PIXI.Texture.fromImage("images/herpyrectangle.jpg");
+
+var topRect = new PIXI.Sprite(rectangletexture);
+topRect.anchor.x = 0.5;
+topRect.anchor.y = 0.5;
+topRect.position.x = 0;
+topRect.position.y = 0;
+stage.addChild(topRect);
 
 
 
