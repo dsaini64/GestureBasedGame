@@ -157,7 +157,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("orange.png");
+    var texture = PIXI.Textuxre.fromImage("orange.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -318,6 +318,12 @@ function animate() {
 var controllerOptions = {enableGestures: true};
 
 Leap.loop(controllerOptions, function(frame) {
+    keysDown.right = false;
+    keysDown.left = false;
+    keysDown.up = false;
+    keysDown.down = false;
+
+
 
   if (frame.gestures.length > 0) {
     for (var i = 0; i < frame.gestures.length; i++) {
@@ -330,18 +336,23 @@ Leap.loop(controllerOptions, function(frame) {
           if(isHorizontal){
               if(gesture.direction[0] > 0){
                   swipeDirection = "right";
-                  console.log('leap right');
+                  console.log('leap right')
+                  keysDown.right = true;
+
               } else {
                   swipeDirection = "left";
                   console.log('leap left');
+                  keysDown.left = true;
               }
           } else { //vertical
               if(gesture.direction[1] > 0){
                   swipeDirection = "up";
                   console.log('leap up');
+                  keysDown.up = true;
               } else {
                   swipeDirection = "down";
                   console.log('leap down');
+                  keysDown.down = true;
               }
           }
        }
