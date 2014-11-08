@@ -151,7 +151,7 @@ for(var i = 0; i < 5; i++)
 
     stage.addChild(bunny);
 
-    orangeteamdata.push(bunny);
+    minionsblueteamdata.push(bunny);
 }
 
 for(var i = 0; i < 5; i++)
@@ -174,7 +174,7 @@ for(var i = 0; i < 5; i++)
 
     stage.addChild(bunny);
 
-    orangeteamdata.push(bunny);
+    minionsorangeteamdata.push(bunny);
 }
 
 for(var i = 0; i < 5; i++)
@@ -188,8 +188,8 @@ for(var i = 0; i < 5; i++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 0;
-    bunny.scale.y = 0;
+    bunny.scale.x = 0.5;
+    bunny.scale.y = 0.5;
 
     // move the sprite t the center of the screen
     bunny.position.x = 200;
@@ -197,7 +197,7 @@ for(var i = 0; i < 5; i++)
 
     stage.addChild(bunny);
 
-    orangeteamdata.push(bunny);
+    minionsblueteam.push(bunny);
 }
 
 for(var i = 0; i < 5; i++)
@@ -211,8 +211,8 @@ for(var i = 0; i < 5; i++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 0;
-    bunny.scale.y = 0;
+    bunny.scale.x = 0.5;
+    bunny.scale.y = 0.5;
 
     // move the sprite t the center of the screen
     bunny.position.x = 200;
@@ -220,7 +220,7 @@ for(var i = 0; i < 5; i++)
 
     stage.addChild(bunny);
 
-    orangeteamdata.push(bunny);
+    minionsorangeteam.push(bunny);
 }
 
 
@@ -234,6 +234,9 @@ socket.on('information', function (data)
     {
         blueteamdata[i].position = new PIXI.Point(data.blueteam[i].position.x,data.blueteam[i].position.y);
         orangeteamdata[i].position = new PIXI.Point(data.orangeteam[i].position.x,data.orangeteam[i].position.y);
+
+        minionsblueteamdata[i].position = new PIXI.Point(data.minionsblueteam[i].position.x,data.minionsblueteam[i].position.y);
+        minionsorangeteamdata[i].position = new PIXI.Point(data.minionsorangeteam[i].position.x,data.minionsorangeteam[i].position.y);
     }
 });
 
@@ -295,6 +298,9 @@ function animate() {
     {
         blueteam[i].position = new PIXI.Point(blueteamdata[i].position.x - (player.position.x - 500),blueteamdata[i].position.y - (player.position.y - 300));
         orangeteam[i].position = new PIXI.Point(orangeteamdata[i].position.x - (player.position.x - 500),orangeteamdata[i].position.y - (player.position.y - 300));
+
+        minionsblueteam[i].position = new PIXI.Point(minionsblueteamdata[i].position.x - (player.position.x - 500),minionsblueteamdata[i].position.y - (player.position.y - 300));
+        minionsorangeteam[i].position = new PIXI.Point(minionsorangeteamdata[i].position.x - (player.position.x - 500),minionsorangeteamdata[i].position.y - (player.position.y - 300));
     }
 
 
