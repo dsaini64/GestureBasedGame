@@ -114,7 +114,7 @@ for(var i = 0; i < 5; i++)
     bunny.scale.x = 0;
     bunny.scale.y = 0;
 
-    // move the sprite t the center of the screen
+    // move the sprite to the center of the screen
     bunny.position.x = 200;
     bunny.position.y = 150;
 
@@ -223,7 +223,7 @@ for(var i = 0; i < 5; i++)
     minionsorangeteam.push(bunny);
 }
 
-var texture = PIXI.Texture.fromImage("../game/herpyrectangle.png");
+var rectangletexture = PIXI.Texture.fromImage("../game/herpyrectangle.png");
 
 
 
