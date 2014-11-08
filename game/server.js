@@ -65,6 +65,8 @@ var gameLoop = function () {
 //global vars
 var blueteam = [];
 var orangeteam = [];
+var minionsblueteam = [];
+var minionsorangeteam = [];
 
 var playersConnected = 0;
 
@@ -86,6 +88,26 @@ for(var i = 0; i < 5; i++)
     playerdata.position.y = i * 20;
     playerdata.keysDown = {};
     orangeteam[i] = playerdata;
+}
+
+for(var i = 0; i < 5; i++)
+{
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 0;
+    playerdata.position.y = i * 20;
+    playerdata.keysDown = {};
+    minionsblueteam[i] = playerdata;
+}
+
+for(var i = 0; i < 5; i++)
+{
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 300;
+    playerdata.position.y = i * 20;
+    playerdata.keysDown = {};
+    minionsorangeteam[i] = playerdata;
 }
 
 console.log(blueteam[0]);
@@ -117,8 +139,12 @@ io.sockets.on('connection', function (socket) {
         var data2 = {};
         data2.blueteam = blueteam;
         data2.orangeteam = orangeteam;
+        data2.minionsblueteam = minionsblueteam;
+        data2.minionsorangeteam = minionsorangeteam;
 
         socket.emit('information', data2);
+
+        // console.log(data2.minionsorangeteam[0].position.x);
 
         // console.log("client " + client.keysDown);
     });
@@ -151,6 +177,9 @@ var update = function(delta) {
         {
             blueteam[i].position.y -= 8;
         }
+
+        minionsblueteam[i].position.x -= 6;
+        minionsorangeteam[i].position.x += 6;
     }
 
 
