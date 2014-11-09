@@ -486,6 +486,84 @@ var update = function(delta) {
     var botxmod = 400;
     var botymod = 100;
     // for(var i = 0)
+   
+
+
+
+
+
+
+    for(var i = 0; i < blueshots.length; i++)
+      {
+        for(var j = 0; j < orangeteam.length; j++)
+        {
+            // console.log("Asdaishdioasdhas");
+            var circle1 = {radius: 25, x: orangeteam[j].position.x, y: orangeteam[j].position.y};
+            var circle2 = {radius: 25, x: blueshots[i].position.x, y: blueshots[i].position.y};
+
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            // if(i == 0 && j == 0)
+            // {
+            // console.log(distance);
+            // }
+
+            if (distance < circle1.radius + circle2.radius)
+            {
+                console.log("death");
+                // thingsToDelete.push(i);
+                blueshots[i].lifetime = 0;
+                orangeteam[j].position.x = 8000;
+                // break;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for(var i = 0; i < orangeshots.length; i++)
+      {
+        for(var j = 0; j < blueteam.length; j++)
+        {
+            // console.log("Asdaishdioasdhas");
+            var circle1 = {radius: 25, x: blueteam[j].position.x, y: blueteam[j].position.y};
+            var circle2 = {radius: 25, x: orangeshots[i].position.x, y: orangeshots[i].position.y};
+
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            // if(i == 0 && j == 0)
+            // {
+            // console.log(distance);
+            // }
+
+            if (distance < circle1.radius + circle2.radius)
+            {
+                console.log("death");
+                // thingsToDelete.push(i);
+                orangeshots[i].lifetime = 0;
+                blueteam[j].position.x = 8000;
+                // break;
+            }
+        }
+
+
+
+
 
 
 
