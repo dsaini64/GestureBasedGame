@@ -455,7 +455,7 @@ var update = function(delta) {
 
     console.log(orangeshots.length);
     // for(var i = 0)
-    
+
 
 
 
@@ -466,13 +466,13 @@ var update = function(delta) {
         {
             if(blueteam[i].position.x > 50)
             {
-                boolean isok = true;
-                var tempx = blueteam[i].position.x -= 8;
+                var isok = true;
+                var tempx = blueteam[i].position.x - 8;
                 var tempy = blueteam[i].position.y;
 
-                for (int i = 0; i < 5; i++) {
-                   var topx = obstacles[i].position.x;
-                   var topy = obstacles[i].position.y;
+                for (var x = 0; x < 5; x++) {
+                   var topx = obstacles[x].position.x;
+                   var topy = obstacles[x].position.y;
                    //Edit botx and boty to have exact value
                    var botx = topx + 100;
                    var boty = topy - 100;
@@ -482,9 +482,10 @@ var update = function(delta) {
                     }
 
                 }
-             
+
                 if(isok) {
                 blueteam[i].position.x -= 8;
+            }
             }
 
         }
@@ -492,13 +493,13 @@ var update = function(delta) {
         {
             if(blueteam[i].position.x < 2400)
             {
-                 boolean isok = true;
-                var tempx = blueteam[i].position.x += 8;
+                var isok = true;
+                var tempx = blueteam[i].position.x + 8;
                 var tempy = blueteam[i].position.y;
 
-                for (int i = 0; i < 5; i++) {
-                   var topx = obstacles[i].position.x;
-                   var topy = obstacles[i].position.y;
+                for (var x = 0; x < 5; x++) {
+                   var topx = obstacles[x].position.x;
+                   var topy = obstacles[x].position.y;
                    //Edit botx and boty to have exact value
                    var botx = topx + 100;
                    var boty = topy - 100;
@@ -508,23 +509,26 @@ var update = function(delta) {
                     }
 
                 }
-             
-                if(isok) {
-                blueteam[i].position.x += 8;
-            }
+
+                console.log(blueteam[i]);
+
+                if(isok)
+                {
+                    blueteam[i].position.x += 8;
+                }
             }
         }
         if(blueteam[i].keysDown.up == true)
         {
             if(blueteam[i].position.y < 1950)
             {
-                 boolean isok = true;
+                 var isok = true;
                 var tempx = blueteam[i].position.x
-                var tempy = blueteam[i].position.y += 8 ;
+                var tempy = blueteam[i].position.y + 8 ;
 
-                for (int i = 0; i < 5; i++) {
-                   var topx = obstacles[i].position.x;
-                   var topy = obstacles[i].position.y;
+                for (var x = 0; x < 5; x++) {
+                   var topx = obstacles[x].position.x;
+                   var topy = obstacles[x].position.y;
                    //Edit botx and boty to have exact value
                    var botx = topx + 100;
                    var boty = topy - 100;
@@ -534,7 +538,9 @@ var update = function(delta) {
                     }
 
                 }
-             
+
+
+
                 if(isok) {
                 blueteam[i].position.y += 8;
             }
@@ -544,13 +550,13 @@ var update = function(delta) {
         {
             if(blueteam[i].position.y > 550)
             {
-                 boolean isok = true;
+                 var isok = true;
                 var tempx = blueteam[i].position.x;
-                var tempy = blueteam[i].position.y -= 8;
+                var tempy = blueteam[i].position.y - 8;
 
-                for (int i = 0; i < 5; i++) {
-                   var topx = obstacles[i].position.x;
-                   var topy = obstacles[i].position.y;
+                for (var x = 0; x < 5; x++) {
+                   var topx = obstacles[x].position.x;
+                   var topy = obstacles[x].position.y;
                    //Edit botx and boty to have exact value
                    var botx = topx + 100;
                    var boty = topy - 100;
@@ -560,7 +566,7 @@ var update = function(delta) {
                     }
 
                 }
-             
+
                 if(isok) {
                 blueteam[i].position.y -= 8;
             }
@@ -673,6 +679,34 @@ var update = function(delta) {
         if(blueshots[i].lifetime < 0)
         {
             blueshots.splice(i,1);
+        }
+    }
+
+    for(var i = 0; i < orangeshots.length; i++)
+    {
+        // console.log(blueshots[i]);
+        orangeshots[i].lifetime -= 1;
+
+        if(orangeshots[i].direction == "right")
+        {
+            orangeshots[i].position.x += 30;
+        }
+        if(orangeshots[i].direction == "left")
+        {
+            orangeshots[i].position.x -= 30;
+        }
+        if(orangeshots[i].direction == "up")
+        {
+            orangeshots[i].position.y += 30;
+        }
+        if(orangeshots[i].direction == "down")
+        {
+            orangeshots[i].position.y -= 30;
+        }
+
+        if(orangeshots[i].lifetime < 0)
+        {
+            orangeshots.splice(i,1);
         }
     }
 
