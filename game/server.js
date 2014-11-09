@@ -103,8 +103,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 550;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.x = 550 + i * 80;
+    playerdata.position.y = 1800;
     // playerdata.keysDown = {};
     minionsblueteam[i] = playerdata;
 }
@@ -113,8 +113,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 850;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.x = 850 + i * 80;
+    playerdata.position.y = 1800;
     // playerdata.keysDown = {};
     minionsorangeteam[i] = playerdata;
 }
@@ -123,8 +123,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 550;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.x = 550 - i * 80;
+    playerdata.position.y = 1800 + i * 80;
     // playerdata.keysDown = {};
     minionsblueteam2[i] = playerdata;
 }
@@ -133,8 +133,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 850;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.x = 850 - i * 80;
+    playerdata.position.y = 1800 + i * 80
     // playerdata.keysDown = {};
     minionsorangeteam2[i] = playerdata;
 }
@@ -144,7 +144,7 @@ for(var i = 0; i < 5; i++)
     var playerdata = {};
     playerdata.position = {};
     playerdata.position.x = 550;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.y = 1800 - i * 80;
     // playerdata.keysDown = {};
     minionsblueteam3[i] = playerdata;
 }
@@ -154,7 +154,7 @@ for(var i = 0; i < 5; i++)
     var playerdata = {};
     playerdata.position = {};
     playerdata.position.x = 850;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.y = 1800 - i * 80;
     // playerdata.keysDown = {};
     minionsorangeteam3[i] = playerdata;
 }
@@ -207,6 +207,8 @@ io.sockets.on('connection', function (socket) {
 
         socket.emit('information', data2);
 
+        console.log(client.position);
+
         // console.log(data2.minionsorangeteam[0].position.x);
 
         // console.log("client " + client.keysDown);
@@ -257,11 +259,22 @@ var update = function(delta) {
 
         // minionsorangeteam[i].position.x += 6;
     }
+    for(var i = 0; i < minionsblueteam.length; i++)
+    {
+        minionsblueteam[i].position.x += 6;
+    }
+    for(var i = 0; i < minionsblueteam2.length; i++)
+    {
+        minionsblueteam2[i].position.x += 3;
+        minionsblueteam2[i].position.y -= 3;
+    }
+    for(var i = 0; i < minionsblueteam3.length; i++)
+    {
+        minionsblueteam3[i].position.y -= 6;
+    }
 
-    // minionsblueteam[i].position.x += 6;
-    //     minionsblueteam3[i].position.y += 6;
-    //     minionsblueteam2[i].position.x += 3;
-    //     minionsblueteam2[i].position.y += 3;
+
+
 
 
     for(var i = 0; i < towers.length; i++)
