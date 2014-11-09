@@ -255,7 +255,7 @@ for(var i=0; i < 6; i++ ) {
     //right 1st bottom
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1980;
+    playerdata.position.x = 2200;
     playerdata.position.y = 1000;
     playerdata.cooldown = 0;
     // playerdata.keysDown = {};
@@ -267,7 +267,7 @@ for(var i=0; i < 6; i++ ) {
         //right 2nd bottom
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1980;
+    playerdata.position.x = 2200;
     playerdata.cooldown = 0;
     playerdata.position.y = 1500;
     // playerdata.keysDown = {};
@@ -354,7 +354,7 @@ for (i = 0; i < 5; i++ ) {
     if (i == 3) {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1200;
+    playerdata.position.x = 1400;
     playerdata.position.y = 1300;
 
     obstacles[i] = playerdata;
