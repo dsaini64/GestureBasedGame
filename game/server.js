@@ -89,6 +89,7 @@ for(var i = 0; i < 5; i++)
     playerdata.position.x = 130;
     playerdata.position.y = 1900;
     playerdata.keysDown = {};
+    // playerdata.
     playerdata.cooldown = 0;
     blueteam[i] = playerdata;
 }
@@ -417,9 +418,12 @@ var update = function(delta) {
                 playerdata.position.x = blueteam[i].position.x;
                 playerdata.position.y = blueteam[i].position.y;
                 // playerdata.keysDown = {};
-                blueshots.direction = "right";
-                blueshots.push(playerdata);
+                playerdata.direction = blueteam[i].keysDown.recent;
+                // blueshots[direction] = "right";
                 blueteam[i].cooldown = 10;
+                playerdata.lifetime = 8;
+                blueshots.push(playerdata);
+
             }
         }
 
@@ -487,9 +491,28 @@ var update = function(delta) {
 
     for(var i = 0; i < blueshots.length; i++)
     {
+        console.log(blueshots[i]);
+        blueshots[i].lifetime -= 1;
+        if(blueshots[i].lifetime < 0)
+        {
+            blueshots[i].position.x = 4000;
+            blueshots[i].position.y = 4000;
+        }
         if(blueshots[i].direction == "right")
         {
-            blueshots[i].position.x += 80;
+            blueshots[i].position.x += 30;
+        }
+        if(blueshots[i].direction == "left")
+        {
+            blueshots[i].position.x -= 30;
+        }
+        if(blueshots[i].direction == "up")
+        {
+            blueshots[i].position.y += 30;
+        }
+        if(blueshots[i].direction == "down")
+        {
+            blueshots[i].position.y -= 30;
         }
     }
 
@@ -515,6 +538,7 @@ var update = function(delta) {
             if (distance < circle1.radius + circle2.radius) {
                 // collision detected!
 
+
             }
 
 
@@ -538,6 +562,65 @@ var update = function(delta) {
           for(var j = 0; j < minionsblueteam3.length; j++)
           {
             var circle1 = {radius: 100, x: minionsblueteam3[j].position.x, y: minionsblueteam3[j].position.y};
+            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
+
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < circle1.radius + circle2.radius) {
+                // collision detected!
+                // console.log("hell yeah!");
+            }
+          }
+
+          for(var j = 0; j < minionsorangeteam.length; j++)
+          {
+            var circle1 = {radius: 100, x: minionsorangeteam[j].position.x, y: minionsorangeteam[j].position.y};
+            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
+
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+
+
+            if (distance < circle1.radius + circle2.radius) {
+                // collision detected!
+                // var playerdata = {};
+                // playerdata.position = {};
+                // playerdata.position.x = bluetowers[i].position.x;
+                // playerdata.position.y = bluetowers[i].position.y;
+                // // playerdata.keysDown = {};
+                // playerdata.direction = "down";
+                // // blueshots[direction] = "right";
+                // // blueteam[i].cooldown = 10;
+                // playerdata.lifetime = 8;
+                // blueshots.push(playerdata);
+
+            }
+
+
+          }
+
+          for(var j = 0; j < minionsorangeteam3.length; j++)
+          {
+            var circle1 = {radius: 100, x: minionsorangeteam3[j].position.x, y: minionsorangeteam3[j].position.y};
+            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
+
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < circle1.radius + circle2.radius) {
+                // collision detected!
+                // console.log("hell yeah!");
+            }
+          }
+
+          for(var j = 0; j < minionsorangeteam3.length; j++)
+          {
+            var circle1 = {radius: 100, x: minionsorangeteam3[j].position.x, y: minionsorangeteam3[j].position.y};
             var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
 
             var dx = circle1.x - circle2.x;

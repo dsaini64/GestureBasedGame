@@ -29,7 +29,8 @@ var keysDown = {
     up: false,
     down: false,
     shoot: false,
-    q: false
+    q: false,
+    recent: "right"
 };
 
 var blueteamdata = [];
@@ -670,7 +671,7 @@ socket.on('information', function (data)
 
     for(var i = 0; i < data.blueshots.length; i++)
     {
-        var texture = PIXI.Texture.fromImage("orange.png");
+        var texture = PIXI.Texture.fromImage("lastexplosion.png");
         // create a new Sprite using the texture
         var bunny = new PIXI.Sprite(texture);
 
@@ -678,8 +679,8 @@ socket.on('information', function (data)
         bunny.anchor.x = 0.5;
         bunny.anchor.y = 0.5;
 
-        bunny.scale.x = 1;
-        bunny.scale.y = 1;
+        bunny.scale.x = 4;
+        bunny.scale.y = 4;
 
         // move the sprite t the center of the screen
         bunny.position.x = data.blueshots[i].position.x;
@@ -896,16 +897,20 @@ document.addEventListener('keydown', function(event) {
 
     if(event.keyCode == 37) {
         keysDown.left = true;
+        keysDown.recent = "left";
         // console.log("left");
     }
     if(event.keyCode == 39) {
         keysDown.right = true;
+        keysDown.recent = "right";
     }
     if(event.keyCode == 40) {
         keysDown.up = true;
+        keysDown.recent = "up";
     }
     if(event.keyCode == 38) {
         keysDown.down = true;
+        keysDown.recent = "down";
     }
     if(event.keyCode == 81) {
         keysDown.q = true;
