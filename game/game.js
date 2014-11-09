@@ -680,6 +680,9 @@ document.addEventListener('keydown', function(event) {
     if(event.keyCode == 38) {
         keysDown.down = true;
     }
+    if(event.keyCode == 81) {
+        keysDown.q = true;
+    }
 });
 
 document.addEventListener('keyup', function(event) {
@@ -694,5 +697,8 @@ document.addEventListener('keyup', function(event) {
     }
     if(event.keyCode == 38) {
         keysDown.down = false;
+    }
+    if(event.keyCode == 81) {
+        keysDown.q = false;
     }
 });
