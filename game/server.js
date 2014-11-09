@@ -596,8 +596,8 @@ var update = function(delta) {
         for(var j = 0; j < minionsorangeteam.length; j++)
         {
             console.log("Asdaishdioasdhas");
-            var circle1 = {radius: 100, x: minionsorangeteam[j].position.x, y: minionsorangeteam[j].position.y};
-            var circle2 = {radius: 100, x: blueshots[i].position.x, y: blueshots[i].position.y};
+            var circle1 = {radius: 25, x: minionsorangeteam[j].position.x, y: minionsorangeteam[j].position.y};
+            var circle2 = {radius: 25, x: blueshots[i].position.x, y: blueshots[i].position.y};
 
             var dx = circle1.x - circle2.x;
             var dy = circle1.y - circle2.y;
@@ -612,7 +612,54 @@ var update = function(delta) {
             {
                 console.log("death");
                 // thingsToDelete.push(i);
-                // minionsorangeteam[]
+                blueshots[i].lifetime = 0;
+                minionsorangeteam[j].position.x = 8000;
+                // break;
+            }
+        }
+        for(var j = 0; j < minionsorangeteam2.length; j++)
+        {
+            console.log("Asdaishdioasdhas");
+            var circle1 = {radius: 25, x: minionsorangeteam2[j].position.x, y: minionsorangeteam2[j].position.y};
+            var circle2 = {radius: 25, x: blueshots[i].position.x, y: blueshots[i].position.y};
+
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            // if(i == 0 && j == 0)
+            // {
+            // console.log(distance);
+            // }
+
+            if (distance < circle1.radius + circle2.radius)
+            {
+                console.log("death");
+                // thingsToDelete.push(i);
+                minionsorangeteam2[j].position.x = 8000;
+                // break;
+            }
+        }
+        for(var j = 0; j < minionsorangeteam3.length; j++)
+        {
+            console.log("Asdaishdioasdhas");
+            var circle1 = {radius: 25, x: minionsorangeteam3[j].position.x, y: minionsorangeteam3[j].position.y};
+            var circle2 = {radius: 25, x: blueshots[i].position.x, y: blueshots[i].position.y};
+
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            // if(i == 0 && j == 0)
+            // {
+            // console.log(distance);
+            // }
+
+            if (distance < circle1.radius + circle2.radius)
+            {
+                console.log("death");
+                // thingsToDelete.push(i);
+                minionsorangeteam3[j].position.x = 8000;
                 // break;
             }
         }
@@ -764,7 +811,7 @@ var update = function(delta) {
                     playerdata.position.x = bluetowers[i].position.x;
                     playerdata.position.y = bluetowers[i].position.y;
                     // playerdata.keysDown = {};
-                    playerdata.direction = "down";
+                    playerdata.direction = "up";
                     // blueshots[direction] = "right";
                     // blueteam[i].cooldown = 10;
                     playerdata.lifetime = 8;
