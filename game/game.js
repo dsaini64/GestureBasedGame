@@ -435,22 +435,24 @@ for (var y = 0; y < 6; y++)
     ///////////////////////////////////////
     ///////BLUE TOWER/////////////////////
     /////////////////////////////////////
-     var texture = PIXI.Texture.fromImage("orange.png");
-     // create a new Sprite using the texture
-     var bluetower = new PIXI.Sprite(texture);
+     var texture = PIXI.Texture.fromImage("tower2.png");
+    // create a new Sprite using the texture
+    var bunny = new PIXI.Sprite(texture);
 
-     // center the sprites anchor point
-     bluetower.anchor.x = 0.5;
-     bluetower.anchor.y = 0.5;
+    // center the sprites anchor point
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
 
-     bluetower.scale.x = 0;
-     bluetower.scale.y = 0;
+    bunny.scale.x = 10;
+    bunny.scale.y = 10;
 
+    // move the sprite t the center of the screen
+    bunny.position.x = 200;
+    bunny.position.y = 150;
 
+    stage.addChild(bunny);
 
-    stage.addChild(bluetower);
-
-    bluetowers.push(bluetower);
+    bluetowers.push(bunny);
 
 }
 
@@ -460,21 +462,23 @@ for (var y = 0; y < 6; y++)
     ///////BLUE TOWER/////////////////////
     /////////////////////////////////////
      var texture = PIXI.Texture.fromImage("orange.png");
-     // create a new Sprite using the texture
-     var bluetower = new PIXI.Sprite(texture);
+    // create a new Sprite using the texture
+    var bunny = new PIXI.Sprite(texture);
 
-     // center the sprites anchor point
-     bluetower.anchor.x = 0.5;
-     bluetower.anchor.y = 0.5;
+    // center the sprites anchor point
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
 
-     bluetower.scale.x = 10;
-     bluetower.scale.y = 10;
+    bunny.scale.x = 0;
+    bunny.scale.y = 0;
 
+    // move the sprite t the center of the screen
+    bunny.position.x = 200;
+    bunny.position.y = 150;
 
+    stage.addChild(bunny);
 
-    stage.addChild(bluetower);
-
-    bluetowersdata.push(bluetower);
+    bluetowersdata.push(bunny);
 
 }
 
@@ -644,8 +648,12 @@ function animate() {
 
     for(var i = 0; i < bluetowers.length; i++)
     {
-        bluetowers[i].position = new PIXI.Point(blueteamdata[i].position.x - (player.position.x - 500),blueteamdata[i].position.y - (player.position.y - 300));
+        // console
+        bluetowers[i].position = new PIXI.Point(bluetowersdata[i].position.x - (player.position.x - 500),bluetowersdata[i].position.y - (player.position.y - 300));
+        console.log(bluetowers[i].position);
     }
+
+
 
 
 

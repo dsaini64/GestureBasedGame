@@ -159,15 +159,15 @@ for(var i = 0; i < 5; i++)
     // playerdata.keysDown = {};
     minionsorangeteam3[i] = playerdata;
 }
-for(var i = 0; i < 4; i++)
-{
-    var playerdata = {};
-    playerdata.position = {};
-    playerdata.position.x = 850;
-    playerdata.position.y = 1800 + i * 20;
-    // playerdata.keysDown = {};
-    bluetowers[i] = playerdata;
-}
+// for(var i = 0; i < 4; i++)
+// {
+//     var playerdata = {};
+//     playerdata.position = {};
+//     playerdata.position.x = 850;
+//     playerdata.position.y = 1800 + i * 20;
+//     // playerdata.keysDown = {};
+//     bluetowers[i] = playerdata;
+// }
 
 for(var i = 0; i < 6; i++)
 {
@@ -396,71 +396,71 @@ var update = function(delta) {
 
 
 
-    for(var i = 0; i < bluetowers.length; i++)
-    {
+    // for(var i = 0; i < bluetowers.length; i++)
+    // {
 
-         for(var j = 0; j < minionsblueteam.length; j++)
-          {
+    //      for(var j = 0; j < minionsblueteam.length; j++)
+    //       {
 
-              if((Math.sqrt((minionsblueteam[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam[j].position.y + bluetowers[i].position.y)^2)) > 10)
-              {
+    //           if((Math.sqrt((minionsblueteam[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam[j].position.y + bluetowers[i].position.y)^2)) > 10)
+    //           {
 
-              }
+    //           }
 
-              if((Math.sqrt((minionsblueteam[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam[j].position.y + bluetowers[i].position.y)^2)) > 10)
-              {
+    //           if((Math.sqrt((minionsblueteam[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam[j].position.y + bluetowers[i].position.y)^2)) > 10)
+    //           {
 
-              }
+    //           }
 
-              if((Math.sqrt((minionsblueteam2[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam2[j].position.y + bluetowers[i].position.y)^2)) > 10)
-              {
+    //           if((Math.sqrt((minionsblueteam2[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam2[j].position.y + bluetowers[i].position.y)^2)) > 10)
+    //           {
 
-              }
-              if((Math.sqrt((minionsblueteam2[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam2[j].position.y + bluetowers[i].position.y)^2)) > 10)
-              {
+    //           }
+    //           if((Math.sqrt((minionsblueteam2[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam2[j].position.y + bluetowers[i].position.y)^2)) > 10)
+    //           {
 
-              }
-              if((Math.sqrt((minionsblueteam3[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam3[j].position.y + bluetowers[i].position.y)^2)) > 10)
-              {
+    //           }
+    //           if((Math.sqrt((minionsblueteam3[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam3[j].position.y + bluetowers[i].position.y)^2)) > 10)
+    //           {
 
-              }
-              if((Math.sqrt((minionsblueteam3[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam3[j].position.y + bluetowers[i].position.y)^2)) > 10)
-              {
+    //           }
+    //           if((Math.sqrt((minionsblueteam3[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam3[j].position.y + bluetowers[i].position.y)^2)) > 10)
+    //           {
 
-              }
-            //    if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam[j].position.y + orangetowers[i].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
+    //           }
+    //         //    if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam[j].position.y + orangetowers[i].position.y)^2)) > 10)
+    //         // {
+    //         //     //shoot the bullet!
+    //         // }
 
-            //    if((Math.sqrt((minionsorangeteam2[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam2[j].position.y + orangetowers[i].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
+    //         //    if((Math.sqrt((minionsorangeteam2[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam2[j].position.y + orangetowers[i].position.y)^2)) > 10)
+    //         // {
+    //         //     //shoot the bullet!
+    //         // }
 
-            //    if((Math.sqrt((minionsorangeteam3[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam3[j].position.y + orangetowers[i].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
+    //         //    if((Math.sqrt((minionsorangeteam3[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam3[j].position.y + orangetowers[i].position.y)^2)) > 10)
+    //         // {
+    //         //     //shoot the bullet!
+    //         // }
 
-            //    if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam[i].position.y + orangetowers[j].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
+    //         //    if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam[i].position.y + orangetowers[j].position.y)^2)) > 10)
+    //         // {
+    //         //     //shoot the bullet!
+    //         // }
 
-            //    if((Math.sqrt((minionsorangeteam2[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam2[i].position.y + orangetowers[j].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
+    //         //    if((Math.sqrt((minionsorangeteam2[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam2[i].position.y + orangetowers[j].position.y)^2)) > 10)
+    //         // {
+    //         //     //shoot the bullet!
+    //         // }
 
-            //    if((Math.sqrt((minionsorangeteam3[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam3[i].position.y + orangetowers[j].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
+    //         //    if((Math.sqrt((minionsorangeteam3[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam3[i].position.y + orangetowers[j].position.y)^2)) > 10)
+    //         // {
+    //         //     //shoot the bullet!
+    //         // }
 
-        }
+    //     }
 
-    }
+    // }
 
 
 
