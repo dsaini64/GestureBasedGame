@@ -572,7 +572,7 @@ for (var y = 0; y < 5; y++)
 
     // center the sprites anchor point
 
-    bunny.anchor.x = 0.5;
+    bunny.anchor.x = 0.2;
     bunny.anchor.y = 0.5;
 
     bunny.scale.x = 0.7;
@@ -1008,7 +1008,7 @@ document.addEventListener('keyup', function(event) {
     if(event.keyCode == 39) {
         keysDown.right = false;
     }
-    if(event.keyCode == 40) {
+    if(event.keyCode == 40) {`
         keysDown.up = false;
     }
     if(event.keyCode == 38) {
