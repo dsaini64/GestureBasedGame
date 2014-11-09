@@ -148,6 +148,10 @@ var minionsblueteam3data = [];
 
 var minionsorangeteam3data = [];
 
+var bluetowers = [];
+
+var orangetowers = [];
+
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
@@ -491,6 +495,7 @@ socket.on('information', function (data)
         minionsorangeteam3data[i].position = new PIXI.Point(data.minionsorangeteam3[i].position.x,data.minionsorangeteam3[i].position.y);
     }
     for (var y = 0; y < 6; y++) {
+        bluetowers[y].position = new PIXI.Point(data.bluetowers[y].position.x, data.bluetowers[y].position.y);
         
     }
 });
