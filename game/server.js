@@ -399,32 +399,32 @@ var update = function(delta) {
 
          for(var j = 0; j < minionsblueteam.length; j++)
           {
-              if((Math.sqrt((minionsblueteam[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam[j].position.y + bluetowers[j].position.y)^2)) > 10)
+              if((Math.sqrt((minionsblueteam[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam[i].position.y + bluetowers[j].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
 
-              if((Math.sqrt((minionsblueteam2[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam2[j].position.y + bluetowers[j].position.y)^2)) > 10)
+              if((Math.sqrt((minionsblueteam2[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam2[i].position.y + bluetowers[j].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
 
-              if((Math.sqrt((minionsblueteam3[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam3[j].position.y + bluetowers[j].position.y)^2)) > 10)
+              if((Math.sqrt((minionsblueteam3[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam3[i].position.y + bluetowers[j].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
 
-               if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam[j].position.y + orangetowers[j].position.y)^2)) > 10)
+               if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam[i].position.y + orangetowers[j].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
 
-               if((Math.sqrt((minionsorangeteam2[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam2[j].position.y + orangetowers[j].position.y)^2)) > 10)
+               if((Math.sqrt((minionsorangeteam2[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam2[i].position.y + orangetowers[j].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
 
-               if((Math.sqrt((minionsorangeteam3[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam3[j].position.y + orangetowers[j].position.y)^2)) > 10)
+               if((Math.sqrt((minionsorangeteam3[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam3[i].position.y + orangetowers[j].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
