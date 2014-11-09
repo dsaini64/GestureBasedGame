@@ -282,7 +282,7 @@ var update = function(delta) {
 
          for(var j = 0; j < minionsblueteam.length; j++)
           {
-              if((sqrt((minionsblueteam[j].position.x + bluetowers.position.x)^2) + ((minionsblueteam[j].position.y + bluetowers.position.y)^2)) > 10)
+              if((Math.sqrt((minionsblueteam[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam[j].position.y + bluetowers[i].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
@@ -290,7 +290,7 @@ var update = function(delta) {
 
         for(var k = 0; k < minionsblueteam2.length; k++)
           {
-              if((sqrt((minionsblueteam2[k].position.x + bluetowers.position.x)^2) + ((minionsblueteam2[k].position.y + bluetowers.position.y)^2)) > 10)
+              if((Math.sqrt((minionsblueteam2[k].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam2[k].position.y + bluetowers[i].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
@@ -298,7 +298,7 @@ var update = function(delta) {
 
         for(var l = 0; l < minionsblueteam3.length; l++)
           {
-              if((sqrt((minionsblueteam3[l].position.x + bluetowers.position.x)^2) + ((minionsblueteam3[l].position.y + bluetowers.position.y)^2)) > 10)
+              if((Math.sqrt((minionsblueteam3[l].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam3[l].position.y + bluetowers[i].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
