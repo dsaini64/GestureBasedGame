@@ -74,8 +74,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 0;
-    playerdata.position.y = i * 20;
+    playerdata.position.x = 550;
+    playerdata.position.y = 1800 + i * 20;
     playerdata.keysDown = {};
     blueteam[i] = playerdata;
 }
@@ -84,8 +84,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 300;
-    playerdata.position.y = i * 20;
+    playerdata.position.x = 850;
+    playerdata.position.y = 1800 + i * 20;
     playerdata.keysDown = {};
     orangeteam[i] = playerdata;
 }
@@ -94,8 +94,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 0;
-    playerdata.position.y = i * 20;
+    playerdata.position.x = 550;
+    playerdata.position.y = 1800 + i * 20;
     playerdata.keysDown = {};
     minionsblueteam[i] = playerdata;
 }
@@ -104,8 +104,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 300;
-    playerdata.position.y = i * 20;
+    playerdata.position.x = 850;
+    playerdata.position.y = 1800 + i * 20;
     playerdata.keysDown = {};
     minionsorangeteam[i] = playerdata;
 }
@@ -163,19 +163,31 @@ var update = function(delta) {
     {
         if(blueteam[i].keysDown.left == true)
         {
-            blueteam[i].position.x -= 80;
+            if(blueteam[i].position.x > 500)
+            {
+                blueteam[i].position.x -= 80;
+            }
         }
         if(blueteam[i].keysDown.right == true)
         {
-            blueteam[i].position.x += 80;
+            if(blueteam[i].position.x < 3000)
+            {
+                blueteam[i].position.x += 80;
+            }
         }
         if(blueteam[i].keysDown.up == true)
         {
-            blueteam[i].position.y += 80;
+            if(blueteam[i].position.y > 500)
+            {
+                blueteam[i].position.y += 80;
+            }
         }
         if(blueteam[i].keysDown.down == true)
         {
-            blueteam[i].position.y -= 80;
+            if(blueteam[i].position.x < 3000)
+            {
+                blueteam[i].position.y -= 80;
+            }
         }
 
         minionsblueteam[i].position.x -= 6;

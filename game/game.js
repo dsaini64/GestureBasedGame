@@ -224,6 +224,7 @@ for(var i = 0; i < 5; i++)
 }
 
 var rectangletexture = PIXI.Texture.fromImage("images/map.jpg");
+var rectangletexture2 = PIXI.Texture.fromImage("images/map2.jpg");
 
 var topRect = new PIXI.Sprite(rectangletexture);
 topRect.anchor.x = 0;
@@ -234,7 +235,7 @@ topRect.position.x = 0;
 topRect.position.y = 0;
 stage.addChild(topRect);
 
-var botRect = new PIXI.Sprite(rectangletexture);
+var botRect = new PIXI.Sprite(rectangletexture2);
 botRect.anchor.x = 0;
 botRect.anchor.y = 0;
 botRect.scale.x = 500;
@@ -253,7 +254,7 @@ leftRect.position.x = 0;
 leftRect.position.y = 0;
 stage.addChild(leftRect);
 
-var rightRect = new PIXI.Sprite(rectangletexture);
+var rightRect = new PIXI.Sprite(rectangletexture2);
 rightRect.rotation = 90 * (Math.PI/180);
 rightRect.anchor.x = 0;
 rightRect.anchor.y = 0;
@@ -344,9 +345,9 @@ function animate() {
     }
 
     topRect.position = new PIXI.Point(0 - (player.position.x - 500), 0 - (player.position.y - 300));
-    botRect.position = new PIXI.Point(0 - (player.position.x - 500), 10 - (player.position.y - 300));
+    botRect.position = new PIXI.Point(0 - (player.position.x - 500), 2000 - (player.position.y - 300));
     leftRect.position = new PIXI.Point(0 - (player.position.x - 500), 0 - (player.position.y - 300));
-    rightRect.position = new PIXI.Point(10 - (player.position.x - 500), 0 - (player.position.y - 300));
+    rightRect.position = new PIXI.Point(3000 - (player.position.x - 500), 0 - (player.position.y - 300));
 
 
 
