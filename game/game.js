@@ -26,6 +26,7 @@ var keysDown = {
     right: false,
     up: false,
     down: false
+    shoot: false;
 };
 
 var blueteamdata = [];
@@ -389,15 +390,15 @@ Leap.loop(controllerOptions, function(frame) {
               {
                   swipeDirection = "right";
                   console.log('leap shoot right')
-                  var shootdirection = "right";
-                 socket.emit("Shooting",{id:playerid, direc:shootdirection});
+                   shoot = true;
+                  
               }
               else
               {
                   swipeDirection = "left";
                   console.log('leap shoot left');
-                  var shootdirection = "left";
-                   socket.emit("Shooting",{id:playerid, direc:shootdirection});
+                  shoot = true;
+                 
 
               }
           }
@@ -407,15 +408,14 @@ Leap.loop(controllerOptions, function(frame) {
               {
                   swipeDirection = "up";
                   console.log('leap shoot up');
-                   var shootdirection = "up";
-                   socket.emit("Shooting",{id:playerid, direc:shootdirection});
+                  shoot = true;
+                   
 
               }
               else {
                   swipeDirection = "down";
                   console.log('leap shoot down');
-                   var shootdirection = "down";
-                   socket.emit("Shooting",{id:playerid, direc:shootdirection});
+                  keysDown.shoot = true;
 
               }
           }
