@@ -163,19 +163,19 @@ var update = function(delta) {
     {
         if(blueteam[i].keysDown.left == true)
         {
-            blueteam[i].position.x -= 8;
+            blueteam[i].position.x -= 80;
         }
         if(blueteam[i].keysDown.right == true)
         {
-            blueteam[i].position.x += 8;
+            blueteam[i].position.x += 80;
         }
         if(blueteam[i].keysDown.up == true)
         {
-            blueteam[i].position.y += 8;
+            blueteam[i].position.y += 80;
         }
         if(blueteam[i].keysDown.down == true)
         {
-            blueteam[i].position.y -= 8;
+            blueteam[i].position.y -= 80;
         }
 
         minionsblueteam[i].position.x -= 6;

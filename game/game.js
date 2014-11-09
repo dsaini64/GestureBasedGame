@@ -80,7 +80,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("blue.png");
+    var texture = PIXI.Texture.fromImage("player.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -134,7 +134,7 @@ var minionsorangeteam = [];
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("orange.png");
+    var texture = PIXI.Texture.fromImage("player.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -180,7 +180,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("orange.png");
+    var texture = PIXI.Texture.fromImage("player.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -223,14 +223,45 @@ for(var i = 0; i < 5; i++)
     minionsorangeteam.push(bunny);
 }
 
-var rectangletexture = PIXI.Texture.fromImage("images/herpyrectangle.jpg");
+var rectangletexture = PIXI.Texture.fromImage("images/map.jpg");
 
 var topRect = new PIXI.Sprite(rectangletexture);
-topRect.anchor.x = 0.5;
-topRect.anchor.y = 0.5;
+topRect.anchor.x = 0;
+topRect.anchor.y = 0;
+topRect.scale.x = 500;
+topRect.scale.y = 500;
 topRect.position.x = 0;
 topRect.position.y = 0;
 stage.addChild(topRect);
+
+var botRect = new PIXI.Sprite(rectangletexture);
+botRect.anchor.x = 0;
+botRect.anchor.y = 0;
+botRect.scale.x = 500;
+botRect.scale.y = 500;
+botRect.position.x = 0;
+botRect.position.y = 500;
+stage.addChild(botRect);
+
+var leftRect = new PIXI.Sprite(rectangletexture);
+leftRect.rotation = 90 * (Math.PI/180);
+leftRect.anchor.x = 0;
+leftRect.anchor.y = 0;
+leftRect.scale.x = 500;
+leftRect.scale.y = 500;
+leftRect.position.x = 0;
+leftRect.position.y = 0;
+stage.addChild(leftRect);
+
+var rightRect = new PIXI.Sprite(rectangletexture);
+rightRect.rotation = 90 * (Math.PI/180);
+rightRect.anchor.x = 0;
+rightRect.anchor.y = 0;
+rightRect.scale.x = 500;
+rightRect.scale.y = 500;
+rightRect.position.x = 500;
+rightRect.position.y = 0;
+stage.addChild(rightRect);
 
 
 
@@ -311,6 +342,11 @@ function animate() {
         minionsblueteam[i].position = new PIXI.Point(minionsblueteamdata[i].position.x - (player.position.x - 500),minionsblueteamdata[i].position.y - (player.position.y - 300));
         minionsorangeteam[i].position = new PIXI.Point(minionsorangeteamdata[i].position.x - (player.position.x - 500),minionsorangeteamdata[i].position.y - (player.position.y - 300));
     }
+
+    topRect.position = new PIXI.Point(0 - (player.position.x - 500), 0 - (player.position.y - 300));
+    botRect.position = new PIXI.Point(0 - (player.position.x - 500), 10 - (player.position.y - 300));
+    leftRect.position = new PIXI.Point(0 - (player.position.x - 500), 0 - (player.position.y - 300));
+    rightRect.position = new PIXI.Point(10 - (player.position.x - 500), 0 - (player.position.y - 300));
 
 
 
