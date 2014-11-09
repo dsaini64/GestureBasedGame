@@ -264,22 +264,36 @@ var update = function(delta) {
     //     minionsblueteam2[i].position.y += 3;
 
 
-    // for(loop through towers)
-    // {
-    //     for(minions1)
-    //     {
-    //         if(colliding)
-    //         {
-    //             //shoot the bullet
-    //         }
-    //     }
-    //     for()
-    // }
+    for(var i = 0; i < towers.length; i++)
+    {
+  
+         for(var j = 0; j < minionsblueteam.length; j++)
+          {
+              if((sqrt((minionsblueteam[j].position.x + towers.position.x)^2) + ((minionsblueteam[j].position.y + towers.position.y)^2)) > 10)
+            {
+                //shoot the bullet!
+            }
+        }
+
+        for(var k = 0; k < minionsblueteam2.length; k++)
+          {
+              if((sqrt((minionsblueteam2[k].position.x + towers.position.x)^2) + ((minionsblueteam2[k].position.y + towers.position.y)^2)) > 10)
+            {
+                //shoot the bullet!
+            }
+        }
+
+        for(var l = 0; l < minionsblueteam3.length; l++)
+          {
+              if((sqrt((minionsblueteam3[l].position.x + towers.position.x)^2) + ((minionsblueteam3[l].position.y + towers.position.y)^2)) > 10)
+            {
+                //shoot the bullet!
+            }
+        }
 
 
   // console.log("hay");
+    }
 }
-
-
 // begin the loop !
 gameLoop()
