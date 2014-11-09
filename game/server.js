@@ -85,6 +85,9 @@ var playersConnected = 0;
 
 var obstacles = [];
 
+var bluenexus = [];
+var orangenexus = [];
+
 
 for(var i = 0; i < 5; i++)
 {
@@ -348,6 +351,30 @@ for(var i=0; i < 6; i++ ) {
 
     }
 }
+
+for (i = 0; i < 1; i++) {
+
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 500;
+    playerdata.position.y = 1990;
+    playerdata.health = 10;
+    // playerdata.keysDown = {};
+    orangenexus[i] = playerdata;
+
+}
+for (i = 0; i < 1; i++) {
+
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 2300;
+    playerdata.position.y = 1750;
+    playerdata.health = 10;
+    
+    // playerdata.keysDown = {};
+    bluenexus[i] = playerdata;
+
+}
 for (i = 0; i < 5; i++ ) {
 
     if (i == 0) {
@@ -404,6 +431,7 @@ for (i = 0; i < 5; i++ ) {
 
 
 
+
 // console.log(blueteam[0]);
 
 //handle client request
@@ -453,6 +481,8 @@ io.sockets.on('connection', function (socket) {
 
         data2.orangetowers = orangetowers;
         data2.obstacles = obstacles;
+        data2.bluenexus = bluenexus;
+        data2.orangenexus = orangenexus;
 
 
         socket.emit('information', data2);
@@ -583,6 +613,73 @@ for(var i = 0; i < orangeshots.length; i++)
         }
     }
 
+
+
+
+    for(var i = 0; i < orangeshots.length; i++)
+      {
+        for(var j = 0; j < bluenexus.length; j++)
+        {
+            // console.log("Asdaishdioasdhas");
+            var circle1 = {radius: 25, x: bluenexus[j].position.x, y: bluenexus[j].position.y};
+            var circle2 = {radius: 25, x: orangeshots[i].position.x, y: orangeshots[i].position.y};
+
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            // if(i == 0 && j == 0)
+            // {
+            // console.log(distance);
+            // }
+
+            if (distance < circle1.radius + circle2.radius)
+            {
+                bluenexus[j].health--;
+
+                if(bluenexus[i].health == 0) {
+                console.log("ORANGE TEAM WINS");
+                // thingsToDelete.push(i);
+                orangeshots[i].lifetime = 0;
+                bluenexus[j].position.x = 8000;
+                // break;
+            }
+            }
+        }
+    }
+
+
+for(var i = 0; i < blueshots.length; i++)
+      {
+        for(var j = 0; j < orangenexus.length; j++)
+        {
+            // console.log("Asdaishdioasdhas");
+            var circle1 = {radius: 25, x: orangenexus[j].position.x, y: orangenexus[j].position.y};
+            var circle2 = {radius: 25, x: blueshots[i].position.x, y: blueshots[i].position.y};
+
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            // if(i == 0 && j == 0)
+            // {
+            // console.log(distance);
+            // }
+
+            if (distance < circle1.radius + circle2.radius)
+            {
+                orangenexus[j].health--;
+
+                if(orangenexus[i].health == 0) {
+                console.log("BLUE TEAM WINS");
+                // thingsToDelete.push(i);
+                blueshots[i].lifetime = 0;
+                orangenexus[j].position.x = 8000;
+                // break;
+            }
+            }
+        }
+    }
 
 
 

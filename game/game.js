@@ -178,6 +178,13 @@ var orangeshotsdata =[];
 var orangetowersdata = [];
 
 
+var bluenexus = [];
+var bluenexusdata = [];
+
+var orangenexus = [];
+var orangenexusdata = [];
+
+
 
 for(var i = 0; i < 5; i++)
 {
@@ -641,6 +648,147 @@ for (var y = 0; y < 5; y++)
 
 
 
+
+
+
+for (var y = 0; y < 5; y++)
+{
+    ///////////////////////////////////////
+    ///////BLUE NEXUS/////////////////////
+    /////////////////////////////////////
+     var texture = PIXI.Texture.fromImage("plus.png");
+    // create a new Sprite using the texture
+    var bunny = new PIXI.Sprite(texture);
+
+    // center the sprites anchor point
+
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
+
+    bunny.scale.x =  10;
+    bunny.scale.y =  10;
+
+    bunny.scale.x = 0.15;
+    bunny.scale.y = 0.15;
+
+
+
+    // move the sprite t the center of the screen
+    bunny.position.x = 200;
+    bunny.position.y = 150;
+
+    stage.addChild(bunny);
+
+    bluenexus.push(bunny);
+
+}
+
+for (var y = 0; y < 5; y++)
+{
+    ///////////////////////////////////////
+    ///////BLUE NEXUS/////////////////////
+    /////////////////////////////////////
+     var texture = PIXI.Texture.fromImage("plus.png");
+    // create a new Sprite using the texture
+    var bunny = new PIXI.Sprite(texture);
+
+    // center the sprites anchor point
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
+
+    bunny.scale.x = 0;
+    bunny.scale.y = 0;
+
+    // move the sprite t the center of the screen
+    bunny.position.x = 200;
+    bunny.position.y = 150;
+
+    stage.addChild(bunny);
+
+    bluenexusdata.push(bunny);
+
+}
+
+
+
+
+
+
+
+
+for (var y = 0; y < 5; y++)
+{
+    ///////////////////////////////////////
+    ///////ORANGE NEXUS/////////////////////
+    /////////////////////////////////////
+     var texture = PIXI.Texture.fromImage("minus.png");
+    // create a new Sprite using the texture
+    var bunny = new PIXI.Sprite(texture);
+
+    // center the sprites anchor point
+
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
+
+    bunny.scale.x =  10;
+    bunny.scale.y =  10;
+
+    bunny.scale.x = 0.15;
+    bunny.scale.y = 0.15;
+
+
+
+    // move the sprite t the center of the screen
+    bunny.position.x = 200;
+    bunny.position.y = 150;
+
+    stage.addChild(bunny);
+
+    orangenexus.push(bunny);
+
+}
+
+for (var y = 0; y < 5; y++)
+{
+    ///////////////////////////////////////
+    ///////Orange NEXUS/////////////////////
+    /////////////////////////////////////
+     var texture = PIXI.Texture.fromImage("plus.png");
+    // create a new Sprite using the texture
+    var bunny = new PIXI.Sprite(texture);
+
+    // center the sprites anchor point
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
+
+    bunny.scale.x = 0;
+    bunny.scale.y = 0;
+
+    // move the sprite t the center of the screen
+    bunny.position.x = 200;
+    bunny.position.y = 150;
+
+    stage.addChild(bunny);
+
+    orangenexus.push(bunny);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var rectangletexture = PIXI.Texture.fromImage("images/map.jpg");
 var rectangletexture2 = PIXI.Texture.fromImage("images/map2.jpg");
 
@@ -716,6 +864,16 @@ socket.on('information', function (data)
     {
 
         obstaclesdata[i].position = new PIXI.Point(data.obstacles[i].position.x, data.obstacles[i].position.y);
+
+    }
+
+    for (var i = 0; i < 1; i++ ) {
+        bluenexusdata[i].position = new PIXI.Point(data.bluenexusdata[i].position.x, data.bluenexusdata[i].position.y);
+
+    }
+
+     for (var i = 0; i < 1; i++ ) {
+        orangenexusdata[i].position = new PIXI.Point(data.orangenexusdata[i].position.x, data.orangenexusdata[i].position.y);
 
     }
 
@@ -965,6 +1123,19 @@ function animate() {
         orangeshots[i].position = new PIXI.Point(orangeshotsdata[i].position.x - (player.position.x - 500),orangeshotsdata[i].position.y - (player.position.y - 300));
         // console.log(blueshots[i].position);
         console.log(orangeshots.length);
+    }
+
+    for(var i = 0; i < bluenexus.length; i++)
+    {
+        // console
+        bluenexus[i].position = new PIXI.Point(bluenexusdata[i].position.x - (player.position.x - 500),bluenexusdata[i].position.y - (player.position.y - 300));
+        
+    }
+    for(var i = 0; i < orangenexus.length; i++)
+    {
+        // console
+        orangenexus[i].position = new PIXI.Point(orangenexusdata[i].position.x - (player.position.x - 500),orangenexusdata[i].position.y - (player.position.y - 300));
+        
     }
 
     topRect.position = new PIXI.Point(0 - (player.position.x - 500), 0 - (player.position.y - 300));
