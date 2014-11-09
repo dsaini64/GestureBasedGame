@@ -186,7 +186,7 @@ for(var i = 0; i < 6; i++)
     // playerdata.position.y = 1990;
      playerdata.position.x = 1800;
      playerdata.cooldown = 0;
-    playerdata.position.y = 1950;
+    playerdata.position.y = 1750;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
  }
@@ -196,7 +196,7 @@ for(var i = 0; i < 6; i++)
      var playerdata = {};
     playerdata.position = {};
     playerdata.position.x = 1200;
-    playerdata.position.y = 1950;
+    playerdata.position.y = 1750;
     playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
@@ -649,7 +649,7 @@ var update = function(delta) {
           for(var j = 0; j < minionsorangeteam.length; j++)
           {
             var circle1 = {radius: 100, x: minionsorangeteam[j].position.x, y: minionsorangeteam[j].position.y};
-            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
+            var circle2 = {radius: 200, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
 
             var dx = circle1.x - circle2.x;
             var dy = circle1.y - circle2.y;
@@ -679,9 +679,9 @@ var update = function(delta) {
 
           }
 
-          for(var j = 0; j < minionsorangeteam3.length; j++)
+          for(var j = 0; j < minionsorangeteam2.length; j++)
           {
-            var circle1 = {radius: 100, x: minionsorangeteam3[j].position.x, y: minionsorangeteam3[j].position.y};
+            var circle1 = {radius: 100, x: minionsorangeteam2[j].position.x, y: minionsorangeteam2[j].position.y};
             var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
 
             var dx = circle1.x - circle2.x;
@@ -691,6 +691,21 @@ var update = function(delta) {
             if (distance < circle1.radius + circle2.radius) {
                 // collision detected!
                 // console.log("hell yeah!");
+
+                if(bluetowers[i].cooldown <= 0)
+                {
+                    var playerdata = {};
+                    playerdata.position = {};
+                    playerdata.position.x = bluetowers[i].position.x;
+                    playerdata.position.y = bluetowers[i].position.y;
+                    // playerdata.keysDown = {};
+                    playerdata.direction = "up";
+                    // blueshots[direction] = "right";
+                    // blueteam[i].cooldown = 10;
+                    playerdata.lifetime = 8;
+                    blueshots.push(playerdata);
+                    cooldown = 3;
+                }
             }
           }
 
@@ -706,6 +721,20 @@ var update = function(delta) {
             if (distance < circle1.radius + circle2.radius) {
                 // collision detected!
                 // console.log("hell yeah!");
+                if(bluetowers[i].cooldown <= 0)
+                {
+                    var playerdata = {};
+                    playerdata.position = {};
+                    playerdata.position.x = bluetowers[i].position.x;
+                    playerdata.position.y = bluetowers[i].position.y;
+                    // playerdata.keysDown = {};
+                    playerdata.direction = "right";
+                    // blueshots[direction] = "right";
+                    // blueteam[i].cooldown = 10;
+                    playerdata.lifetime = 8;
+                    blueshots.push(playerdata);
+                    cooldown = 3;
+                }
             }
           }
 
@@ -731,45 +760,29 @@ var update = function(delta) {
             return (dx*dx+dy*dy<=(circle.r*circle.r));
         }
 
+      }
 
+      for(var i = 0; i < blueshots; i++)
+      {
+        for(var i = 0; i < minionsorangeteam; i++)
+        {
+            var circle1 = {radius: 50, x: minionsorangeteam[j].position.x, y: minionsorangeteam[j].position.y};
+            var circle2 = {radius: 50, x: blueshots[i].position.x, y: blueshots[i].position.y};
 
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
 
+            if (distance < circle1.radius + circle2.radius)
+            {
 
-            //    if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam[j].position.y + orangetowers[i].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
-
-            //    if((Math.sqrt((minionsorangeteam2[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam2[j].position.y + orangetowers[i].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
-
-            //    if((Math.sqrt((minionsorangeteam3[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam3[j].position.y + orangetowers[i].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
-
-            //    if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam[i].position.y + orangetowers[j].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
-
-            //    if((Math.sqrt((minionsorangeteam2[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam2[i].position.y + orangetowers[j].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
-
-            //    if((Math.sqrt((minionsorangeteam3[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam3[i].position.y + orangetowers[j].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
-
+            }
+        }
       }
 
         //     var blueCircle = {radius: minionsblueteam[j].radius, x: minionsblueteam[j].position.x, y: minionsblueteam.position.y};
         //     var orangeCircle = {radius: minionsorangeteam[j].radius, x: minionsorangeteam[j].position.x, y: minionsorangeteam.position.y};
-3
+
 
         //     var dx = blueCircle.x - orangeCircle.x;
         //     var dy = blueCircle.y - orangeCircle.y;
