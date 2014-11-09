@@ -444,28 +444,28 @@ var update = function(delta) {
         {
             if(blueteam[i].position.x > 50)
             {
-                blueteam[i].position.x -= 80;
+                blueteam[i].position.x -= 8;
             }
         }
         if(blueteam[i].keysDown.right == true)
         {
             if(blueteam[i].position.x < 2400)
             {
-                blueteam[i].position.x += 80;
+                blueteam[i].position.x += 8;
             }
         }
         if(blueteam[i].keysDown.up == true)
         {
             if(blueteam[i].position.y < 1950)
             {
-                blueteam[i].position.y += 80;
+                blueteam[i].position.y += 8;
             }
         }
         if(blueteam[i].keysDown.down == true)
         {
             if(blueteam[i].position.y > 550)
             {
-                blueteam[i].position.y -= 80;
+                blueteam[i].position.y -= 8;
             }
         }
         if(blueteam[i].keysDown.q == true)
@@ -547,6 +547,17 @@ var update = function(delta) {
     }
 
 
+    for(var i = 0; i < blueshots.length; i++)
+    {
+        if(blueshots[i].direction == "right")
+        {
+            blueshots[i].position.x += 80;
+        }
+    }
+
+
+
+
 
 
 
@@ -602,6 +613,28 @@ var update = function(delta) {
                 // console.log("hell yeah!");
             }
           }
+
+        var circle={x:100,y:290,r:10};
+        var rect={x:100,y:100,w:40,h:100};
+
+        
+
+        // return true if the rectangle and circle are colliding
+        function RectCircleColliding(circle,rect){
+            var distX = Math.abs(circle.x - rect.x-rect.w/2);
+            var distY = Math.abs(circle.y - rect.y-rect.h/2);
+
+            if (distX > (rect.w/2 + circle.r)) { return false; }
+            if (distY > (rect.h/2 + circle.r)) { return false; }
+
+            if (distX <= (rect.w/2)) { return true; } 
+            if (distY <= (rect.h/2)) { return true; }
+
+            var dx=distX-rect.w/2;
+            var dy=distY-rect.h/2;
+            return (dx*dx+dy*dy<=(circle.r*circle.r));
+        }
+
 
 
 
