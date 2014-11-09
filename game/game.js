@@ -495,8 +495,26 @@ socket.on('information', function (data)
         minionsorangeteam3data[i].position = new PIXI.Point(data.minionsorangeteam3[i].position.x,data.minionsorangeteam3[i].position.y);
     }
     for (var y = 0; y < 6; y++) {
-        bluetowers[y].position = new PIXI.Point(data.bluetowers[y].position.x, data.bluetowers[y].position.y);
-        
+        ///////////////////////////////////////
+        ///////BLUE TOWER/////////////////////
+        /////////////////////////////////////
+         var texture = PIXI.Textu re.fromImage("tower2.jpg");
+         // create a new Sprite using the texture
+         var bluetower = new PIXI.Sprite(texture);
+
+         // center the sprites anchor point
+         bluetower.anchor.x = 0.5;
+         bluetower.anchor.y = 0.5;
+
+         bluetower.scale.x = 1;
+         bluetower.scale.y = 1;
+
+         bluetowers[y].position = new PIXI.Point(data.bluetowers[y].position.x, data.bluetowers[y].position.y);
+
+        stage.addChild(bluetower);
+
+        bluetowers.push(bluetower);
+
     }
 });
 
