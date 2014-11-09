@@ -561,7 +561,7 @@ for (var y = 0; y < 6; y++)
 
 
 
-for (var y = 0; y < 6; y++)
+for (var y = 0; y < 5; y++)
 {
     ///////////////////////////////////////
     ///////OBSTACLES/////////////////////
@@ -575,8 +575,8 @@ for (var y = 0; y < 6; y++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 0.05;
-    bunny.scale.y = 0.1;
+    bunny.scale.x = 0.1.5;
+    bunny.scale.y = 0.1.5;
 
 
     // move the sprite t the center of the screen
@@ -589,7 +589,7 @@ for (var y = 0; y < 6; y++)
 
 }
 
-for (var y = 0; y < 6; y++)
+for (var y = 0; y < 5; y++)
 {
     ///////////////////////////////////////
     ///////OBSTACLES/////////////////////
@@ -699,7 +699,7 @@ socket.on('information', function (data)
         bluetowersdata[i].position = new PIXI.Point(data.bluetowers[i].position.x, data.bluetowers[i].position.y);
         orangetowersdata[i].position = new PIXI.Point(data.orangetowers[i].position.x, data.orangetowers[i].position.y);
     }
-    for(var i = 0; i < 6; i++)
+    for(var i = 0; i < 5; i++)
     {
 
         obstaclesdata[i].position = new PIXI.Point(data.obstacles[i].position.x, data.obstacles[i].position.y);

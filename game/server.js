@@ -321,7 +321,7 @@ for(var i=0; i < 6; i++ ) {
 
     }
 }
-for (i = 0; i < 6; i++ ) {
+for (i = 0; i < 5; i++ ) {
 
     if (i == 0) {
 
@@ -345,22 +345,13 @@ for (i = 0; i < 6; i++ ) {
     if (i == 2) {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1000;
-    playerdata.position.y = 1000;
-
-    obstacles[i] = playerdata;
-
-    }
-    if (i == 3) {
-    var playerdata = {};
-    playerdata.position = {};
     playerdata.position.x = 1800;
     playerdata.position.y = 1200;
 
     obstacles[i] = playerdata;
 
     }
-    if (i == 4) {
+    if (i == 3) {
     var playerdata = {};
     playerdata.position = {};
     playerdata.position.x = 1100;
@@ -370,7 +361,7 @@ for (i = 0; i < 6; i++ ) {
 
     }
 
-    if (i == 5) {
+    if (i == 4) {
     var playerdata = {};
     playerdata.position = {};
     playerdata.position.x = 1300;
