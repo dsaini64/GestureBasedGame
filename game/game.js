@@ -157,11 +157,16 @@ var bluetowersdata = [];
 
 var orangetowers = [];
 
+var obstacles = [];
+
+var obstaclesdata = [];
+
 
 var blueshots = [];
 var blueshotsdata =[];
 
 var orangetowersdata = [];
+
 
 
 for(var i = 0; i < 5; i++)
@@ -555,6 +560,65 @@ for (var y = 0; y < 6; y++)
 
 
 
+for (var y = 0; y < 6; y++)
+{
+    ///////////////////////////////////////
+    ///////OBSTACLES/////////////////////
+    /////////////////////////////////////
+     var texture = PIXI.Texture.fromImage("herpyrectangle.png");
+    // create a new Sprite using the texture
+    var bunny = new PIXI.Sprite(texture);
+
+    // center the sprites anchor point
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
+
+    bunny.scale.x = 10;
+    bunny.scale.y = 10;
+
+    // move the sprite t the center of the screen
+    bunny.position.x = 200;
+    bunny.position.y = 150;
+
+    stage.addChild(bunny);
+
+    obstacles.push(bunny);
+
+}
+
+for (var y = 0; y < 6; y++)
+{
+    ///////////////////////////////////////
+    ///////OBSTACLES/////////////////////
+    /////////////////////////////////////
+     var texture = PIXI.Texture.fromImage("herpyrectangle.png");
+    // create a new Sprite using the texture
+    var bunny = new PIXI.Sprite(texture);
+
+    // center the sprites anchor point
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
+
+    bunny.scale.x = 0;
+    bunny.scale.y = 0;
+
+    // move the sprite t the center of the screen
+    bunny.position.x = 200;
+    bunny.position.y = 150;
+
+    stage.addChild(bunny);
+
+    obstaclesdata.push(bunny);
+
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -631,6 +695,12 @@ socket.on('information', function (data)
     {
         bluetowersdata[i].position = new PIXI.Point(data.bluetowers[i].position.x, data.bluetowers[i].position.y);
         orangetowersdata[i].position = new PIXI.Point(data.orangetowers[i].position.x, data.orangetowers[i].position.y);
+    }
+    for(var i = 0; i < 6; i++) 
+    {
+
+        obstaclesdata[i].position = new PIXI.Point(data.obstacles[i].position.x, data.obstacles[i].position.y);
+
     }
 
     for(var i = 0; i < blueshots.length; i++)
@@ -796,6 +866,13 @@ function animate() {
     {
         // console
         orangetowers[i].position = new PIXI.Point(orangetowersdata[i].position.x - (player.position.x - 500),orangetowersdata[i].position.y - (player.position.y - 300));
+        // console.log(bluetowers[i].position);
+    }
+
+     for(var i = 0; i < orangetowers.length; i++)
+    {
+        // console
+        obstacles[i].position = new PIXI.Point(obstaclesdata[i].position.x - (player.position.x - 500),obstaclesdata[i].position.y - (player.position.y - 300));
         // console.log(bluetowers[i].position);
     }
 

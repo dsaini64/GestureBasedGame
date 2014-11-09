@@ -308,13 +308,14 @@ for(var i=0; i < 6; i++ ) {
 
     }
 }
-for (i = 0; i < 5; i++ ) {
+for (i = 0; i < 6; i++ ) {
+
     if (i == 0) {
 
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1170;
-    playerdata.position.y = 540;
+    playerdata.position.x = 400;
+    playerdata.position.y = 700;
 
     obstacles[i] = playerdata;
 
@@ -322,8 +323,8 @@ for (i = 0; i < 5; i++ ) {
     if (i == 1) {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1170;
-    playerdata.position.y = 540;
+    playerdata.position.x = 1800;
+    playerdata.position.y = 700;
 
     obstacles[i] = playerdata;
 
@@ -331,8 +332,8 @@ for (i = 0; i < 5; i++ ) {
     if (i == 2) {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1170;
-    playerdata.position.y = 540;
+    playerdata.position.x = 1000;
+    playerdata.position.y = 1000;
 
     obstacles[i] = playerdata;
         
@@ -340,8 +341,8 @@ for (i = 0; i < 5; i++ ) {
     if (i == 3) {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1170;
-    playerdata.position.y = 540;
+    playerdata.position.x = 1800;
+    playerdata.position.y = 1200;
 
     obstacles[i] = playerdata;
         
@@ -349,11 +350,20 @@ for (i = 0; i < 5; i++ ) {
     if (i == 4) {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1170;
-    playerdata.position.y = 540;
+    playerdata.position.x = 1100;
+    playerdata.position.y = 1300;
 
     obstacles[i] = playerdata;
         
+    }
+
+    if (i == 5) {
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 1300;
+    playerdata.position.y = 1500;
+
+    obstacles[i] = playerdata;     
     }
 }
 
@@ -403,6 +413,7 @@ io.sockets.on('connection', function (socket) {
         // console.log(data2.blueshots);
 
         data2.orangetowers = orangetowers;
+        data2.obstacles = obstacles;
 
 
         socket.emit('information', data2);
