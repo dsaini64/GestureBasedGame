@@ -377,7 +377,7 @@ for (i = 0; i < 5; i++ ) {
 
 
 
-console.log(blueteam[0]);
+// console.log(blueteam[0]);
 
 //handle client request
 io.sockets.on('connection', function (socket) {
@@ -556,7 +556,7 @@ var update = function(delta) {
 
     for(var i = 0; i < blueshots.length; i++)
     {
-        console.log(blueshots[i]);
+        // console.log(blueshots[i]);
         blueshots[i].lifetime -= 1;
 
         if(blueshots[i].direction == "right")
@@ -588,6 +588,30 @@ var update = function(delta) {
     {
         bluetowers[i].cooldown -= 1;
     }
+
+
+    for(var i = 0; i < blueshots; i++)
+      {
+        for(var j = 0; j < minionsorangeteam; i++)
+        {
+            var circle1 = {radius: 100, x: minionsorangeteam[j].position.x, y: minionsorangeteam[j].position.y};
+            var circle2 = {radius: 100, x: blueshots[i].position.x, y: blueshots[i].position.y};
+
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            // if(i == 0 && j == 0)
+            // {
+                console.log(distance);
+            // }
+
+            if (distance < circle1.radius + circle2.radius)
+            {
+                minionsorangeteam.splice(i,1);
+            }
+        }
+      }
 
 
 
@@ -728,7 +752,7 @@ var update = function(delta) {
                     playerdata.position.x = bluetowers[i].position.x;
                     playerdata.position.y = bluetowers[i].position.y;
                     // playerdata.keysDown = {};
-                    playerdata.direction = "right";
+                    playerdata.direction = "down";
                     // blueshots[direction] = "right";
                     // blueteam[i].cooldown = 10;
                     playerdata.lifetime = 8;
@@ -762,23 +786,7 @@ var update = function(delta) {
 
       }
 
-      for(var i = 0; i < blueshots; i++)
-      {
-        for(var j = 0; j < minionsorangeteam; i++)
-        {
-            var circle1 = {radius: 100, x: minionsorangeteam[j].position.x, y: minionsorangeteam[j].position.y};
-            var circle2 = {radius: 100, x: blueshots[i].position.x, y: blueshots[i].position.y};
 
-            var dx = circle1.x - circle2.x;
-            var dy = circle1.y - circle2.y;
-            var distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < circle1.radius + circle2.radius)
-            {
-                minionsorangeteam.splice(i,1);
-            }
-        }
-      }
 
         //     var blueCircle = {radius: minionsblueteam[j].radius, x: minionsblueteam[j].position.x, y: minionsblueteam.position.y};
         //     var orangeCircle = {radius: minionsorangeteam[j].radius, x: minionsorangeteam[j].position.x, y: minionsorangeteam.position.y};
