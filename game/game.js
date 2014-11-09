@@ -56,8 +56,8 @@ for(var i = 0; i < 5; i++)
     bunny.position.x = 200;
     bunny.position.y = 150;
 
-    bunny.scale.x = 8;
-    bunny.scale.y = 8;
+    bunny.scale.x = 4;
+    bunny.scale.y = 4;
 
     stage.addChild(bunny);
 
@@ -68,7 +68,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("images/HEYAMAN.jpg");
+    var texture = PIXI.Texture.fromImage("images/HEYAMAN.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -79,6 +79,9 @@ for(var i = 0; i < 5; i++)
     // move the sprite t the center of the screen
     bunny.position.x = 200;
     bunny.position.y = 150;
+
+    bunny.scale.x = 4;
+    bunny.scale.y = 4;
 
     stage.addChild(bunny);
 
@@ -225,7 +228,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("images/character3.jpg");
+    var texture = PIXI.Texture.fromImage("images/character3.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -233,8 +236,8 @@ for(var i = 0; i < 5; i++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 4;
-    bunny.scale.y = 4;
+    bunny.scale.x = 2;
+    bunny.scale.y = 2;
 
     // move the sprite t the center of the screen
     bunny.position.x = 200;
@@ -248,7 +251,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("orange.png");
+    var texture = PIXI.Texture.fromImage("images/character5.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -256,8 +259,8 @@ for(var i = 0; i < 5; i++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 1;
-    bunny.scale.y = 1;
+    bunny.scale.x = 2;
+    bunny.scale.y = 2;
 
     // move the sprite t the center of the screen
     bunny.position.x = 200;
@@ -317,7 +320,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("images/character3.jpg");
+    var texture = PIXI.Texture.fromImage("images/character3.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -325,8 +328,8 @@ for(var i = 0; i < 5; i++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 1;
-    bunny.scale.y = 1;
+    bunny.scale.x = 2;
+    bunny.scale.y = 2;
 
     // move the sprite t the center of the screen
     bunny.position.x = 200;
@@ -340,7 +343,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("orange.png");
+    var texture = PIXI.Texture.fromImage("images/character5.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -348,8 +351,8 @@ for(var i = 0; i < 5; i++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 1;
-    bunny.scale.y = 1;
+    bunny.scale.x = 2;
+    bunny.scale.y = 2;
 
     // move the sprite t the center of the screen
     bunny.position.x = 200;
@@ -386,7 +389,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("orange.png");
+    var texture = PIXI.Texture.fromImage("images/character5.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -409,7 +412,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("images/character3.jpg");
+    var texture = PIXI.Texture.fromImage("images/character3.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -417,8 +420,8 @@ for(var i = 0; i < 5; i++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 1;
-    bunny.scale.y = 1;
+    bunny.scale.x = 2;
+    bunny.scale.y = 2;
 
     // move the sprite t the center of the screen
     bunny.position.x = 200;
@@ -432,7 +435,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("orange.png");
+    var texture = PIXI.Texture.fromImage("images/character5.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -440,8 +443,8 @@ for(var i = 0; i < 5; i++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 1;
-    bunny.scale.y = 1;
+    bunny.scale.x = 2;
+    bunny.scale.y = 2;
 
     // move the sprite t the center of the screen
     bunny.position.x = 200;
