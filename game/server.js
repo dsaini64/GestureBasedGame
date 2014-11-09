@@ -186,7 +186,7 @@ for(var i = 0; i < 6; i++)
     // playerdata.position.y = 1990;
      playerdata.position.x = 1800;
      playerdata.cooldown = 0;
-    playerdata.position.y = 1950;
+    playerdata.position.y = 1750;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
  }
@@ -196,7 +196,7 @@ for(var i = 0; i < 6; i++)
      var playerdata = {};
     playerdata.position = {};
     playerdata.position.x = 1200;
-    playerdata.position.y = 1950;
+    playerdata.position.y = 1750;
     playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
@@ -321,13 +321,13 @@ for(var i=0; i < 6; i++ ) {
 
     }
 }
-for (i = 0; i < 6; i++ ) {
+for (i = 0; i < 5; i++ ) {
 
     if (i == 0) {
 
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 400;
+    playerdata.position.x = 800;
     playerdata.position.y = 700;
 
     obstacles[i] = playerdata;
@@ -345,8 +345,8 @@ for (i = 0; i < 6; i++ ) {
     if (i == 2) {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1000;
-    playerdata.position.y = 1000;
+    playerdata.position.x = 1800;
+    playerdata.position.y = 1200;
 
     obstacles[i] = playerdata;
 
@@ -354,26 +354,17 @@ for (i = 0; i < 6; i++ ) {
     if (i == 3) {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1800;
-    playerdata.position.y = 1200;
-
-    obstacles[i] = playerdata;
-
-    }
-    if (i == 4) {
-    var playerdata = {};
-    playerdata.position = {};
-    playerdata.position.x = 1100;
+    playerdata.position.x = 1900;
     playerdata.position.y = 1300;
 
     obstacles[i] = playerdata;
 
     }
 
-    if (i == 5) {
+    if (i == 4) {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1300;
+    playerdata.position.x = 2000;
     playerdata.position.y = 1500;
 
     obstacles[i] = playerdata;
@@ -386,7 +377,7 @@ for (i = 0; i < 6; i++ ) {
 
 
 
-console.log(blueteam[0]);
+// console.log(blueteam[0]);
 
 //handle client request
 io.sockets.on('connection', function (socket) {
@@ -565,7 +556,7 @@ var update = function(delta) {
 
     for(var i = 0; i < blueshots.length; i++)
     {
-        console.log(blueshots[i]);
+        // console.log(blueshots[i]);
         blueshots[i].lifetime -= 1;
 
         if(blueshots[i].direction == "right")
@@ -597,6 +588,32 @@ var update = function(delta) {
     {
         bluetowers[i].cooldown -= 1;
     }
+
+
+
+    for(var i = 0; i < blueshots.length; i++)
+      {
+        for(var j = 0; j < minionsorangeteam.length; i++)
+        {
+            console.log("Asdaishdioasdhas");
+            var circle1 = {radius: 100, x: minionsorangeteam[j].position.x, y: minionsorangeteam[j].position.y};
+            var circle2 = {radius: 100, x: blueshots[i].position.x, y: blueshots[i].position.y};
+
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            // if(i == 0 && j == 0)
+            // {
+            console.log(distance);
+            // }
+
+            if (distance < circle1.radius + circle2.radius)
+            {
+                minionsorangeteam.splice(i,1);
+            }
+        }
+      }
 
 
 
@@ -658,7 +675,7 @@ var update = function(delta) {
           for(var j = 0; j < minionsorangeteam.length; j++)
           {
             var circle1 = {radius: 100, x: minionsorangeteam[j].position.x, y: minionsorangeteam[j].position.y};
-            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
+            var circle2 = {radius: 200, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
 
             var dx = circle1.x - circle2.x;
             var dy = circle1.y - circle2.y;
@@ -688,10 +705,10 @@ var update = function(delta) {
 
           }
 
-          for(var j = 0; j < minionsorangeteam3.length; j++)
+          for(var j = 0; j < minionsorangeteam2.length; j++)
           {
-            var circle1 = {radius: 100, x: minionsorangeteam3[j].position.x, y: minionsorangeteam3[j].position.y};
-            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
+            var circle1 = {radius: 100, x: minionsorangeteam2[j].position.x, y: minionsorangeteam2[j].position.y};
+            var circle2 = {radius: 200, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
 
             var dx = circle1.x - circle2.x;
             var dy = circle1.y - circle2.y;
@@ -700,13 +717,28 @@ var update = function(delta) {
             if (distance < circle1.radius + circle2.radius) {
                 // collision detected!
                 // console.log("hell yeah!");
+
+                if(bluetowers[i].cooldown <= 0)
+                {
+                    var playerdata = {};
+                    playerdata.position = {};
+                    playerdata.position.x = bluetowers[i].position.x;
+                    playerdata.position.y = bluetowers[i].position.y;
+                    // playerdata.keysDown = {};
+                    playerdata.direction = "up";
+                    // blueshots[direction] = "right";
+                    // blueteam[i].cooldown = 10;
+                    playerdata.lifetime = 8;
+                    blueshots.push(playerdata);
+                    cooldown = 3;
+                }
             }
           }
 
           for(var j = 0; j < minionsorangeteam3.length; j++)
           {
             var circle1 = {radius: 100, x: minionsorangeteam3[j].position.x, y: minionsorangeteam3[j].position.y};
-            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
+            var circle2 = {radius: 200, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
 
             var dx = circle1.x - circle2.x;
             var dy = circle1.y - circle2.y;
@@ -715,6 +747,20 @@ var update = function(delta) {
             if (distance < circle1.radius + circle2.radius) {
                 // collision detected!
                 // console.log("hell yeah!");
+                if(bluetowers[i].cooldown <= 0)
+                {
+                    var playerdata = {};
+                    playerdata.position = {};
+                    playerdata.position.x = bluetowers[i].position.x;
+                    playerdata.position.y = bluetowers[i].position.y;
+                    // playerdata.keysDown = {};
+                    playerdata.direction = "down";
+                    // blueshots[direction] = "right";
+                    // blueteam[i].cooldown = 10;
+                    playerdata.lifetime = 8;
+                    blueshots.push(playerdata);
+                    cooldown = 3;
+                }
             }
           }
 
@@ -740,45 +786,13 @@ var update = function(delta) {
             return (dx*dx+dy*dy<=(circle.r*circle.r));
         }
 
-
-
-
-
-            //    if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam[j].position.y + orangetowers[i].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
-
-            //    if((Math.sqrt((minionsorangeteam2[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam2[j].position.y + orangetowers[i].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
-
-            //    if((Math.sqrt((minionsorangeteam3[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam3[j].position.y + orangetowers[i].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
-
-            //    if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam[i].position.y + orangetowers[j].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
-
-            //    if((Math.sqrt((minionsorangeteam2[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam2[i].position.y + orangetowers[j].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
-
-            //    if((Math.sqrt((minionsorangeteam3[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam3[i].position.y + orangetowers[j].position.y)^2)) > 10)
-            // {
-            //     //shoot the bullet!
-            // }
-
       }
+
+
 
         //     var blueCircle = {radius: minionsblueteam[j].radius, x: minionsblueteam[j].position.x, y: minionsblueteam.position.y};
         //     var orangeCircle = {radius: minionsorangeteam[j].radius, x: minionsorangeteam[j].position.x, y: minionsorangeteam.position.y};
-3
+
 
         //     var dx = blueCircle.x - orangeCircle.x;
         //     var dy = blueCircle.y - orangeCircle.y;
