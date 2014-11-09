@@ -612,7 +612,7 @@ var update = function(delta) {
             {
                 console.log("death");
                 // thingsToDelete.push(i);
-                // minionsorangeteam[]
+                minionsorangeteam[i].position.x = 8000;
                 // break;
             }
         }
@@ -764,7 +764,7 @@ var update = function(delta) {
                     playerdata.position.x = bluetowers[i].position.x;
                     playerdata.position.y = bluetowers[i].position.y;
                     // playerdata.keysDown = {};
-                    playerdata.direction = "down";
+                    playerdata.direction = "up";
                     // blueshots[direction] = "right";
                     // blueteam[i].cooldown = 10;
                     playerdata.lifetime = 8;

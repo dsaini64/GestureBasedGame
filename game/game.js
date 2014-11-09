@@ -1002,7 +1002,7 @@ document.addEventListener('keyup', function(event) {
     if(event.keyCode == 39) {
         keysDown.right = false;
     }
-    if(event.keyCode == 40) {`
+    if(event.keyCode == 40) {
         keysDown.up = false;
     }
     if(event.keyCode == 38) {
