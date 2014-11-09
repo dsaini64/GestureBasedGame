@@ -482,6 +482,9 @@ socket.on('information', function (data)
         minionsblueteam3data[i].position = new PIXI.Point(data.minionsblueteam3[i].position.x,data.minionsblueteam3[i].position.y);
         minionsorangeteam3data[i].position = new PIXI.Point(data.minionsorangeteam3[i].position.x,data.minionsorangeteam3[i].position.y);
     }
+    for (var y = 0; y < 6; y++) {
+        
+    }
 });
 
 socket.on('firstClientID', function (data)

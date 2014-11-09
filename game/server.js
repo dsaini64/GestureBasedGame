@@ -196,45 +196,39 @@ for(var i = 0; i < 6; i++)
     //top left most tower
      var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 500;
-    playerdata.position.y = 666;
+    playerdata.position.x = 60;
+    playerdata.position.y = 1500;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
         
     }
 
     if (i = 3) {
+    //top right most tower
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 10;
-    playerdata.position.y = 1332;
+    playerdata.position.x = 60;
+    playerdata.position.y = 1000;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;  
     }
 
     if (i = 4) {
+    //mid left most tower
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 850;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.x = 700;
+    playerdata.position.y = 1500;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;   
     }
 
     if (i = 5) {
+    //mid right most tower
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 850;
-    playerdata.position.y = 1800 + i * 20;
-    // playerdata.keysDown = {};
-    bluetowers[i] = playerdata;   
-    }
-
-    if (i = 6) {
-    var playerdata = {};
-    playerdata.position = {};
-    playerdata.position.x = 850;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.x = 1400;
+    playerdata.position.y = 1000;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;   
     }
