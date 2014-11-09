@@ -282,27 +282,38 @@ var update = function(delta) {
 
          for(var j = 0; j < minionsblueteam.length; j++)
           {
-              if((Math.sqrt((minionsblueteam[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam[j].position.y + bluetowers[i].position.y)^2)) > 10)
+              if((Math.sqrt((minionsblueteam[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam[j].position.y + bluetowers[j].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
-        }
 
-        for(var k = 0; k < minionsblueteam2.length; k++)
-          {
-              if((Math.sqrt((minionsblueteam2[k].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam2[k].position.y + bluetowers[i].position.y)^2)) > 10)
+      
+              if((Math.sqrt((minionsblueteam2[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam2[j].position.y + bluetowers[j].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
-        }
 
-        for(var l = 0; l < minionsblueteam3.length; l++)
-          {
-              if((Math.sqrt((minionsblueteam3[l].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam3[l].position.y + bluetowers[i].position.y)^2)) > 10)
+
+              if((Math.sqrt((minionsblueteam3[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam3[j].position.y + bluetowers[j].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
-        }
+
+               if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam[j].position.y + orangetowers[j].position.y)^2)) > 10)
+            {
+                //shoot the bullet!
+            }
+
+               if((Math.sqrt((minionsorangeteam2[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam2[j].position.y + orangetowers[j].position.y)^2)) > 10)
+            {
+                //shoot the bullet!
+            }
+
+               if((Math.sqrt((minionsorangeteam3[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam3[j].position.y + orangetowers[j].position.y)^2)) > 10)
+            {
+                //shoot the bullet!
+            }
+
 
 
   // console.log("hay");
