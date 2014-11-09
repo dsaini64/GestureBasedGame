@@ -177,14 +177,14 @@ var update = function(delta) {
         }
         if(blueteam[i].keysDown.up == true)
         {
-            if(blueteam[i].position.y > 500)
+            if(blueteam[i].position.y < 3000)
             {
                 blueteam[i].position.y += 80;
             }
         }
         if(blueteam[i].keysDown.down == true)
         {
-            if(blueteam[i].position.x < 3000)
+            if(blueteam[i].position.x > 500)
             {
                 blueteam[i].position.y -= 80;
             }
