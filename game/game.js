@@ -435,7 +435,7 @@ for (var y = 0; y < 6; y++)
     ///////////////////////////////////////
     ///////BLUE TOWER/////////////////////
     /////////////////////////////////////
-     var texture = PIXI.Texture.fromImage("tower2.jpg");
+     var texture = PIXI.Texture.fromImage("orange.png");
      // create a new Sprite using the texture
      var bluetower = new PIXI.Sprite(texture);
 
@@ -459,7 +459,7 @@ for (var y = 0; y < 6; y++)
     ///////////////////////////////////////
     ///////BLUE TOWER/////////////////////
     /////////////////////////////////////
-     var texture = PIXI.Texture.fromImage("tower2.jpg");
+     var texture = PIXI.Texture.fromImage("orange.png");
      // create a new Sprite using the texture
      var bluetower = new PIXI.Sprite(texture);
 
