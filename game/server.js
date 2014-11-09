@@ -985,27 +985,21 @@ var update = function(delta) {
           }
 
 
-        var circle={x:100,y:290,r:10};
-        var rect={x:100,y:100,w:40,h:100};
+     
+      function MinionCheckForEnemy(minionx, miniony, enemyminionx, enemyminiony) {
+        var circleradius = 100;
+        var dx = minionx - enemyminiony;
+        var dy = miniony - enemyminiony;
+        var distance = Math.sqrt(dx * dx + dy * dy);
 
-
-        // return true if the rectangle and circle are colliding
-        function RectCircleColliding(circle,rect){
-            var distX = Math.abs(circle.x - rect.x-rect.w/2);
-            var distY = Math.abs(circle.y - rect.y-rect.h/2);
-
-            if (distX > (rect.w/2 + circle.r)) { return false; }
-            if (distY > (rect.h/2 + circle.r)) { return false; }
-
-            if (distX <= (rect.w/2)) { return true; }
-            if (distY <= (rect.h/2)) { return true; }
-
-            var dx=distX-rect.w/2;
-            var dy=distY-rect.h/2;
-            return (dx*dx+dy*dy<=(circle.r*circle.r));
+        if (distance < circleradius + circleradius) {
+            console.log("WE HAVE A FUCKING MINON DETECTION")
         }
 
       }
+
+
+   
 
 
 
