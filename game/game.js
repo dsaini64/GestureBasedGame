@@ -428,6 +428,29 @@ for(var i = 0; i < 5; i++)
     minionsorangeteam3.push(bunny);
 }
 
+for (var y = 0; y < 6; y++) {
+        ///////////////////////////////////////
+        ///////BLUE TOWER/////////////////////
+        /////////////////////////////////////
+         var texture = PIXI.Texture.fromImage("tower2.jpg");
+         // create a new Sprite using the texture
+         var bluetower = new PIXI.Sprite(texture);
+
+         // center the sprites anchor point
+         bluetower.anchor.x = 0.5;
+         bluetower.anchor.y = 0.5;
+
+         bluetower.scale.x = 1;
+         bluetower.scale.y = 1;
+
+
+
+        stage.addChild(bluetower);
+
+        bluetowers.push(bluetower);
+
+    }
+
 
 var rectangletexture = PIXI.Texture.fromImage("images/map.jpg");
 var rectangletexture2 = PIXI.Texture.fromImage("images/map2.jpg");
@@ -494,28 +517,12 @@ socket.on('information', function (data)
         minionsblueteam3data[i].position = new PIXI.Point(data.minionsblueteam3[i].position.x,data.minionsblueteam3[i].position.y);
         minionsorangeteam3data[i].position = new PIXI.Point(data.minionsorangeteam3[i].position.x,data.minionsorangeteam3[i].position.y);
     }
-    for (var y = 0; y < 6; y++) {
-        ///////////////////////////////////////
-        ///////BLUE TOWER/////////////////////
-        /////////////////////////////////////
-         var texture = PIXI.Textu re.fromImage("tower2.jpg");
-         // create a new Sprite using the texture
-         var bluetower = new PIXI.Sprite(texture);
 
-         // center the sprites anchor point
-         bluetower.anchor.x = 0.5;
-         bluetower.anchor.y = 0.5;
-
-         bluetower.scale.x = 1;
-         bluetower.scale.y = 1;
-
-         bluetowers[y].position = new PIXI.Point(data.bluetowers[y].position.x, data.bluetowers[y].position.y);
-
-        stage.addChild(bluetower);
-
-        bluetowers.push(bluetower);
-
+    for(var i = 0; i < 6; i++)
+    {
+        bluetowers[i].position = new PIXI.Point(data.bluetowers[i].position.x, data.bluetowers[i].position.y);
     }
+
 });
 
 socket.on('firstClientID', function (data)

@@ -179,7 +179,7 @@ for(var i = 0; i < 6; i++)
     playerdata.position.y = 1990;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
- } 
+ }
 
     if (i = 1) {
     //bottom right most tower
@@ -200,7 +200,7 @@ for(var i = 0; i < 6; i++)
     playerdata.position.y = 1500;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
-        
+
     }
 
     if (i = 3) {
@@ -210,7 +210,7 @@ for(var i = 0; i < 6; i++)
     playerdata.position.x = 60;
     playerdata.position.y = 1000;
     // playerdata.keysDown = {};
-    bluetowers[i] = playerdata;  
+    bluetowers[i] = playerdata;
     }
 
     if (i = 4) {
@@ -220,7 +220,7 @@ for(var i = 0; i < 6; i++)
     playerdata.position.x = 700;
     playerdata.position.y = 1500;
     // playerdata.keysDown = {};
-    bluetowers[i] = playerdata;   
+    bluetowers[i] = playerdata;
     }
 
     if (i = 5) {
@@ -230,7 +230,7 @@ for(var i = 0; i < 6; i++)
     playerdata.position.x = 1400;
     playerdata.position.y = 1000;
     // playerdata.keysDown = {};
-    bluetowers[i] = playerdata;   
+    bluetowers[i] = playerdata;
     }
 
 }
@@ -404,12 +404,10 @@ var update = function(delta) {
                 //shoot the bullet!
             }
 
-      
               if((Math.sqrt((minionsblueteam2[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam2[j].position.y + bluetowers[j].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
-
 
               if((Math.sqrt((minionsblueteam3[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam3[j].position.y + bluetowers[j].position.y)^2)) > 10)
             {
