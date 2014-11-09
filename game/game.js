@@ -80,7 +80,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("player.png");
+    var texture = PIXI.Texture.fromImage("blue.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -134,7 +134,7 @@ var minionsorangeteam = [];
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("player.png");
+    var texture = PIXI.Texture.fromImage("orange.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -180,7 +180,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("player.png");
+    var texture = PIXI.Texture.fromImage("orange.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -223,45 +223,14 @@ for(var i = 0; i < 5; i++)
     minionsorangeteam.push(bunny);
 }
 
-var rectangletexture = PIXI.Texture.fromImage("images/map.jpg");
+var rectangletexture = PIXI.Texture.fromImage("images/herpyrectangle.jpg");
 
 var topRect = new PIXI.Sprite(rectangletexture);
-topRect.anchor.x = 0;
-topRect.anchor.y = 0;
-topRect.scale.x = 500;
-topRect.scale.y = 500;
+topRect.anchor.x = 0.5;
+topRect.anchor.y = 0.5;
 topRect.position.x = 0;
 topRect.position.y = 0;
 stage.addChild(topRect);
-
-var botRect = new PIXI.Sprite(rectangletexture);
-botRect.anchor.x = 0;
-botRect.anchor.y = 0;
-botRect.scale.x = 500;
-botRect.scale.y = 500;
-botRect.position.x = 0;
-botRect.position.y = 500;
-stage.addChild(botRect);
-
-var leftRect = new PIXI.Sprite(rectangletexture);
-leftRect.rotation = 90 * (Math.PI/180);
-leftRect.anchor.x = 0;
-leftRect.anchor.y = 0;
-leftRect.scale.x = 500;
-leftRect.scale.y = 500;
-leftRect.position.x = 0;
-leftRect.position.y = 0;
-stage.addChild(leftRect);
-
-var rightRect = new PIXI.Sprite(rectangletexture);
-rightRect.rotation = 90 * (Math.PI/180);
-rightRect.anchor.x = 0;
-rightRect.anchor.y = 0;
-rightRect.scale.x = 500;
-rightRect.scale.y = 500;
-rightRect.position.x = 500;
-rightRect.position.y = 0;
-stage.addChild(rightRect);
 
 
 
@@ -343,11 +312,6 @@ function animate() {
         minionsorangeteam[i].position = new PIXI.Point(minionsorangeteamdata[i].position.x - (player.position.x - 500),minionsorangeteamdata[i].position.y - (player.position.y - 300));
     }
 
-    topRect.position = new PIXI.Point(0 - (player.position.x - 500), 0 - (player.position.y - 300));
-    botRect.position = new PIXI.Point(0 - (player.position.x - 500), 10 - (player.position.y - 300));
-    leftRect.position = new PIXI.Point(0 - (player.position.x - 500), 0 - (player.position.y - 300));
-    rightRect.position = new PIXI.Point(10 - (player.position.x - 500), 0 - (player.position.y - 300));
-
 
 
 
@@ -363,13 +327,7 @@ function animate() {
 var controllerOptions = {enableGestures: true};
 
 Leap.loop(controllerOptions, function(frame) {
-    keysDown.right = false;
-    keysDown.left = false;
-    keysDown.up = false;
-    keysDown.down = false;
-
-
-
+    
     // console.log("ddd");
 
   if (frame.gestures.length > 0) {
@@ -386,23 +344,32 @@ Leap.loop(controllerOptions, function(frame) {
           if(isHorizontal){
               if(gesture.direction[0] > 0){
                   swipeDirection = "right";
-                  console.log('leap right')
-                  keysDown.right = true;
+                  console.log('leap shoot right')
+                  var shootdirection = "right";
+                 socket.emit("Shooting" {id:playerid, direc:shootdirection});
+
+
 
               } else {
                   swipeDirection = "left";
-                  console.log('leap left');
-                  keysDown.left = true;
+                  console.log('leap shoot left');
+                  var shootdirection = "left";
+                   socket.emit("Shooting" {id:playerid, direc:shootdirection});
+                 
               }
           } else { //vertical
               if(gesture.direction[1] > 0){
                   swipeDirection = "up";
-                  console.log('leap up');
-                  keysDown.up = true;
+                  console.log('leap shoot up');
+                   var shootdirection = "up";
+                   socket.emit("Shooting" {id:playerid, direc:shootdirection});
+                  
               } else {
                   swipeDirection = "down";
-                  console.log('leap down');
-                  keysDown.down = true;
+                  console.log('leap shoot down');
+                   var shootdirection = "down";
+                   socket.emit("Shooting" {id:playerid, direc:shootdirection});
+                  
               }
           }
        }
