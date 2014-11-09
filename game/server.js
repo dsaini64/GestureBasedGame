@@ -497,7 +497,106 @@ var update = function(delta) {
     var topymod = -100;
     var botxmod = 400;
     var botymod = 100;
+    var towerhealth = 10;
     // for(var i = 0)
+
+
+
+
+
+
+
+
+
+
+
+
+ for(var i = 0; i < blueshots.length; i++)
+      {
+        for(var j = 0; j < orangetowers.length; j++)
+        {
+            // console.log("Asdaishdioasdhas");
+            var circle1 = {radius: 25, x: orangetowers[j].position.x, y: orangetowers[j].position.y};
+            var circle2 = {radius: 25, x: blueshots[i].position.x, y: blueshots[i].position.y};
+
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            // if(i == 0 && j == 0)
+            // {
+            // console.log(distance);
+            // }
+
+            if (distance < circle1.radius + circle2.radius)
+            {
+                orangetowers[i].health = orangetowers[i].health - 1;
+
+                if(orangetowers[i].health == 0) {
+                console.log("death");
+                // thingsToDelete.push(i);
+                blueshots[i].lifetime = 0;
+                orangetowers[j].position.x = 8000;
+                // break;
+            }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+for(var i = 0; i < orangeshots.length; i++)
+      {
+        for(var j = 0; j < bluetowers.length; j++)
+        {
+            // console.log("Asdaishdioasdhas");
+            var circle1 = {radius: 25, x: bluetowers[j].position.x, y: bluetowers[j].position.y};
+            var circle2 = {radius: 25, x: orangeshots[i].position.x, y: orangeshots[i].position.y};
+
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            // if(i == 0 && j == 0)
+            // {
+            // console.log(distance);
+            // }
+
+            if (distance < circle1.radius + circle2.radius)
+            {
+                bluetowers[i].health = bluetowers[i].health - 1;
+
+                if(bluetowers[i].health == 0) {
+                console.log("death");
+                // thingsToDelete.push(i);
+                orangeshots[i].lifetime = 0;
+                bluetowers[j].position.x = 8000;
+                // break;
+            }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
