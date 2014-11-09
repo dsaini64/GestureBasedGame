@@ -682,7 +682,7 @@ var update = function(delta) {
           for(var j = 0; j < minionsorangeteam2.length; j++)
           {
             var circle1 = {radius: 100, x: minionsorangeteam2[j].position.x, y: minionsorangeteam2[j].position.y};
-            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
+            var circle2 = {radius: 200, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
 
             var dx = circle1.x - circle2.x;
             var dy = circle1.y - circle2.y;
@@ -712,7 +712,7 @@ var update = function(delta) {
           for(var j = 0; j < minionsorangeteam3.length; j++)
           {
             var circle1 = {radius: 100, x: minionsorangeteam3[j].position.x, y: minionsorangeteam3[j].position.y};
-            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
+            var circle2 = {radius: 200, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
 
             var dx = circle1.x - circle2.x;
             var dy = circle1.y - circle2.y;
@@ -764,10 +764,10 @@ var update = function(delta) {
 
       for(var i = 0; i < blueshots; i++)
       {
-        for(var i = 0; i < minionsorangeteam; i++)
+        for(var j = 0; j < minionsorangeteam; i++)
         {
-            var circle1 = {radius: 50, x: minionsorangeteam[j].position.x, y: minionsorangeteam[j].position.y};
-            var circle2 = {radius: 50, x: blueshots[i].position.x, y: blueshots[i].position.y};
+            var circle1 = {radius: 100, x: minionsorangeteam[j].position.x, y: minionsorangeteam[j].position.y};
+            var circle2 = {radius: 100, x: blueshots[i].position.x, y: blueshots[i].position.y};
 
             var dx = circle1.x - circle2.x;
             var dy = circle1.y - circle2.y;
@@ -775,7 +775,7 @@ var update = function(delta) {
 
             if (distance < circle1.radius + circle2.radius)
             {
-
+                minionsorangeteam.splice(i,1);
             }
         }
       }

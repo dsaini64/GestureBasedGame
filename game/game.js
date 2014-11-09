@@ -575,8 +575,13 @@ for (var y = 0; y < 5; y++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
+<<<<<<< HEAD
     bunny.scale.x = 0.7;
     bunny.scale.y = 0.1.5;
+=======
+    bunny.scale.x = 0.15;
+    bunny.scale.y = 0.15;
+>>>>>>> ba050c498d108366338a95558486b4ebe504fe96
 
 
     // move the sprite t the center of the screen
