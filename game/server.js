@@ -1281,12 +1281,13 @@ var update = function(delta) {
 
         if (distance < circleradius + circleradius) {
             console.log("WE HAVE A FUCKING MINON DETECTION")
+            return true;
         }
 
       }
 
 
-<<<<<<< HEAD
+
       function CheckForBulletHit(playerx, playery, bulletx, bullety) {
         var circleradius = 60;
         var dx = playerx - bullety;
@@ -1295,15 +1296,14 @@ var update = function(delta) {
 
         if (distance < circleradius + circleradius) {
             console.log("WE HAVE A FUCKING MINON BULLET HIT")
+            return true;
         }
 
       }
 
 
    
-=======
 
->>>>>>> fb9ea6ce3439fa2b74a9c896e6ef1c2bc61e6d6c
 
 
 
