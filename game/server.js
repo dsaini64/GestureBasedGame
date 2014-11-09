@@ -498,7 +498,7 @@ var update = function(delta) {
     var botxmod = 400;
     var botymod = 100;
     // for(var i = 0)
-   
+
 
 
 
@@ -531,6 +531,7 @@ var update = function(delta) {
                 // break;
             }
         }
+    }
 
 
 
@@ -569,9 +570,11 @@ for(var i = 0; i < orangeshots.length; i++)
                 // thingsToDelete.push(i);
                 orangeshots[i].lifetime = 0;
                 blueteam[j].position.x = 8000;
+                blueteam[j].position.y = 8000;
                 // break;
             }
         }
+    }
 
 
 
@@ -1069,7 +1072,8 @@ for(var i = 0; i < orangeshots.length; i++)
                 console.log("death");
                 // thingsToDelete.push(i);
                 blueshots[i].lifetime = 0;
-                minionsorangeteam[j].position.x = 8000;
+                minionsorangeteam[j].position.x = 2540;
+                minionsorangeteam[j].position.y = 540;
                 // break;
             }
         }
@@ -1092,7 +1096,8 @@ for(var i = 0; i < orangeshots.length; i++)
             {
                 console.log("death");
                 // thingsToDelete.push(i);
-                minionsorangeteam2[j].position.x = 8000;
+                minionsorangeteam2[j].position.x = 2540;
+                minionsorangeteam2[j].position.y = 540;
                 // break;
             }
         }
@@ -1115,7 +1120,8 @@ for(var i = 0; i < orangeshots.length; i++)
             {
                 console.log("death");
                 // thingsToDelete.push(i);
-                minionsorangeteam3[j].position.x = 8000;
+                minionsorangeteam3[j].position.x = 2540;
+                minionsorangeteam3[j].position.y = 540;
                 // break;
             }
         }
@@ -1149,7 +1155,8 @@ for(var i = 0; i < orangeshots.length; i++)
                 console.log("death");
                 // thingsToDelete.push(i);
                 orangeshots[i].lifetime = 0;
-                minionsblueteam[j].position.x = 8000;
+                minionsblueteam[j].position.x = 130;
+                minionsblueteam[j].position.y = 1900;
                 // break;
             }
         }
@@ -1173,7 +1180,8 @@ for(var i = 0; i < orangeshots.length; i++)
                 console.log("death");
                 // thingsToDelete.push(i);
                 orangeshots[i].lifetime = 0;
-                minionsblueteam2[j].position.x = 8000;
+                minionsblueteam2[j].position.x = 130;
+                minionsblueteam2[j].position.y = 1900;
                 // break;
             }
         }
@@ -1197,7 +1205,8 @@ for(var i = 0; i < orangeshots.length; i++)
                 console.log("death");
                 // thingsToDelete.push(i);
                 orangeshots[i].lifetime = 0;
-                minionsblueteam3[j].position.x = 8000;
+                minionsblueteam3[j].position.x = 130;
+                minionsblueteam3[j].position.y = 1900;
                 // break;
             }
         }
@@ -1398,9 +1407,9 @@ for(var i = 0; i < orangeshots.length; i++)
         var distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < circleradius + circleradius) {
-<<<<<<< HEAD
+
             // console.log("WE HAVE A FUCKING MINON DETECTION")
-=======
+
             console.log("WE HAVE A FUCKING MINON DETECTION")
             return true;
         }
@@ -1417,14 +1426,14 @@ for(var i = 0; i < orangeshots.length; i++)
 
         if (distance < circleradius + circleradius) {
             console.log("WE HAVE A FUCKING MINON BULLET HIT")
->>>>>>> FETCH_HEAD
+
             return true;
         }
 
       }
 
 
-   
+
 
 
 
