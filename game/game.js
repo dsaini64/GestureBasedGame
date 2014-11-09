@@ -869,7 +869,7 @@ function animate() {
         // console.log(bluetowers[i].position);
     }
 
-     for(var i = 0; i < orangetowers.length; i++)
+     for(var i = 0; i < obstacles.length; i++)
     {
         // console
         obstacles[i].position = new PIXI.Point(obstaclesdata[i].position.x - (player.position.x - 500),obstaclesdata[i].position.y - (player.position.y - 300));
@@ -883,6 +883,7 @@ function animate() {
         // console.log(blueshots[i].position);
         console.log(blueshots.length);
     }
+
 
 
 
