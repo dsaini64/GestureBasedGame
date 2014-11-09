@@ -575,7 +575,7 @@ for (var y = 0; y < 5; y++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 0.1.5;
+    bunny.scale.x = 0.7;
     bunny.scale.y = 0.1.5;
 
 
