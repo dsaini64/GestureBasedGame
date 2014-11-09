@@ -65,8 +65,17 @@ var gameLoop = function () {
 //global vars
 var blueteam = [];
 var orangeteam = [];
+
+var bluetowers = [];
+
 var minionsblueteam = [];
 var minionsorangeteam = [];
+
+var minionsblueteam2 = [];
+var minionsorangeteam2 = [];
+
+var minionsblueteam3 = [];
+var minionsorangeteam3 = [];
 
 var playersConnected = 0;
 
@@ -74,7 +83,7 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 550;
+    playerdata.position.x = 50;
     playerdata.position.y = 1800 + i * 20;
     playerdata.keysDown = {};
     blueteam[i] = playerdata;
@@ -96,7 +105,7 @@ for(var i = 0; i < 5; i++)
     playerdata.position = {};
     playerdata.position.x = 550;
     playerdata.position.y = 1800 + i * 20;
-    playerdata.keysDown = {};
+    // playerdata.keysDown = {};
     minionsblueteam[i] = playerdata;
 }
 
@@ -106,8 +115,57 @@ for(var i = 0; i < 5; i++)
     playerdata.position = {};
     playerdata.position.x = 850;
     playerdata.position.y = 1800 + i * 20;
-    playerdata.keysDown = {};
+    // playerdata.keysDown = {};
     minionsorangeteam[i] = playerdata;
+}
+
+for(var i = 0; i < 5; i++)
+{
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 550;
+    playerdata.position.y = 1800 + i * 20;
+    // playerdata.keysDown = {};
+    minionsblueteam2[i] = playerdata;
+}
+
+for(var i = 0; i < 5; i++)
+{
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 850;
+    playerdata.position.y = 1800 + i * 20;
+    // playerdata.keysDown = {};
+    minionsorangeteam2[i] = playerdata;
+}
+
+for(var i = 0; i < 5; i++)
+{
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 550;
+    playerdata.position.y = 1800 + i * 20;
+    // playerdata.keysDown = {};
+    minionsblueteam3[i] = playerdata;
+}
+
+for(var i = 0; i < 5; i++)
+{
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 850;
+    playerdata.position.y = 1800 + i * 20;
+    // playerdata.keysDown = {};
+    minionsorangeteam3[i] = playerdata;
+}
+for(var i = 0; i < 4; i++)
+{
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 850;
+    playerdata.position.y = 1800 + i * 20;
+    // playerdata.keysDown = {};
+    bluetowers[i] = playerdata;
 }
 
 console.log(blueteam[0]);
@@ -141,6 +199,11 @@ io.sockets.on('connection', function (socket) {
         data2.orangeteam = orangeteam;
         data2.minionsblueteam = minionsblueteam;
         data2.minionsorangeteam = minionsorangeteam;
+        data2.minionsblueteam2 = minionsblueteam2;
+        data2.minionsorangeteam2 = minionsorangeteam2;
+        data2.minionsblueteam3 = minionsblueteam3;
+        data2.minionsorangeteam3 = minionsorangeteam3;
+        data2.bluetowers = bluetowers;
 
         socket.emit('information', data2);
 
@@ -163,37 +226,55 @@ var update = function(delta) {
     {
         if(blueteam[i].keysDown.left == true)
         {
-            if(blueteam[i].position.x > 500)
+            if(blueteam[i].position.x > 50)
             {
                 blueteam[i].position.x -= 80;
             }
         }
         if(blueteam[i].keysDown.right == true)
         {
-            if(blueteam[i].position.x < 3000)
+            if(blueteam[i].position.x < 2400)
             {
                 blueteam[i].position.x += 80;
             }
         }
         if(blueteam[i].keysDown.up == true)
         {
-            if(blueteam[i].position.y < 3000)
+            if(blueteam[i].position.y < 1950)
             {
                 blueteam[i].position.y += 80;
             }
         }
         if(blueteam[i].keysDown.down == true)
         {
-            if(blueteam[i].position.x > 500)
+            if(blueteam[i].position.y > 550)
             {
                 blueteam[i].position.y -= 80;
             }
         }
 
-        minionsblueteam[i].position.x -= 6;
 
-        minionsorangeteam[i].position.x += 6;
+
+        // minionsorangeteam[i].position.x += 6;
     }
+
+    // minionsblueteam[i].position.x += 6;
+    //     minionsblueteam3[i].position.y += 6;
+    //     minionsblueteam2[i].position.x += 3;
+    //     minionsblueteam2[i].position.y += 3;
+
+
+    // for(loop through towers)
+    // {
+    //     for(minions1)
+    //     {
+    //         if(colliding)
+    //         {
+    //             //shoot the bullet
+    //         }
+    //     }
+    //     for()
+    // }
 
 
   // console.log("hay");
