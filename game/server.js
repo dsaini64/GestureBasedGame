@@ -458,22 +458,19 @@ var update = function(delta) {
     //         //     //shoot the bullet!
     //         // }
 
-<<<<<<< HEAD
     //     }
-=======
-            var blueCircle = {radius: minionsblueteam[j].radius, x: minionsblueteam[j].position.x, y: minionsblueteam.position.y};
-            var orangeCircle = {radius: minionsorangeteam[j].radius, x: minionsorangeteam[j].position.x, y: minionsorangeteam.position.y};
+            // var blueCircle = {radius: minionsblueteam[j].radius, x: minionsblueteam[j].position.x, y: minionsblueteam.position.y};
+            // var orangeCircle = {radius: minionsorangeteam[j].radius, x: minionsorangeteam[j].position.x, y: minionsorangeteam.position.y};
 
-            var dx = blueCircle.x - orangeCircle.x;
-            var dy = blueCircle.y - orangeCircle.y;
-            var distance = Math.sqrt(dx * dx + dy * dy);
+            // var dx = blueCircle.x - orangeCircle.x;
+            // var dy = blueCircle.y - orangeCircle.y;
+            // var distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < blueCircle.radius + orangeCircle.radius) {
-                // collision detected!shoot the bullet!
-            }
+            // if (distance < blueCircle.radius + orangeCircle.radius) {
+            //     // collision detected!shoot the bullet!
+            // }
 
-        }
->>>>>>> FETCH_HEAD
+        // }
 
     // }
 
@@ -482,4 +479,4 @@ var update = function(delta) {
   // console.log("hay");
 }
 // begin the loop !
-gameLoop()
+gameLoop();

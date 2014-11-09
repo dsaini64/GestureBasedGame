@@ -9,6 +9,8 @@ var renderer = new PIXI.autoDetectRenderer(1000, 600);
 // add the renderer view element to the DOM
 document.getElementById("gameView").appendChild(renderer.view);
 
+PIXI.scaleModes.DEFAULT = PIXI.scaleModes.NEAREST;
+
 requestAnimFrame( animate );
 
 
