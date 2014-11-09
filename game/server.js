@@ -84,8 +84,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 50;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.x = 130;
+    playerdata.position.y = 1900;
     playerdata.keysDown = {};
     blueteam[i] = playerdata;
 }
@@ -94,8 +94,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 850;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.x = 2450;
+    playerdata.position.y = 540;
     playerdata.keysDown = {};
     orangeteam[i] = playerdata;
 }
@@ -104,8 +104,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 550 + i * 80;
-    playerdata.position.y = 1800;
+    playerdata.position.x = 130 - i * 80;
+    playerdata.position.y = 1900;
     // playerdata.keysDown = {};
     minionsblueteam[i] = playerdata;
 }
@@ -114,8 +114,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 850 + i * 80;
-    playerdata.position.y = 1800;
+    playerdata.position.x = 2450 + i*80;
+    playerdata.position.y = 540;
     // playerdata.keysDown = {};
     minionsorangeteam[i] = playerdata;
 }
@@ -124,8 +124,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 550 - i * 80;
-    playerdata.position.y = 1800 + i * 80;
+    playerdata.position.x = 130 - i * 80;
+    playerdata.position.y = 1900 + i * 80;
     // playerdata.keysDown = {};
     minionsblueteam2[i] = playerdata;
 }
@@ -134,8 +134,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 850 - i * 80;
-    playerdata.position.y = 1800 + i * 80
+    playerdata.position.x = 2450 + i * 80;
+    playerdata.position.y = 540 - i * 80
     // playerdata.keysDown = {};
     minionsorangeteam2[i] = playerdata;
 }
@@ -144,8 +144,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 550;
-    playerdata.position.y = 1800 - i * 80;
+    playerdata.position.x = 130;
+    playerdata.position.y = 1900 + i * 80;
     // playerdata.keysDown = {};
     minionsblueteam3[i] = playerdata;
 }
@@ -154,8 +154,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 850;
-    playerdata.position.y = 1800 - i * 80;
+    playerdata.position.x = 2450;
+    playerdata.position.y = 540 - i * 80;
     // playerdata.keysDown = {};
     minionsorangeteam3[i] = playerdata;
 }
@@ -333,18 +333,61 @@ var update = function(delta) {
 
         // minionsorangeteam[i].position.x += 6;
     }
+
     for(var i = 0; i < minionsblueteam.length; i++)
     {
-        minionsblueteam[i].position.x += 6;
+        if(minionsblueteam[i].position.x < 2400)
+        {
+            minionsblueteam[i].position.x += 6;
+        }
+        else
+        {
+            minionsblueteam[i].position.y -= 6;
+        }
     }
     for(var i = 0; i < minionsblueteam2.length; i++)
     {
-        minionsblueteam2[i].position.x += 3;
+        minionsblueteam2[i].position.x += 5;
         minionsblueteam2[i].position.y -= 3;
     }
     for(var i = 0; i < minionsblueteam3.length; i++)
     {
-        minionsblueteam3[i].position.y -= 6;
+        if(minionsblueteam3[i].position.y > 550)
+        {
+            minionsblueteam3[i].position.y -= 6;
+        }
+        else
+        {
+            minionsblueteam3[i].position.x += 6;
+        }
+    }
+
+    for(var i = 0; i < minionsorangeteam.length; i++)
+    {
+        if(minionsorangeteam[i].position.x > 50)
+        {
+            minionsorangeteam[i].position.x -= 6;
+        }
+        else
+        {
+            minionsorangeteam[i].position.y += 6;
+        }
+    }
+    for(var i = 0; i < minionsblueteam2.length; i++)
+    {
+        minionsorangeteam2[i].position.x -= 5;
+        minionsorangeteam2[i].position.y += 3;
+    }
+    for(var i = 0; i < minionsorangeteam3.length; i++)
+    {
+        if(minionsorangeteam3[i].position.y < 1950)
+        {
+            minionsorangeteam3[i].position.y += 6;
+        }
+        else
+        {
+            minionsorangeteam3[i].position.x -= 6;
+        }
     }
 
 
@@ -387,11 +430,13 @@ var update = function(delta) {
             {
                 //shoot the bullet!
             }
+        }
+
+    }
 
 
 
   // console.log("hay");
-    }
 }
 // begin the loop !
 gameLoop()
