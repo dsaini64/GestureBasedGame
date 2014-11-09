@@ -313,11 +313,13 @@ var update = function(delta) {
             {
                 //shoot the bullet!
             }
+        }
+
+    }
 
 
 
   // console.log("hay");
-    }
 }
 // begin the loop !
 gameLoop()
