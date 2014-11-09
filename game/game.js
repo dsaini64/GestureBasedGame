@@ -575,7 +575,7 @@ for (var y = 0; y < 5; y++)
 
     // center the sprites anchor point
 
-    bunny.anchor.x = 0.2;
+    bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
     bunny.scale.x = 0.7;
