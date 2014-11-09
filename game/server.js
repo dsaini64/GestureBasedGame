@@ -431,13 +431,26 @@ io.sockets.on('connection', function (socket) {
 });
 
 
-
+function isInside(x, y, z1, z2, z3, z4) {
+    x1 = Math.min(z1, z3);
+    x2 = Math.max(z1, z3);
+    y1 = Math.min(z2, z4);
+    y2 = Math.max(z2, z4);
+    if ((x1 <= x ) && ( x <= x2) && (y1 <= y) && (y <= y2)) {
+        console.log(x1 + "," + x + "," + x2);
+        console.log(y1 + "," + y + "," + y2);
+        return true;
+    } else {
+        return false;
+    };
+};
 
 
 
 //update function! :o
 var update = function(delta) {
     // for(var i = 0)
+    
 
 
 
@@ -448,28 +461,104 @@ var update = function(delta) {
         {
             if(blueteam[i].position.x > 50)
             {
+                boolean isok = true;
+                var tempx = blueteam[i].position.x -= 8;
+                var tempy = blueteam[i].position.y;
+
+                for (int i = 0; i < 5; i++) {
+                   var topx = obstacles[i].position.x;
+                   var topy = obstacles[i].position.y;
+                   //Edit botx and boty to have exact value
+                   var botx = topx + 100;
+                   var boty = topy - 100;
+                    if(isInside(tempx,tempy,topx,topy,botx,boty))
+                    {
+                        iosok = false;
+                    }
+
+                }
+             
+                if(isok) {
                 blueteam[i].position.x -= 8;
             }
+
         }
         if(blueteam[i].keysDown.right == true)
         {
             if(blueteam[i].position.x < 2400)
             {
+                 boolean isok = true;
+                var tempx = blueteam[i].position.x += 8;
+                var tempy = blueteam[i].position.y;
+
+                for (int i = 0; i < 5; i++) {
+                   var topx = obstacles[i].position.x;
+                   var topy = obstacles[i].position.y;
+                   //Edit botx and boty to have exact value
+                   var botx = topx + 100;
+                   var boty = topy - 100;
+                    if(isInside(tempx,tempy,topx,topy,botx,boty))
+                    {
+                        iosok = false;
+                    }
+
+                }
+             
+                if(isok) {
                 blueteam[i].position.x += 8;
+            }
             }
         }
         if(blueteam[i].keysDown.up == true)
         {
             if(blueteam[i].position.y < 1950)
             {
+                 boolean isok = true;
+                var tempx = blueteam[i].position.x
+                var tempy = blueteam[i].position.y += 8 ;
+
+                for (int i = 0; i < 5; i++) {
+                   var topx = obstacles[i].position.x;
+                   var topy = obstacles[i].position.y;
+                   //Edit botx and boty to have exact value
+                   var botx = topx + 100;
+                   var boty = topy - 100;
+                    if(isInside(tempx,tempy,topx,topy,botx,boty))
+                    {
+                        iosok = false;
+                    }
+
+                }
+             
+                if(isok) {
                 blueteam[i].position.y += 8;
+            }
             }
         }
         if(blueteam[i].keysDown.down == true)
         {
             if(blueteam[i].position.y > 550)
             {
+                 boolean isok = true;
+                var tempx = blueteam[i].position.x;
+                var tempy = blueteam[i].position.y -= 8;
+
+                for (int i = 0; i < 5; i++) {
+                   var topx = obstacles[i].position.x;
+                   var topy = obstacles[i].position.y;
+                   //Edit botx and boty to have exact value
+                   var botx = topx + 100;
+                   var boty = topy - 100;
+                    if(isInside(tempx,tempy,topx,topy,botx,boty))
+                    {
+                        iosok = false;
+                    }
+
+                }
+             
+                if(isok) {
                 blueteam[i].position.y -= 8;
+            }
             }
         }
         if(blueteam[i].keysDown.q == true)
@@ -826,7 +915,6 @@ var update = function(delta) {
         var rect={x:100,y:100,w:40,h:100};
 
 
-
         // return true if the rectangle and circle are colliding
         function RectCircleColliding(circle,rect){
             var distX = Math.abs(circle.x - rect.x-rect.w/2);
@@ -844,6 +932,7 @@ var update = function(delta) {
         }
 
       }
+
 
 
 
