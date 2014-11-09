@@ -458,17 +458,16 @@ var update = function(delta) {
     //         //     //shoot the bullet!
     //         // }
 
-<<<<<<< HEAD
-    //     }
+  //     }
             // var blueCircle = {radius: minionsblueteam[j].radius, x: minionsblueteam[j].position.x, y: minionsblueteam.position.y};
             // var orangeCircle = {radius: minionsorangeteam[j].radius, x: minionsorangeteam[j].position.x, y: minionsorangeteam.position.y};
-=======
+
 
     //     }
 
-            var blueCircle = {radius: minionsblueteam[j].radius, x: minionsblueteam[j].position.x, y: minionsblueteam.position.y};
-            var orangeCircle = {radius: minionsorangeteam[j].radius, x: minionsorangeteam[j].position.x, y: minionsorangeteam.position.y};
->>>>>>> FETCH_HEAD
+            // var blueCircle = {radius: minionsblueteam[j].radius, x: minionsblueteam[j].position.x, y: minionsblueteam.position.y};
+            // var orangeCircle = {radius: minionsorangeteam[j].radius, x: minionsorangeteam[j].position.x, y: minionsorangeteam.position.y};
+
 
             // var dx = blueCircle.x - orangeCircle.x;
             // var dy = blueCircle.y - orangeCircle.y;
@@ -478,12 +477,12 @@ var update = function(delta) {
             //     // collision detected!shoot the bullet!
             // }
 
-<<<<<<< HEAD
-        // }
-=======
-        }
 
->>>>>>> FETCH_HEAD
+        // }
+
+        // }
+
+
 
     // }
 
