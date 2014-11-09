@@ -79,6 +79,7 @@ var minionsblueteam3 = [];
 var minionsorangeteam3 = [];
 
 var blueshots = [];
+var orangeshots = [];
 
 var playersConnected = 0;
 
@@ -414,6 +415,7 @@ io.sockets.on('connection', function (socket) {
         data2.minionsorangeteam3 = minionsorangeteam3;
         data2.bluetowers = bluetowers;
         data2.blueshots = blueshots;
+        data2.orangeshots = orangeshots;
         // console.log(data2.blueshots);
 
         data2.orangetowers = orangetowers;
@@ -449,6 +451,9 @@ function isInside(x, y, z1, z2, z3, z4) {
 
 //update function! :o
 var update = function(delta) {
+
+
+    console.log(orangeshots.length);
     // for(var i = 0)
     
 
@@ -684,7 +689,7 @@ var update = function(delta) {
       {
         for(var j = 0; j < minionsorangeteam.length; j++)
         {
-            console.log("Asdaishdioasdhas");
+            // console.log("Asdaishdioasdhas");
             var circle1 = {radius: 25, x: minionsorangeteam[j].position.x, y: minionsorangeteam[j].position.y};
             var circle2 = {radius: 25, x: blueshots[i].position.x, y: blueshots[i].position.y};
 
@@ -708,7 +713,7 @@ var update = function(delta) {
         }
         for(var j = 0; j < minionsorangeteam2.length; j++)
         {
-            console.log("Asdaishdioasdhas");
+            // console.log("Asdaishdioasdhas");
             var circle1 = {radius: 25, x: minionsorangeteam2[j].position.x, y: minionsorangeteam2[j].position.y};
             var circle2 = {radius: 25, x: blueshots[i].position.x, y: blueshots[i].position.y};
 
@@ -731,7 +736,7 @@ var update = function(delta) {
         }
         for(var j = 0; j < minionsorangeteam3.length; j++)
         {
-            console.log("Asdaishdioasdhas");
+            // console.log("Asdaishdioasdhas");
             var circle1 = {radius: 25, x: minionsorangeteam3[j].position.x, y: minionsorangeteam3[j].position.y};
             var circle2 = {radius: 25, x: blueshots[i].position.x, y: blueshots[i].position.y};
 
@@ -763,14 +768,14 @@ var update = function(delta) {
 
 
 
-    for(var i = 0; i < bluetowers.length; i++)
+    for(var i = 0; i < orangetowers.length; i++)
     {
 
 
          for(var j = 0; j < minionsblueteam.length; j++)
           {
             var circle1 = {radius: 100, x: minionsblueteam[j].position.x, y: minionsblueteam[j].position.y};
-            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
+            var circle2 = {radius: 100, x: orangetowers[i].position.x, y: orangetowers[i].position.y};
 
             var dx = circle1.x - circle2.x;
             var dy = circle1.y - circle2.y;
@@ -779,9 +784,20 @@ var update = function(delta) {
 
 
             if (distance < circle1.radius + circle2.radius) {
-                // collision detected! Shoot Bullets!
-
-
+                if(orangetowers[i].cooldown <= 0)
+                {
+                    var playerdata = {};
+                    playerdata.position = {};
+                    playerdata.position.x = orangetowers[i].position.x;
+                    playerdata.position.y = orangetowers[i].position.y;
+                    // playerdata.keysDown = {};
+                    playerdata.direction = "left";
+                    // blueshots[direction] = "right";
+                    // blueteam[i].cooldown = 10;
+                    playerdata.lifetime = 8;
+                    orangeshots.push(playerdata);
+                    cooldown = 10;
+                }
             }
 
 
@@ -790,30 +806,54 @@ var update = function(delta) {
           for(var j = 0; j < minionsblueteam2.length; j++)
           {
             var circle1 = {radius: 100, x: minionsblueteam2[j].position.x, y: minionsblueteam2[j].position.y};
-            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
+            var circle2 = {radius: 100, x: orangetowers[i].position.x, y: orangetowers[i].position.y};
 
             var dx = circle1.x - circle2.x;
             var dy = circle1.y - circle2.y;
             var distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < circle1.radius + circle2.radius) {
-                // collision detected!
-                // console.log("hell yeah!");s
+                if(orangetowers[i].cooldown <= 0)
+                {
+                    var playerdata = {};
+                    playerdata.position = {};
+                    playerdata.position.x = orangetowers[i].position.x;
+                    playerdata.position.y = orangetowers[i].position.y;
+                    // playerdata.keysDown = {};
+                    playerdata.direction = "left";
+                    // blueshots[direction] = "right";
+                    // blueteam[i].cooldown = 10;
+                    playerdata.lifetime = 8;
+                    orangeshots.push(playerdata);
+                    cooldown = 10;
+                }
             }
           }
 
           for(var j = 0; j < minionsblueteam3.length; j++)
           {
             var circle1 = {radius: 100, x: minionsblueteam3[j].position.x, y: minionsblueteam3[j].position.y};
-            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
+            var circle2 = {radius: 100, x: orangetowers[i].position.x, y: orangetowers[i].position.y};
 
             var dx = circle1.x - circle2.x;
             var dy = circle1.y - circle2.y;
             var distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < circle1.radius + circle2.radius) {
-                // collision detected!
-                // console.log("hell yeah!");
+                if(orangetowers[i].cooldown <= 0)
+                {
+                    var playerdata = {};
+                    playerdata.position = {};
+                    playerdata.position.x = orangetowers[i].position.x;
+                    playerdata.position.y = orangetowers[i].position.y;
+                    // playerdata.keysDown = {};
+                    playerdata.direction = "left";
+                    // blueshots[direction] = "right";
+                    // blueteam[i].cooldown = 10;
+                    playerdata.lifetime = 8;
+                    orangeshots.push(playerdata);
+                    cooldown = 10;
+                }
             }
           }
 
@@ -843,7 +883,7 @@ var update = function(delta) {
                     // blueteam[i].cooldown = 10;
                     playerdata.lifetime = 8;
                     blueshots.push(playerdata);
-                    cooldown = 3;
+                    cooldown = 10;
                 }
 
             }
@@ -876,7 +916,7 @@ var update = function(delta) {
                     // blueteam[i].cooldown = 10;
                     playerdata.lifetime = 8;
                     blueshots.push(playerdata);
-                    cooldown = 3;
+                    cooldown = 10;
                 }
             }
           }
@@ -905,7 +945,7 @@ var update = function(delta) {
                     // blueteam[i].cooldown = 10;
                     playerdata.lifetime = 8;
                     blueshots.push(playerdata);
-                    cooldown = 3;
+                    cooldown = 10;
                 }
             }
           }

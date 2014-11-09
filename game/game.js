@@ -164,7 +164,10 @@ var obstaclesdata = [];
 
 
 var blueshots = [];
-var blueshotsdata =[];
+var blueshotsdata = [];
+
+var orangeshots = [];
+var orangeshotsdata =[];
 
 var orangetowersdata = [];
 
@@ -768,6 +771,65 @@ socket.on('information', function (data)
         blueshots[i] = bunny;
     }
 
+
+    for(var i = 0; i < orangeshots.length; i++)
+    {
+        stage.removeChild(orangeshots[i]);
+    }
+    for(var i = 0; i < orangeshotsdata.length; i++)
+    {
+        stage.removeChild(orangeshotsdata[i]);
+    }
+
+    orangeshots = [];
+    orangeshotsdata = [];
+
+    for(var i = 0; i < data.orangeshots.length; i++)
+    {
+        // console.log(data.blueshots);
+        var texture = PIXI.Texture.fromImage("orange.png");
+        // create a new Sprite using the texture
+        var bunny = new PIXI.Sprite(texture);
+
+        // center the sprites anchor point
+        bunny.anchor.x = 0.5;
+        bunny.anchor.y = 0.5;
+
+        bunny.scale.x = 0;
+        bunny.scale.y = 0;
+
+        // move the sprite t the center of the screen
+        bunny.position.x = data.orangeshots[i].position.x;
+        bunny.position.y = data.orangeshots[i].position.y;
+
+        stage.addChild(bunny);
+
+        orangeshotsdata[i] = bunny;
+    }
+
+    for(var i = 0; i < data.orangeshots.length; i++)
+    {
+        var texture = PIXI.Texture.fromImage("lastexplosion.png");
+        // create a new Sprite using the texture
+        var bunny = new PIXI.Sprite(texture);
+
+        // center the sprites anchor point
+        bunny.anchor.x = 0.5;
+        bunny.anchor.y = 0.5;
+
+        bunny.scale.x = 4;
+        bunny.scale.y = 4;
+
+        // move the sprite t the center of the screen
+        bunny.position.x = data.orangeshots[i].position.x;
+        bunny.position.y = data.orangeshots[i].position.y;
+
+        stage.addChild(bunny);
+
+        // blueshots.push(bunny);
+        orangeshots[i] = bunny;
+    }
+
 });
 
 socket.on('firstClientID', function (data)
@@ -889,6 +951,14 @@ function animate() {
         blueshots[i].position = new PIXI.Point(blueshotsdata[i].position.x - (player.position.x - 500),blueshotsdata[i].position.y - (player.position.y - 300));
         // console.log(blueshots[i].position);
         console.log(blueshots.length);
+    }
+
+    for(var i = 0; i < orangeshots.length; i++)
+    {
+        // console
+        orangeshots[i].position = new PIXI.Point(orangeshotsdata[i].position.x - (player.position.x - 500),orangeshotsdata[i].position.y - (player.position.y - 300));
+        // console.log(blueshots[i].position);
+        console.log(orangeshots.length);
     }
 
     topRect.position = new PIXI.Point(0 - (player.position.x - 500), 0 - (player.position.y - 300));
