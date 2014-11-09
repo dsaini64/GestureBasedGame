@@ -150,6 +150,8 @@ var minionsorangeteam3data = [];
 
 var bluetowers = [];
 
+var bluetowersdata = [];
+
 var orangetowers = [];
 
 for(var i = 0; i < 5; i++)
@@ -428,28 +430,53 @@ for(var i = 0; i < 5; i++)
     minionsorangeteam3.push(bunny);
 }
 
-for (var y = 0; y < 6; y++) {
-        ///////////////////////////////////////
-        ///////BLUE TOWER/////////////////////
-        /////////////////////////////////////
-         var texture = PIXI.Texture.fromImage("tower2.jpg");
-         // create a new Sprite using the texture
-         var bluetower = new PIXI.Sprite(texture);
+for (var y = 0; y < 6; y++)
+{
+    ///////////////////////////////////////
+    ///////BLUE TOWER/////////////////////
+    /////////////////////////////////////
+     var texture = PIXI.Texture.fromImage("tower2.jpg");
+     // create a new Sprite using the texture
+     var bluetower = new PIXI.Sprite(texture);
 
-         // center the sprites anchor point
-         bluetower.anchor.x = 0.5;
-         bluetower.anchor.y = 0.5;
+     // center the sprites anchor point
+     bluetower.anchor.x = 0.5;
+     bluetower.anchor.y = 0.5;
 
-         bluetower.scale.x = 1;
-         bluetower.scale.y = 1;
+     bluetower.scale.x = 0;
+     bluetower.scale.y = 0;
 
 
 
-        stage.addChild(bluetower);
+    stage.addChild(bluetower);
 
-        bluetowers.push(bluetower);
+    bluetowers.push(bluetower);
 
-    }
+}
+
+for (var y = 0; y < 6; y++)
+{
+    ///////////////////////////////////////
+    ///////BLUE TOWER/////////////////////
+    /////////////////////////////////////
+     var texture = PIXI.Texture.fromImage("tower2.jpg");
+     // create a new Sprite using the texture
+     var bluetower = new PIXI.Sprite(texture);
+
+     // center the sprites anchor point
+     bluetower.anchor.x = 0.5;
+     bluetower.anchor.y = 0.5;
+
+     bluetower.scale.x = 10;
+     bluetower.scale.y = 10;
+
+
+
+    stage.addChild(bluetower);
+
+    bluetowersdata.push(bluetower);
+
+}
 
 
 var rectangletexture = PIXI.Texture.fromImage("images/map.jpg");
@@ -520,7 +547,7 @@ socket.on('information', function (data)
 
     for(var i = 0; i < 6; i++)
     {
-        bluetowers[i].position = new PIXI.Point(data.bluetowers[i].position.x, data.bluetowers[i].position.y);
+        bluetowersdata[i].position = new PIXI.Point(data.bluetowers[i].position.x, data.bluetowers[i].position.y);
     }
 
 });
@@ -613,6 +640,11 @@ function animate() {
     for(var i = 0; i < minionsorangeteam.length; i++)
     {
         minionsorangeteam3[i].position = new PIXI.Point(minionsorangeteam3data[i].position.x - (player.position.x - 500),minionsorangeteam3data[i].position.y - (player.position.y - 300));
+    }
+
+    for(var i = 0; i < bluetowers.length; i++)
+    {
+        bluetowers[i].position = new PIXI.Point(blueteamdata[i].position.x - (player.position.x - 500),blueteamdata[i].position.y - (player.position.y - 300));
     }
 
 

@@ -171,17 +171,19 @@ for(var i = 0; i < 4; i++)
 
 for(var i = 0; i < 6; i++)
 {
-    if (i = 0) {
+    if (i == 0) {
     //bottom left most tower
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 70;
-    playerdata.position.y = 1990;
+    // playerdata.position.x = 70;
+    // playerdata.position.y = 1990;
+     playerdata.position.x = 2050;
+    playerdata.position.y = 600;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
  }
 
-    if (i = 1) {
+    if (i == 1) {
     //bottom right most tower
      var playerdata = {};
     playerdata.position = {};
@@ -192,7 +194,7 @@ for(var i = 0; i < 6; i++)
 
     }
 
-    if (i = 2) {
+    if (i == 2) {
     //top left most tower
      var playerdata = {};
     playerdata.position = {};
@@ -203,7 +205,7 @@ for(var i = 0; i < 6; i++)
 
     }
 
-    if (i = 3) {
+    if (i == 3) {
     //top right most tower
     var playerdata = {};
     playerdata.position = {};
@@ -213,7 +215,7 @@ for(var i = 0; i < 6; i++)
     bluetowers[i] = playerdata;
     }
 
-    if (i = 4) {
+    if (i == 4) {
     //mid left most tower
     var playerdata = {};
     playerdata.position = {};
@@ -223,7 +225,7 @@ for(var i = 0; i < 6; i++)
     bluetowers[i] = playerdata;
     }
 
-    if (i = 5) {
+    if (i == 5) {
     //mid right most tower
     var playerdata = {};
     playerdata.position = {};
@@ -399,35 +401,35 @@ var update = function(delta) {
 
          for(var j = 0; j < minionsblueteam.length; j++)
           {
-              if((Math.sqrt((minionsblueteam[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam[j].position.y + bluetowers[j].position.y)^2)) > 10)
+              if((Math.sqrt((minionsblueteam[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam[j].position.y + bluetowers[i].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
 
-              if((Math.sqrt((minionsblueteam2[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam2[j].position.y + bluetowers[j].position.y)^2)) > 10)
+              if((Math.sqrt((minionsblueteam2[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam2[j].position.y + bluetowers[i].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
 
-              if((Math.sqrt((minionsblueteam3[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam3[j].position.y + bluetowers[j].position.y)^2)) > 10)
+              if((Math.sqrt((minionsblueteam3[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam3[j].position.y + bluetowers[i].position.y)^2)) > 10)
             {
                 //shoot the bullet!
             }
 
-               if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam[j].position.y + orangetowers[j].position.y)^2)) > 10)
-            {
-                //shoot the bullet!
-            }
+            //    if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam[j].position.y + orangetowers[i].position.y)^2)) > 10)
+            // {
+            //     //shoot the bullet!
+            // }
 
-               if((Math.sqrt((minionsorangeteam2[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam2[j].position.y + orangetowers[j].position.y)^2)) > 10)
-            {
-                //shoot the bullet!
-            }
+            //    if((Math.sqrt((minionsorangeteam2[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam2[j].position.y + orangetowers[i].position.y)^2)) > 10)
+            // {
+            //     //shoot the bullet!
+            // }
 
-               if((Math.sqrt((minionsorangeteam3[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam3[j].position.y + orangetowers[j].position.y)^2)) > 10)
-            {
-                //shoot the bullet!
-            }
+            //    if((Math.sqrt((minionsorangeteam3[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam3[j].position.y + orangetowers[i].position.y)^2)) > 10)
+            // {
+            //     //shoot the bullet!
+            // }
         }
 
     }
