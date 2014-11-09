@@ -185,6 +185,7 @@ for(var i = 0; i < 6; i++)
     // playerdata.position.x = 70;
     // playerdata.position.y = 1990;
      playerdata.position.x = 1800;
+     playerdata.cooldown = 0;
     playerdata.position.y = 1950;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
@@ -196,6 +197,7 @@ for(var i = 0; i < 6; i++)
     playerdata.position = {};
     playerdata.position.x = 1200;
     playerdata.position.y = 1950;
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
 
@@ -205,8 +207,9 @@ for(var i = 0; i < 6; i++)
     //top left most tower
      var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 60;
+    playerdata.position.x = 260;
     playerdata.position.y = 1500;
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
 
@@ -216,8 +219,9 @@ for(var i = 0; i < 6; i++)
     //top right most tower
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 60;
+    playerdata.position.x = 260;
     playerdata.position.y = 1000;
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
     }
@@ -228,6 +232,7 @@ for(var i = 0; i < 6; i++)
     playerdata.position = {};
     playerdata.position.x = 700;
     playerdata.position.y = 1500;
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
     }
@@ -238,6 +243,7 @@ for(var i = 0; i < 6; i++)
     playerdata.position = {};
     playerdata.position.x = 4000;
     playerdata.position.y = 4000;
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
     }
@@ -251,6 +257,7 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position = {};
     playerdata.position.x = 1980;
     playerdata.position.y = 1000;
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     orangetowers[i] = playerdata;
 
@@ -261,6 +268,7 @@ for(var i=0; i < 6; i++ ) {
     var playerdata = {};
     playerdata.position = {};
     playerdata.position.x = 1980;
+    playerdata.cooldown = 0;
     playerdata.position.y = 1500;
     // playerdata.keysDown = {};
     orangetowers[i] = playerdata;
@@ -273,6 +281,7 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position = {};
     playerdata.position.x = 1970;
     playerdata.position.y = 1000;
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     orangetowers[i] = playerdata;
 
@@ -283,6 +292,7 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position = {};
     playerdata.position.x = 4000;
     playerdata.position.y = 4000;
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     orangetowers[i] = playerdata;
 
@@ -294,6 +304,7 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position = {};
     playerdata.position.x = 1970;
     playerdata.position.y = 540;
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     orangetowers[i] = playerdata;
 
@@ -304,6 +315,7 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position = {};
     playerdata.position.x = 1170;
     playerdata.position.y = 540;
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     orangetowers[i] = playerdata;
 
@@ -555,11 +567,7 @@ var update = function(delta) {
     {
         console.log(blueshots[i]);
         blueshots[i].lifetime -= 1;
-        if(blueshots[i].lifetime < 0)
-        {
-            blueshots[i].position.x = 4000;
-            blueshots[i].position.y = 4000;
-        }
+
         if(blueshots[i].direction == "right")
         {
             blueshots[i].position.x += 30;
@@ -576,11 +584,19 @@ var update = function(delta) {
         {
             blueshots[i].position.y -= 30;
         }
+
+        if(blueshots[i].lifetime < 0)
+        {
+            blueshots.splice(i,1);
+        }
     }
 
 
 
-
+    for(var i = 0; i < bluetowers.length; i++)
+    {
+        bluetowers[i].cooldown -= 1;
+    }
 
 
 
@@ -652,16 +668,20 @@ var update = function(delta) {
 
             if (distance < circle1.radius + circle2.radius) {
                 // collision detected!
-                // var playerdata = {};
-                // playerdata.position = {};
-                // playerdata.position.x = bluetowers[i].position.x;
-                // playerdata.position.y = bluetowers[i].position.y;
-                // // playerdata.keysDown = {};
-                // playerdata.direction = "down";
-                // // blueshots[direction] = "right";
-                // // blueteam[i].cooldown = 10;
-                // playerdata.lifetime = 8;
-                // blueshots.push(playerdata);
+                if(bluetowers[i].cooldown <= 0)
+                {
+                    var playerdata = {};
+                    playerdata.position = {};
+                    playerdata.position.x = bluetowers[i].position.x;
+                    playerdata.position.y = bluetowers[i].position.y;
+                    // playerdata.keysDown = {};
+                    playerdata.direction = "left";
+                    // blueshots[direction] = "right";
+                    // blueteam[i].cooldown = 10;
+                    playerdata.lifetime = 8;
+                    blueshots.push(playerdata);
+                    cooldown = 3;
+                }
 
             }
 
