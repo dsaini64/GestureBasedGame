@@ -530,9 +530,9 @@ var update = function(delta) {
 
             if (distance < circle1.radius + circle2.radius)
             {
-                orangetowers[i].health = orangetowers[i].health - 1;
+                orangetowers[j].health = orangetowers[j].health - 1;
 
-                if(orangetowers[i].health == 0) {
+                if(orangetowers[j].health == 0) {
                 console.log("death");
                 // thingsToDelete.push(i);
                 blueshots[i].lifetime = 0;
@@ -570,7 +570,7 @@ for(var i = 0; i < orangeshots.length; i++)
 
             if (distance < circle1.radius + circle2.radius)
             {
-                bluetowers[i].health = bluetowers[i].health - 1;
+                bluetowers[j].health = bluetowers[j].health - 1;
 
                 if(bluetowers[i].health == 0) {
                 console.log("death");

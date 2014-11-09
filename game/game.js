@@ -1032,7 +1032,7 @@ Leap.loop(controllerOptions, function(frame) {
               else {
                   swipeDirection = "down";
                   console.log('leap shoot down');
-                  keysDown.shoot = true;
+                  keysDown.q = true;
 
               }
           }
