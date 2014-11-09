@@ -616,7 +616,7 @@ var update = function(delta) {
 
 
             if (distance < circle1.radius + circle2.radius) {
-                // collision detected!
+                // collision detected! Shoot Bullets!
 
 
             }
@@ -635,7 +635,7 @@ var update = function(delta) {
 
             if (distance < circle1.radius + circle2.radius) {
                 // collision detected!
-                // console.log("hell yeah!");
+                // console.log("hell yeah!");s
             }
           }
 
