@@ -82,7 +82,7 @@ var blueshots = [];
 
 var playersConnected = 0;
 
-var obstacles;
+var obstacles = [];
 
 
 for(var i = 0; i < 5; i++)
@@ -337,7 +337,7 @@ for (i = 0; i < 6; i++ ) {
     playerdata.position.y = 1000;
 
     obstacles[i] = playerdata;
-        
+
     }
     if (i == 3) {
     var playerdata = {};
@@ -346,7 +346,7 @@ for (i = 0; i < 6; i++ ) {
     playerdata.position.y = 1200;
 
     obstacles[i] = playerdata;
-        
+
     }
     if (i == 4) {
     var playerdata = {};
@@ -355,7 +355,7 @@ for (i = 0; i < 6; i++ ) {
     playerdata.position.y = 1300;
 
     obstacles[i] = playerdata;
-        
+
     }
 
     if (i == 5) {
@@ -364,7 +364,7 @@ for (i = 0; i < 6; i++ ) {
     playerdata.position.x = 1300;
     playerdata.position.y = 1500;
 
-    obstacles[i] = playerdata;     
+    obstacles[i] = playerdata;
     }
 }
 
@@ -638,7 +638,7 @@ var update = function(delta) {
             }
           }
 
-<<<<<<< HEAD
+
           for(var j = 0; j < minionsorangeteam.length; j++)
           {
             var circle1 = {radius: 100, x: minionsorangeteam[j].position.x, y: minionsorangeteam[j].position.y};
@@ -698,11 +698,11 @@ var update = function(delta) {
             }
           }
 
-=======
+
         var circle={x:100,y:290,r:10};
         var rect={x:100,y:100,w:40,h:100};
 
-        
+
 
         // return true if the rectangle and circle are colliding
         function RectCircleColliding(circle,rect){
@@ -712,7 +712,7 @@ var update = function(delta) {
             if (distX > (rect.w/2 + circle.r)) { return false; }
             if (distY > (rect.h/2 + circle.r)) { return false; }
 
-            if (distX <= (rect.w/2)) { return true; } 
+            if (distX <= (rect.w/2)) { return true; }
             if (distY <= (rect.h/2)) { return true; }
 
             var dx=distX-rect.w/2;
@@ -721,7 +721,7 @@ var update = function(delta) {
         }
 
 
->>>>>>> FETCH_HEAD
+
 
 
             //    if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[i].position.x)^2) + ((minionsorangeteam[j].position.y + orangetowers[i].position.y)^2)) > 10)
