@@ -188,7 +188,7 @@ for(var i = 0; i < 6; i++)
      var playerdata = {};
     playerdata.position = {};
     playerdata.position.x = 1400;
-    playerdata.position.y = 1990;
+    playerdata.position.y = 600;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
 
@@ -458,9 +458,9 @@ var update = function(delta) {
     //         //     //shoot the bullet!
     //         // }
 
-<<<<<<< HEAD
+
     //     }
-=======
+
             var blueCircle = {radius: minionsblueteam[j].radius, x: minionsblueteam[j].position.x, y: minionsblueteam.position.y};
             var orangeCircle = {radius: minionsorangeteam[j].radius, x: minionsorangeteam[j].position.x, y: minionsorangeteam.position.y};
 
@@ -473,7 +473,7 @@ var update = function(delta) {
             }
 
         }
->>>>>>> FETCH_HEAD
+
 
     // }
 
