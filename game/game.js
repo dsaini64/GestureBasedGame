@@ -28,7 +28,8 @@ var keysDown = {
     right: false,
     up: false,
     down: false,
-    shoot: false
+    shoot: false,
+    q: false
 };
 
 var blueteamdata = [];
@@ -155,6 +156,9 @@ var bluetowers = [];
 var bluetowersdata = [];
 
 var orangetowers = [];
+
+var blueshots = [];
+var blueshotsdata =[];
 
 for(var i = 0; i < 5; i++)
 {
@@ -556,6 +560,64 @@ socket.on('information', function (data)
         bluetowersdata[i].position = new PIXI.Point(data.bluetowers[i].position.x, data.bluetowers[i].position.y);
     }
 
+    for(var i = 0; i < blueshots.length; i++)
+    {
+        stage.removeChild(blueshots[i]);
+    }
+    for(var i = 0; i < blueshotsdata.length; i++)
+    {
+        stage.removeChild(blueshotsdata[i]);
+    }
+
+    blueshots = [];
+    blueshotsdata = [];
+
+    for(var i = 0; i < data.blueshots.length; i++)
+    {
+        // console.log(data.blueshots);
+        var texture = PIXI.Texture.fromImage("orange.png");
+        // create a new Sprite using the texture
+        var bunny = new PIXI.Sprite(texture);
+
+        // center the sprites anchor point
+        bunny.anchor.x = 0.5;
+        bunny.anchor.y = 0.5;
+
+        bunny.scale.x = 0;
+        bunny.scale.y = 0;
+
+        // move the sprite t the center of the screen
+        bunny.position.x = data.blueshots[i].position.x;
+        bunny.position.y = data.blueshots[i].position.y;
+
+        stage.addChild(bunny);
+
+        blueshotsdata[i] = bunny;
+    }
+
+    for(var i = 0; i < data.blueshots.length; i++)
+    {
+        var texture = PIXI.Texture.fromImage("orange.png");
+        // create a new Sprite using the texture
+        var bunny = new PIXI.Sprite(texture);
+
+        // center the sprites anchor point
+        bunny.anchor.x = 0.5;
+        bunny.anchor.y = 0.5;
+
+        bunny.scale.x = 1;
+        bunny.scale.y = 1;
+
+        // move the sprite t the center of the screen
+        bunny.position.x = data.blueshots[i].position.x;
+        bunny.position.y = data.blueshots[i].position.y;
+
+        stage.addChild(bunny);
+
+        // blueshots.push(bunny);
+        blueshots[i] = bunny;
+    }
+
 });
 
 socket.on('firstClientID', function (data)
@@ -609,6 +671,8 @@ function animate() {
         player = orangeteamdata[playerid.number];
     }
 
+    // console.log(blueshots.length);
+
 
 
     //SCROLLING THINGS
@@ -652,7 +716,15 @@ function animate() {
     {
         // console
         bluetowers[i].position = new PIXI.Point(bluetowersdata[i].position.x - (player.position.x - 500),bluetowersdata[i].position.y - (player.position.y - 300));
-        console.log(bluetowers[i].position);
+        // console.log(bluetowers[i].position);
+    }
+
+    for(var i = 0; i < blueshots.length; i++)
+    {
+        // console
+        blueshots[i].position = new PIXI.Point(blueshotsdata[i].position.x - (player.position.x - 500),blueshotsdata[i].position.y - (player.position.y - 300));
+        // console.log(blueshots[i].position);
+        console.log(blueshots.length);
     }
 
 

@@ -78,6 +78,8 @@ var minionsorangeteam2 = [];
 var minionsblueteam3 = [];
 var minionsorangeteam3 = [];
 
+var blueshots = [];
+
 var playersConnected = 0;
 
 for(var i = 0; i < 5; i++)
@@ -87,6 +89,7 @@ for(var i = 0; i < 5; i++)
     playerdata.position.x = 130;
     playerdata.position.y = 1900;
     playerdata.keysDown = {};
+    playerdata.cooldown = 0;
     blueteam[i] = playerdata;
 }
 
@@ -280,10 +283,12 @@ io.sockets.on('connection', function (socket) {
         data2.minionsblueteam3 = minionsblueteam3;
         data2.minionsorangeteam3 = minionsorangeteam3;
         data2.bluetowers = bluetowers;
+        data2.blueshots = blueshots;
+        // console.log(data2.blueshots);
 
         socket.emit('information', data2);
 
-        console.log(client.position);
+        // console.log(client.position);
 
         // console.log(data2.minionsorangeteam[0].position.x);
 
@@ -298,36 +303,55 @@ io.sockets.on('connection', function (socket) {
 
 //update function! :o
 var update = function(delta) {
+    // for(var i = 0)
+
 
 
     for(var i = 0; i < 5; i++)
     {
+        blueteam[i].cooldown -= 1;
         if(blueteam[i].keysDown.left == true)
         {
             if(blueteam[i].position.x > 50)
             {
-                blueteam[i].position.x -= 80;
+                blueteam[i].position.x -= 8;
             }
         }
         if(blueteam[i].keysDown.right == true)
         {
             if(blueteam[i].position.x < 2400)
             {
-                blueteam[i].position.x += 80;
+                blueteam[i].position.x += 8;
             }
         }
         if(blueteam[i].keysDown.up == true)
         {
             if(blueteam[i].position.y < 1950)
             {
-                blueteam[i].position.y += 80;
+                blueteam[i].position.y += 8;
             }
         }
         if(blueteam[i].keysDown.down == true)
         {
             if(blueteam[i].position.y > 550)
             {
-                blueteam[i].position.y -= 80;
+                blueteam[i].position.y -= 8;
+            }
+        }
+        if(blueteam[i].keysDown.q == true)
+        {
+            // console.log("#fuckitshipit");
+            if(blueteam[i].cooldown <= 0)
+            {
+                // blueteam[i].position.y -= 80;
+                var playerdata = {};
+                playerdata.position = {};
+                playerdata.position.x = blueteam[i].position.x;
+                playerdata.position.y = blueteam[i].position.y;
+                // playerdata.keysDown = {};
+                blueshots.direction = "right";
+                blueshots.push(playerdata);
+                blueteam[i].cooldown = 10;
             }
         }
 
@@ -402,28 +426,51 @@ var update = function(delta) {
 
          for(var j = 0; j < minionsblueteam.length; j++)
           {
+            var circle1 = {radius: 100, x: minionsblueteam[j].position.x, y: minionsblueteam[j].position.y};
+            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
 
-              if((Math.sqrt((minionsblueteam[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam[j].position.y + bluetowers[i].position.y)^2)) > 10)
-              {
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
 
-              }
+
+
+            if (distance < circle1.radius + circle2.radius) {
+                // collision detected!
+
+            }
+
 
           }
 
-          for(var j = 0; j < minionsblueteam.length; j++)
+          for(var j = 0; j < minionsblueteam2.length; j++)
           {
-            if((Math.sqrt((minionsblueteam2[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam2[j].position.y + bluetowers[i].position.y)^2)) > 10)
-              {
+            var circle1 = {radius: 100, x: minionsblueteam2[j].position.x, y: minionsblueteam2[j].position.y};
+            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
 
-              }
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < circle1.radius + circle2.radius) {
+                // collision detected!
+                // console.log("hell yeah!");
+            }
           }
 
-          for(var j = 0; j < minionsblueteam.length; j++)
+          for(var j = 0; j < minionsblueteam3.length; j++)
           {
-            if((Math.sqrt((minionsblueteam3[j].position.x + bluetowers[i].position.x)^2) + ((minionsblueteam3[j].position.y + bluetowers[i].position.y)^2)) > 10)
-              {
+            var circle1 = {radius: 100, x: minionsblueteam3[j].position.x, y: minionsblueteam3[j].position.y};
+            var circle2 = {radius: 100, x: bluetowers[i].position.x, y: bluetowers[i].position.y};
 
-              }
+            var dx = circle1.x - circle2.x;
+            var dy = circle1.y - circle2.y;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < circle1.radius + circle2.radius) {
+                // collision detected!
+                // console.log("hell yeah!");
+            }
           }
 
 
@@ -479,7 +526,6 @@ var update = function(delta) {
 
 
 
-    }
 
 
 
