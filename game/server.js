@@ -116,6 +116,8 @@ for(var i = 0; i < 5; i++)
     playerdata.position = {};
     playerdata.position.x = 130 - i * 80;
     playerdata.position.y = 1900;
+
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     minionsblueteam[i] = playerdata;
 }
@@ -126,6 +128,8 @@ for(var i = 0; i < 5; i++)
     playerdata.position = {};
     playerdata.position.x = 2450 + i*80;
     playerdata.position.y = 540;
+
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     minionsorangeteam[i] = playerdata;
 }
@@ -136,6 +140,8 @@ for(var i = 0; i < 5; i++)
     playerdata.position = {};
     playerdata.position.x = 130 - i * 80;
     playerdata.position.y = 1900 + i * 80;
+
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     minionsblueteam2[i] = playerdata;
 }
@@ -146,6 +152,8 @@ for(var i = 0; i < 5; i++)
     playerdata.position = {};
     playerdata.position.x = 2450 + i * 80;
     playerdata.position.y = 540 - i * 80
+
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     minionsorangeteam2[i] = playerdata;
 }
@@ -156,6 +164,8 @@ for(var i = 0; i < 5; i++)
     playerdata.position = {};
     playerdata.position.x = 130;
     playerdata.position.y = 1900 + i * 80;
+
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     minionsblueteam3[i] = playerdata;
 }
@@ -166,6 +176,8 @@ for(var i = 0; i < 5; i++)
     playerdata.position = {};
     playerdata.position.x = 2450;
     playerdata.position.y = 540 - i * 80;
+
+    playerdata.cooldown = 0;
     // playerdata.keysDown = {};
     minionsorangeteam3[i] = playerdata;
 }
@@ -773,94 +785,122 @@ var update = function(delta) {
 
     for(var i = 0; i < minionsblueteam.length; i++)
     {
+        minionsblueteam[i].cooldown -= 1;
         if(minionsblueteam[i].position.x < 2400)
         {
 
-            if (MinionCheckForEnemy(minionsblueteam[i].position.x, minionsblueteam[i].position.y, minionsorangeteam[i].position.x, minionsorangeteam[i].position.y)) {
-                console.log("Shooting mode");
-                minionsblueteam[i].position.x += 6;
-
+            if (MinionCheckForEnemy(minionsblueteam[i].position.x, minionsblueteam[i].position.y, minionsorangeteam3[i].position.x, minionsorangeteam3[i].position.y)) {
+                // console.log("Shooting mode");
             }
+            minionsblueteam[i].position.x += 6;
 
 
         }
         else
         {
-        if (MinionCheckForEnemy(minionsblueteam[i].position.x, minionsblueteam[i].position.y, minionsorangeteam[i].position.x, minionsorangeteam[i].position.y)) {
-            console.log("Shooting Mode");
+            if (MinionCheckForEnemy(minionsblueteam[i].position.x, minionsblueteam[i].position.y, minionsorangeteam[i].position.x, minionsorangeteam[i].position.y)) {
+                // console.log("Shooting Mode");
+
+            }
             minionsblueteam[i].position.y -= 6;
-        }
         }
     }
     for(var i = 0; i < minionsblueteam2.length; i++)
     {
+        minionsblueteam2[i].cooldown -= 1;
 
-     if (MinionCheckForEnemy(minionsblueteam[i].position.x, minionsblueteam[i].position.y, minionsorangeteam[i].position.x, minionsorangeteam[i].position.y)) {
-        console.log("Shooting mode");
+         if (MinionCheckForEnemy(minionsblueteam2[i].position.x, minionsblueteam2[i].position.y, minionsorangeteam2[i].position.x, minionsorangeteam2[i].position.y)) {
+            // console.log("Shooting mode");
+            }
         minionsblueteam2[i].position.x += 5;
         minionsblueteam2[i].position.y -= 3;
     }
-    }
     for(var i = 0; i < minionsblueteam3.length; i++)
     {
+        minionsblueteam3[i].cooldown -= 1;
+
         if(minionsblueteam3[i].position.y > 550)
         {
 
-        if (MinionCheckForEnemy(minionsblueteam[i].position.x, minionsblueteam[i].position.y, minionsorangeteam[i].position.x, minionsorangeteam[i].position.y)) {
-           console.log("Shooting Mode");
+            if (MinionCheckForEnemy(minionsblueteam3[i].position.x, minionsblueteam3[i].position.y, minionsorangeteam[i].position.x, minionsorangeteam[i].position.y)) {
+               // console.log("Shooting Mode");
+
+            }
             minionsblueteam3[i].position.y -= 6;
         }
-        }
         else
-        { 
-        if (MinionCheckForEnemy(minionsblueteam[i].position.x, minionsblueteam[i].position.y, minionsorangeteam[i].position.x, minionsorangeteam[i].position.y)) {
-            console.log("Shooting Mode");
+        {
+            if (MinionCheckForEnemy(minionsblueteam3[i].position.x, minionsblueteam3[i].position.y, minionsorangeteam3[i].position.x, minionsorangeteam3[i].position.y)) {
+                // console.log("Shooting Mode");
+
+            }
             minionsblueteam3[i].position.x += 6;
-        }
         }
     }
 
     for(var i = 0; i < minionsorangeteam.length; i++)
     {
+        minionsorangeteam[i].cooldown -= 1;
+
         if(minionsorangeteam[i].position.x > 50)
         {
-        if (MinionCheckForEnemy(minionsorangeteam[i].position.x, minionsorangeteam[i].position.y, minionsblueteam[i].position.x, minionsblueteam2[i].position.y)) {
-           console.log("Shooting Mode");
-            minionsorangeteam[i].position.x -= 6;
+        if (MinionCheckForEnemy(minionsorangeteam[i].position.x, minionsorangeteam[i].position.y, minionsblueteam3[i].position.x, minionsblueteam3[i].position.y)) {
+           console.log("Shooting Modwse");
+                var playerdata = {};
+                playerdata.position = {};
+                playerdata.position.x = minionsorangeteam[i].position.x;
+                playerdata.position.y = minionsorangeteam[i].position.y;
+                // playerdata.keysDown = {};
+                playerdata.direction = "right";//orangeteam[i].keysDown.recent;
+                // blueshots[direction] = "right";
+                orangeteam[i].cooldown = 10;
+                playerdata.lifetime = 8;
+                orangeshots.push(playerdata);
+
         }
+        minionsorangeteam[i].position.x -= 6;
         }
         else
         {
-        if (MinionCheckForEnemy(minionsorangeteam[i].position.x, minionsorangeteam[i].position.y, minionsblueteam[i].position.x, minionsblueteam2[i].position.y)) {
-            console.log("Shooting Mode");
-            minionsorangeteam[i].position.y += 6;
+        if (MinionCheckForEnemy(minionsorangeteam[i].position.x, minionsorangeteam[i].position.y, minionsblueteam3[i].position.x, minionsblueteam3[i].position.y)) {
+            // console.log("Shooting Mode");
+
         }
+        minionsorangeteam[i].position.y += 6;
         }
     }
     for(var i = 0; i < minionsorangeteam2.length; i++)
     {
-    if (MinionCheckForEnemy(minionsorangeteam[i].position.x, minionsorangeteam[i].position.y, minionsblueteam[i].position.x, minionsblueteam2[i].position.y)) {
-        console.log("Shoot Mode");
-        minionsorangeteam2[i].position.x -= 5;
-        minionsorangeteam2[i].position.y += 3;
+        minionsorangeteam2[i].cooldown -= 1;
+    if (MinionCheckForEnemy(minionsorangeteam2[i].position.x, minionsorangeteam2[i].position.y, minionsblueteam2[i].position.x, minionsblueteam2[i].position.y)) {
+        // console.log("Shoot Mode");
+
     }
+    minionsorangeteam2[i].position.x -= 5;
+        minionsorangeteam2[i].position.y += 3;
     }
     for(var i = 0; i < minionsorangeteam3.length; i++)
     {
+        minionsorangeteam3[i].cooldown -= 1;
         if(minionsorangeteam3[i].position.y < 1950)
         {
-        if (MinionCheckForEnemy(minionsorangeteam[i].position.x, minionsorangeteam[i].position.y, minionsblueteam[i].position.x, minionsblueteam2[i].position.y)) {
-            console.log("Shoot Mode");
+            if (MinionCheckForEnemy(minionsorangeteam3[i].position.x, minionsorangeteam3[i].position.y, minionsblueteam[i].position.x, minionsblueteam[i].position.y)) {
+                // console.log("Shoot Mode");
+                // console.log("");
+
+            }
             minionsorangeteam3[i].position.y += 6;
         }
-        }
+
         else
         {
-        if (MinionCheckForEnemy(minionsorangeteam[i].position.x, minionsorangeteam[i].position.y, minionsblueteam[i].position.x, minionsblueteam2[i].position.y)) {
-            console.log("Shoot Mode");
+            if (MinionCheckForEnemy(minionsorangeteam3[i].position.x, minionsorangeteam3[i].position.y, minionsblueteam[i].position.x, minionsblueteam[i].position.y)) {
+                // console.log("Shoot Mode");
+
+            }
             minionsorangeteam3[i].position.x -= 6;
         }
-        }
+
     }
 
 
@@ -1280,7 +1320,8 @@ var update = function(delta) {
         var distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < circleradius + circleradius) {
-            console.log("WE HAVE A FUCKING MINON DETECTION")
+            // console.log("WE HAVE A FUCKING MINON DETECTION")
+            return true;
         }
 
       }
