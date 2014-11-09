@@ -237,6 +237,71 @@ for(var i = 0; i < 6; i++)
 
 }
 
+for(var i=0; i < 6; i++ ) {
+    if(i == 0) {
+    //right 1st bottom
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 1980;
+    playerdata.position.y = 1000;
+    // playerdata.keysDown = {};
+    orangeowers[i] = playerdata;
+
+    }
+    if(i == 1) {
+
+        //right 2nd bottom
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 1980;
+    playerdata.position.y = 1500;
+    // playerdata.keysDown = {};
+    orangeowers[i] = playerdata;
+
+    }
+    if(i == 2 {
+
+    //mid 1st tower
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 1970;
+    playerdata.position.y = 1000;
+    // playerdata.keysDown = {};
+    orangeowers[i] = playerdata;
+
+    }
+    if(i == 3) {
+        //mid 2nd tower
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 1500;
+    playerdata.position.y = 1300;
+    // playerdata.keysDown = {};
+    orangeowers[i] = playerdata;
+
+    }
+    if(i == 4) {
+
+    //top 1st tower
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 1970;
+    playerdata.position.y = 540;
+    // playerdata.keysDown = {};
+    orangeowers[i] = playerdata;
+
+    }
+    if(i == 5) {
+        //top 1st tower
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 1170;
+    playerdata.position.y = 540;
+    // playerdata.keysDown = {};
+    orangeowers[i] = playerdata;
+
+    }
+}
 
 
 
@@ -280,6 +345,7 @@ io.sockets.on('connection', function (socket) {
         data2.minionsblueteam3 = minionsblueteam3;
         data2.minionsorangeteam3 = minionsorangeteam3;
         data2.bluetowers = bluetowers;
+        data2.orangetowers = orangetowers;
 
         socket.emit('information', data2);
 
