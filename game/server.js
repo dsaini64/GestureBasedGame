@@ -382,28 +382,28 @@ var update = function(delta) {
         {
             if(blueteam[i].position.x > 50)
             {
-                blueteam[i].position.x -= 80;
+                blueteam[i].position.x -= 8;
             }
         }
         if(blueteam[i].keysDown.right == true)
         {
             if(blueteam[i].position.x < 2400)
             {
-                blueteam[i].position.x += 80;
+                blueteam[i].position.x += 8;
             }
         }
         if(blueteam[i].keysDown.up == true)
         {
             if(blueteam[i].position.y < 1950)
             {
-                blueteam[i].position.y += 80;
+                blueteam[i].position.y += 8;
             }
         }
         if(blueteam[i].keysDown.down == true)
         {
             if(blueteam[i].position.y > 550)
             {
-                blueteam[i].position.y -= 80;
+                blueteam[i].position.y -= 8;
             }
         }
         if(blueteam[i].keysDown.q == true)
@@ -481,6 +481,15 @@ var update = function(delta) {
         else
         {
             minionsorangeteam3[i].position.x -= 6;
+        }
+    }
+
+
+    for(var i = 0; i < blueshots.length; i++)
+    {
+        if(blueshots[i].direction == "right")
+        {
+            blueshots[i].position.x += 80;
         }
     }
 
