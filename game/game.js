@@ -891,12 +891,6 @@ function animate() {
         console.log(blueshots.length);
     }
 
-
-
-
-
-
-
     topRect.position = new PIXI.Point(0 - (player.position.x - 500), 0 - (player.position.y - 300));
     botRect.position = new PIXI.Point(0 - (player.position.x - 500), 2000 - (player.position.y - 300));
     leftRect.position = new PIXI.Point(0 - (player.position.x - 500), 0 - (player.position.y - 300));
