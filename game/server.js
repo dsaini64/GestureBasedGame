@@ -1269,6 +1269,19 @@ var update = function(delta) {
       }
 
 
+      function CheckForBulletHit(playerx, playery, bulletx, bullety) {
+        var circleradius = 60;
+        var dx = playerx - bullety;
+        var dy = playery - bullety;
+        var distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < circleradius + circleradius) {
+            console.log("WE HAVE A FUCKING MINON BULLET HIT")
+        }
+
+      }
+
+
    
 
 
