@@ -67,6 +67,7 @@ var blueteam = [];
 var orangeteam = [];
 
 var bluetowers = [];
+var orangetowers = [];
 
 var minionsblueteam = [];
 var minionsorangeteam = [];
@@ -167,6 +168,85 @@ for(var i = 0; i < 4; i++)
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
 }
+
+for(var i = 0; i < 6; i++)
+{
+    if (i = 0) {
+    //bottom left most tower
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 70;
+    playerdata.position.y = 1990;
+    // playerdata.keysDown = {};
+    bluetowers[i] = playerdata;
+ } 
+
+    if (i = 1) {
+    //bottom right most tower
+     var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 1400;
+    playerdata.position.y = 1990;
+    // playerdata.keysDown = {};
+    bluetowers[i] = playerdata;
+
+    }
+
+    if (i = 2) {
+    //top left most tower
+     var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 500;
+    playerdata.position.y = 666;
+    // playerdata.keysDown = {};
+    bluetowers[i] = playerdata;
+        
+    }
+
+    if (i = 3) {
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 10;
+    playerdata.position.y = 1332;
+    // playerdata.keysDown = {};
+    bluetowers[i] = playerdata;  
+    }
+
+    if (i = 4) {
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 850;
+    playerdata.position.y = 1800 + i * 20;
+    // playerdata.keysDown = {};
+    bluetowers[i] = playerdata;   
+    }
+
+    if (i = 5) {
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 850;
+    playerdata.position.y = 1800 + i * 20;
+    // playerdata.keysDown = {};
+    bluetowers[i] = playerdata;   
+    }
+
+    if (i = 6) {
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 850;
+    playerdata.position.y = 1800 + i * 20;
+    // playerdata.keysDown = {};
+    bluetowers[i] = playerdata;   
+    }
+
+}
+
+
+
+
+
+
+
 
 console.log(blueteam[0]);
 
