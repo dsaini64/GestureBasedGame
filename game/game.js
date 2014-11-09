@@ -571,20 +571,12 @@ for (var y = 0; y < 6; y++)
     var bunny = new PIXI.Sprite(texture);
 
     // center the sprites anchor point
-    if (y <4 ) {
+
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
     bunny.scale.x = 0.05;
-    bunny.scale.y = 0.05;
-}
-    if (y > 3) {
-    bunny.anchor.x = 0.5;
-    bunny.anchor.y = 1.0;
-
-    bunny.scale.x = 0.05;
-    bunny.scale.y = 0.05;
-    }
+    bunny.scale.y = 0.1;
 
 
     // move the sprite t the center of the screen
