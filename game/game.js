@@ -1114,7 +1114,7 @@ function animate() {
         // console
         blueshots[i].position = new PIXI.Point(blueshotsdata[i].position.x - (player.position.x - 500),blueshotsdata[i].position.y - (player.position.y - 300));
         // console.log(blueshots[i].position);
-        console.log(blueshots.length);
+        // console.log(blueshots.length);
     }
 
     for(var i = 0; i < orangeshots.length; i++)
@@ -1122,7 +1122,7 @@ function animate() {
         // console
         orangeshots[i].position = new PIXI.Point(orangeshotsdata[i].position.x - (player.position.x - 500),orangeshotsdata[i].position.y - (player.position.y - 300));
         // console.log(blueshots[i].position);
-        console.log(orangeshots.length);
+        // console.log(orangeshots.length);
     }
 
     for(var i = 0; i < bluenexus.length; i++)
@@ -1158,6 +1158,8 @@ function animate() {
 var controllerOptions = {enableGestures: true};
 
 Leap.loop(controllerOptions, function(frame) {
+
+    var shoot = false;
 
     // console.log("ddd");
 
@@ -1203,12 +1205,21 @@ Leap.loop(controllerOptions, function(frame) {
               else {
                   swipeDirection = "down";
                   console.log('leap shoot down');
-                  keysDown.q = true;
+                  shoot = true;
 
               }
           }
        }
      }
+  }
+
+  if(shoot)
+  {
+    keysDown.q = true;
+  }
+  else
+  {
+    keysDown.q = false;
   }
 
 })
