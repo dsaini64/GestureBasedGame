@@ -327,7 +327,7 @@ for (i = 0; i < 5; i++ ) {
 
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 400;
+    playerdata.position.x = 800;
     playerdata.position.y = 700;
 
     obstacles[i] = playerdata;
