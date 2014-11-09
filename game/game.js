@@ -25,8 +25,8 @@ var keysDown = {
     left: false,
     right: false,
     up: false,
-    down: false
-    shoot: false;
+    down: false,
+    shoot: false
 };
 
 var blueteamdata = [];
@@ -81,7 +81,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("blue.png");
+    var texture = PIXI.Texture.fromImage("player.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -136,14 +136,22 @@ var minionsblueteam2 = [];
 
 var minionsorangeteam2 = [];
 
+var minionsblueteam2data = [];
+
+var minionsorangeteam2data = [];
+
 var minionsblueteam3 = [];
 
 var minionsorangeteam3 = [];
 
+var minionsblueteam3data = [];
+
+var minionsorangeteam3data = [];
+
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("orange.png");
+    var texture = PIXI.Texture.fromImage("player.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -189,7 +197,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("orange.png");
+    var texture = PIXI.Texture.fromImage("player.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -197,8 +205,8 @@ for(var i = 0; i < 5; i++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 0.5;
-    bunny.scale.y = 0.5;
+    bunny.scale.x = 1;
+    bunny.scale.y = 1;
 
     // move the sprite t the center of the screen
     bunny.position.x = 200;
@@ -220,8 +228,8 @@ for(var i = 0; i < 5; i++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 0.5;
-    bunny.scale.y = 0.5;
+    bunny.scale.x = 1;
+    bunny.scale.y = 1;
 
     // move the sprite t the center of the screen
     bunny.position.x = 200;
@@ -235,7 +243,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("orange.png");
+    var texture = PIXI.Texture.fromImage("player.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -281,7 +289,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("orange.png");
+    var texture = PIXI.Texture.fromImage("player.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -289,8 +297,8 @@ for(var i = 0; i < 5; i++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 0.5;
-    bunny.scale.y = 0.5;
+    bunny.scale.x = 1;
+    bunny.scale.y = 1;
 
     // move the sprite t the center of the screen
     bunny.position.x = 200;
@@ -312,8 +320,8 @@ for(var i = 0; i < 5; i++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 0.5;
-    bunny.scale.y = 0.5;
+    bunny.scale.x = 1;
+    bunny.scale.y = 1;
 
     // move the sprite t the center of the screen
     bunny.position.x = 200;
@@ -327,7 +335,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("orange.png");
+    var texture = PIXI.Texture.fromImage("player.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -373,7 +381,7 @@ for(var i = 0; i < 5; i++)
 for(var i = 0; i < 5; i++)
 {
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("orange.png");
+    var texture = PIXI.Texture.fromImage("player.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 
@@ -381,8 +389,8 @@ for(var i = 0; i < 5; i++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 0.5;
-    bunny.scale.y = 0.5;
+    bunny.scale.x = 1;
+    bunny.scale.y = 1;
 
     // move the sprite t the center of the screen
     bunny.position.x = 200;
@@ -404,8 +412,8 @@ for(var i = 0; i < 5; i++)
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
-    bunny.scale.x = 0.5;
-    bunny.scale.y = 0.5;
+    bunny.scale.x = 1;
+    bunny.scale.y = 1;
 
     // move the sprite t the center of the screen
     bunny.position.x = 200;
@@ -545,10 +553,39 @@ function animate() {
     {
         blueteam[i].position = new PIXI.Point(blueteamdata[i].position.x - (player.position.x - 500),blueteamdata[i].position.y - (player.position.y - 300));
         orangeteam[i].position = new PIXI.Point(orangeteamdata[i].position.x - (player.position.x - 500),orangeteamdata[i].position.y - (player.position.y - 300));
+    }
 
+    for(var i = 0; i < minionsblueteam.length; i++)
+    {
         minionsblueteam[i].position = new PIXI.Point(minionsblueteamdata[i].position.x - (player.position.x - 500),minionsblueteamdata[i].position.y - (player.position.y - 300));
+    }
+
+    for(var i = 0; i < minionsorangeteam.length; i++)
+    {
         minionsorangeteam[i].position = new PIXI.Point(minionsorangeteamdata[i].position.x - (player.position.x - 500),minionsorangeteamdata[i].position.y - (player.position.y - 300));
     }
+
+    for(var i = 0; i < minionsblueteam.length; i++)
+    {
+        minionsblueteam2[i].position = new PIXI.Point(minionsblueteam2data[i].position.x - (player.position.x - 500),minionsblueteam2data[i].position.y - (player.position.y - 300));
+    }
+
+    for(var i = 0; i < minionsorangeteam.length; i++)
+    {
+        minionsorangeteam2[i].position = new PIXI.Point(minionsorangeteam2data[i].position.x - (player.position.x - 500),minionsorangeteam2data[i].position.y - (player.position.y - 300));
+    }
+
+    for(var i = 0; i < minionsblueteam.length; i++)
+    {
+        minionsblueteam3[i].position = new PIXI.Point(minionsblueteam3data[i].position.x - (player.position.x - 500),minionsblueteam3data[i].position.y - (player.position.y - 300));
+    }
+
+    for(var i = 0; i < minionsorangeteam.length; i++)
+    {
+        minionsorangeteam3[i].position = new PIXI.Point(minionsorangeteam3data[i].position.x - (player.position.x - 500),minionsorangeteam3data[i].position.y - (player.position.y - 300));
+    }
+
+
 
 
     topRect.position = new PIXI.Point(0 - (player.position.x - 500), 0 - (player.position.y - 300));
@@ -558,7 +595,7 @@ function animate() {
 
 
 
-
+    // console.log(player.position);
 
 
     // render the stage
@@ -592,14 +629,14 @@ Leap.loop(controllerOptions, function(frame) {
                   swipeDirection = "right";
                   console.log('leap shoot right')
                    shoot = true;
-                  
+
               }
               else
               {
                   swipeDirection = "left";
                   console.log('leap shoot left');
                   shoot = true;
-                 
+
 
               }
           }
@@ -610,7 +647,7 @@ Leap.loop(controllerOptions, function(frame) {
                   swipeDirection = "up";
                   console.log('leap shoot up');
                   shoot = true;
-                   
+
 
               }
               else {

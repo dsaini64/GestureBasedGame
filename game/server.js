@@ -104,8 +104,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 550;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.x = 550 + i * 80;
+    playerdata.position.y = 1800;
     // playerdata.keysDown = {};
     minionsblueteam[i] = playerdata;
 }
@@ -114,8 +114,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 850;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.x = 850 + i * 80;
+    playerdata.position.y = 1800;
     // playerdata.keysDown = {};
     minionsorangeteam[i] = playerdata;
 }
@@ -124,8 +124,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 550;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.x = 550 - i * 80;
+    playerdata.position.y = 1800 + i * 80;
     // playerdata.keysDown = {};
     minionsblueteam2[i] = playerdata;
 }
@@ -134,8 +134,8 @@ for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 850;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.x = 850 - i * 80;
+    playerdata.position.y = 1800 + i * 80
     // playerdata.keysDown = {};
     minionsorangeteam2[i] = playerdata;
 }
@@ -145,7 +145,7 @@ for(var i = 0; i < 5; i++)
     var playerdata = {};
     playerdata.position = {};
     playerdata.position.x = 550;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.y = 1800 - i * 80;
     // playerdata.keysDown = {};
     minionsblueteam3[i] = playerdata;
 }
@@ -155,7 +155,7 @@ for(var i = 0; i < 5; i++)
     var playerdata = {};
     playerdata.position = {};
     playerdata.position.x = 850;
-    playerdata.position.y = 1800 + i * 20;
+    playerdata.position.y = 1800 - i * 80;
     // playerdata.keysDown = {};
     minionsorangeteam3[i] = playerdata;
 }
@@ -281,6 +281,8 @@ io.sockets.on('connection', function (socket) {
 
         socket.emit('information', data2);
 
+        console.log(client.position);
+
         // console.log(data2.minionsorangeteam[0].position.x);
 
         // console.log("client " + client.keysDown);
@@ -331,29 +333,65 @@ var update = function(delta) {
 
         // minionsorangeteam[i].position.x += 6;
     }
+    for(var i = 0; i < minionsblueteam.length; i++)
+    {
+        minionsblueteam[i].position.x += 6;
+    }
+    for(var i = 0; i < minionsblueteam2.length; i++)
+    {
+        minionsblueteam2[i].position.x += 3;
+        minionsblueteam2[i].position.y -= 3;
+    }
+    for(var i = 0; i < minionsblueteam3.length; i++)
+    {
+        minionsblueteam3[i].position.y -= 6;
+    }
 
-    // minionsblueteam[i].position.x += 6;
-    //     minionsblueteam3[i].position.y += 6;
-    //     minionsblueteam2[i].position.x += 3;
-    //     minionsblueteam2[i].position.y += 3;
 
 
-    // for(loop through towers)
-    // {
-    //     for(minions1)
-    //     {
-    //         if(colliding)
-    //         {
-    //             //shoot the bullet
-    //         }
-    //     }
-    //     for()
-    // }
+
+
+    for(var i = 0; i < bluetowers.length; i++)
+    {
+
+         for(var j = 0; j < minionsblueteam.length; j++)
+          {
+              if((Math.sqrt((minionsblueteam[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam[j].position.y + bluetowers[j].position.y)^2)) > 10)
+            {
+                //shoot the bullet!
+            }
+
+      
+              if((Math.sqrt((minionsblueteam2[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam2[j].position.y + bluetowers[j].position.y)^2)) > 10)
+            {
+                //shoot the bullet!
+            }
+
+
+              if((Math.sqrt((minionsblueteam3[j].position.x + bluetowers[j].position.x)^2) + ((minionsblueteam3[j].position.y + bluetowers[j].position.y)^2)) > 10)
+            {
+                //shoot the bullet!
+            }
+
+               if((Math.sqrt((minionsorangeteam[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam[j].position.y + orangetowers[j].position.y)^2)) > 10)
+            {
+                //shoot the bullet!
+            }
+
+               if((Math.sqrt((minionsorangeteam2[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam2[j].position.y + orangetowers[j].position.y)^2)) > 10)
+            {
+                //shoot the bullet!
+            }
+
+               if((Math.sqrt((minionsorangeteam3[j].position.x + orangetowers[j].position.x)^2) + ((minionsorangeteam3[j].position.y + orangetowers[j].position.y)^2)) > 10)
+            {
+                //shoot the bullet!
+            }
+
 
 
   // console.log("hay");
+    }
 }
-
-
 // begin the loop !
 gameLoop()
