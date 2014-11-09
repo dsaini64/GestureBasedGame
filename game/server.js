@@ -190,6 +190,7 @@ for(var i = 0; i < 6; i++)
      playerdata.position.x = 1800;
      playerdata.cooldown = 0;
     playerdata.position.y = 1750;
+    playerdata.health = 10;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
  }
@@ -201,6 +202,7 @@ for(var i = 0; i < 6; i++)
     playerdata.position.x = 1200;
     playerdata.position.y = 1750;
     playerdata.cooldown = 0;
+    playerdata.health = 10;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
 
@@ -213,6 +215,7 @@ for(var i = 0; i < 6; i++)
     playerdata.position.x = 260;
     playerdata.position.y = 1500;
     playerdata.cooldown = 0;
+    playerdata.health = 10;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
 
@@ -225,6 +228,7 @@ for(var i = 0; i < 6; i++)
     playerdata.position.x = 260;
     playerdata.position.y = 1000;
     playerdata.cooldown = 0;
+    playerdata.health = 10;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
     }
@@ -236,6 +240,7 @@ for(var i = 0; i < 6; i++)
     playerdata.position.x = 700;
     playerdata.position.y = 1500;
     playerdata.cooldown = 0;
+    playerdata.health = 10;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
     }
@@ -247,6 +252,7 @@ for(var i = 0; i < 6; i++)
     playerdata.position.x = 4000;
     playerdata.position.y = 4000;
     playerdata.cooldown = 0;
+    playerdata.health = 10;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
     }
@@ -261,6 +267,7 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position.x = 2200;
     playerdata.position.y = 1000;
     playerdata.cooldown = 0;
+    playerdata.health = 10;
     // playerdata.keysDown = {};
     orangetowers[i] = playerdata;
 
@@ -273,6 +280,7 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position.x = 2200;
     playerdata.cooldown = 0;
     playerdata.position.y = 1500;
+    playerdata.health = 10;
     // playerdata.keysDown = {};
     orangetowers[i] = playerdata;
 
@@ -285,6 +293,7 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position.x = 1970;
     playerdata.position.y = 1000;
     playerdata.cooldown = 0;
+    playerdata.health = 10;
     // playerdata.keysDown = {};
     orangetowers[i] = playerdata;
 
@@ -296,6 +305,7 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position.x = 4000;
     playerdata.position.y = 4000;
     playerdata.cooldown = 0;
+    playerdata.health = 10;
     // playerdata.keysDown = {};
     orangetowers[i] = playerdata;
 
@@ -308,6 +318,7 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position.x = 1970;
     playerdata.position.y = 540;
     playerdata.cooldown = 0;
+    playerdata.health = 10;
     // playerdata.keysDown = {};
     orangetowers[i] = playerdata;
 
@@ -319,6 +330,7 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position.x = 1170;
     playerdata.position.y = 540;
     playerdata.cooldown = 0;
+    playerdata.health = 10;
     // playerdata.keysDown = {};
     orangetowers[i] = playerdata;
 
@@ -348,7 +360,7 @@ for (i = 0; i < 5; i++ ) {
     if (i == 2) {
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1500;
+    playerdata.position.x = 1900;
     playerdata.position.y = 1200;
 
     obstacles[i] = playerdata;
@@ -368,7 +380,7 @@ for (i = 0; i < 5; i++ ) {
     var playerdata = {};
     playerdata.position = {};
     playerdata.position.x = 1500;
-    playerdata.position.y = 1500;
+    playerdata.position.y = 1600;
 
     obstacles[i] = playerdata;
     }
@@ -468,6 +480,11 @@ var update = function(delta) {
     console.log(minionsblueteam.length);
     console.log(minionsblueteam2.length);
     console.log(minionsblueteam3.length);
+
+    var topxmod = -400;
+    var topymod = -100;
+    var botxmod = 400;
+    var botymod = 100;
     // for(var i = 0)
 
 
@@ -485,11 +502,11 @@ var update = function(delta) {
                 var tempy = blueteam[i].position.y;
 
                 for (var x = 0; x < 5; x++) {
-                   var topx = obstacles[x].position.x;
-                   var topy = obstacles[x].position.y;
+                   var topx = obstacles[x].position.x + topxmod;
+                   var topy = obstacles[x].position.y + topymod;
                    //Edit botx and boty to have exact value
-                   var botx = topx + 100;
-                   var boty = topy - 100;
+                   var botx = obstacles[x].position.x + botxmod;
+                   var boty = obstacles[x].position.y + botymod;
                     if(isInside(tempx,tempy,topx,topy,botx,boty))
                     {
                         isok = false;
@@ -512,11 +529,11 @@ var update = function(delta) {
                 var tempy = blueteam[i].position.y;
 
                 for (var x = 0; x < 5; x++) {
-                   var topx = obstacles[x].position.x;
-                   var topy = obstacles[x].position.y;
+                   var topx = obstacles[x].position.x + topxmod;
+                   var topy = obstacles[x].position.y + topymod;
                    //Edit botx and boty to have exact value
-                   var botx = topx + 100;
-                   var boty = topy - 100;
+                   var botx = obstacles[x].position.x + botxmod;
+                   var boty = obstacles[x].position.y + botymod;
                     if(isInside(tempx,tempy,topx,topy,botx,boty))
                     {
                         console.log("collided");
@@ -544,11 +561,11 @@ var update = function(delta) {
                 // console.log(tempy);
 
                 for (var x = 0; x < 5; x++) {
-                   var topx = obstacles[x].position.x;
-                   var topy = obstacles[x].position.y;
+                   var topx = obstacles[x].position.x + topxmod;
+                   var topy = obstacles[x].position.y + topymod;
                    //Edit botx and boty to have exact value
-                   var botx = topx + 100;
-                   var boty = topy - 100;
+                   var botx = obstacles[x].position.x + botxmod;
+                   var boty = obstacles[x].position.y + botymod;
                    // console.log(tempy);
                    // console.log(tempx + " " + tempy + " " + topx + " " + topy + " " + botx + " " + boty);
                     if(isInside(tempx,tempy,topx,topy,botx,boty))
@@ -574,12 +591,12 @@ var update = function(delta) {
                 var tempy = blueteam[i].position.y - 8;
 
                 for (var x = 0; x < 5; x++) {
-                   var topx = obstacles[x].position.x;
-                   var topy = obstacles[x].position.y;
+                   var topx = obstacles[x].position.x + topxmod;
+                   var topy = obstacles[x].position.y + topymod;
                    //Edit botx and boty to have exact value
-                   var botx = topx + 100;
-                   var boty = topy - 100;
-                    if(isInside(tempx,tempy,topx,topy,botx,boty))
+                   var botx = obstacles[x].position.x + botxmod;
+                   var boty = obstacles[x].position.y + botymod;
+                   if(isInside(tempx,tempy,topx,topy,botx,boty))
                     {
                         isok = false;
                     }
@@ -623,11 +640,11 @@ var update = function(delta) {
                 var tempy = orangeteam[i].position.y;
 
                 for (var x = 0; x < 5; x++) {
-                   var topx = obstacles[x].position.x;
-                   var topy = obstacles[x].position.y;
+                   var topx = obstacles[x].position.x + topxmod;
+                   var topy = obstacles[x].position.y + topymod;
                    //Edit botx and boty to have exact value
-                   var botx = topx + 100;
-                   var boty = topy - 100;
+                   var botx = obstacles[x].position.x + botxmod;
+                   var boty = obstacles[x].position.y + botymod;
                     if(isInside(tempx,tempy,topx,topy,botx,boty))
                     {
                         isok = false;
@@ -650,11 +667,11 @@ var update = function(delta) {
                 var tempy = orangeteam[i].position.y;
 
                 for (var x = 0; x < 5; x++) {
-                   var topx = obstacles[x].position.x;
-                   var topy = obstacles[x].position.y;
+                   var topx = obstacles[x].position.x + topxmod;
+                   var topy = obstacles[x].position.y + topymod;
                    //Edit botx and boty to have exact value
-                   var botx = topx + 100;
-                   var boty = topy - 100;
+                   var botx = obstacles[x].position.x + botxmod;
+                   var boty = obstacles[x].position.y + botymod;
                     if(isInside(tempx,tempy,topx,topy,botx,boty))
                     {
                         console.log("collided");
@@ -682,11 +699,11 @@ var update = function(delta) {
                 // console.log(tempy);
 
                 for (var x = 0; x < 5; x++) {
-                   var topx = obstacles[x].position.x;
-                   var topy = obstacles[x].position.y;
+                   var topx = obstacles[x].position.x + topxmod;
+                   var topy = obstacles[x].position.y + topymod;
                    //Edit botx and boty to have exact value
-                   var botx = topx + 100;
-                   var boty = topy - 100;
+                   var botx = obstacles[x].position.x + botxmod;
+                   var boty = obstacles[x].position.y + botymod;
                    // console.log(tempy);
                    // console.log(tempx + " " + tempy + " " + topx + " " + topy + " " + botx + " " + boty);
                     if(isInside(tempx,tempy,topx,topy,botx,boty))
@@ -712,11 +729,11 @@ var update = function(delta) {
                 var tempy = orangeteam[i].position.y - 8;
 
                 for (var x = 0; x < 5; x++) {
-                   var topx = obstacles[x].position.x;
-                   var topy = obstacles[x].position.y;
+                   var topx = obstacles[x].position.x + topxmod;
+                   var topy = obstacles[x].position.y + topymod;
                    //Edit botx and boty to have exact value
-                   var botx = topx + 100;
-                   var boty = topy - 100;
+                   var botx = obstacles[x].position.x + botxmod;
+                   var boty = obstacles[x].position.y + botymod;
                     if(isInside(tempx,tempy,topx,topy,botx,boty))
                     {
                         isok = false;
@@ -1255,7 +1272,7 @@ var update = function(delta) {
           }
 
 
-     
+
       function MinionCheckForEnemy(minionx, miniony, enemyminionx, enemyminiony) {
         var circleradius = 100;
         var dx = minionx - enemyminiony;
@@ -1269,6 +1286,7 @@ var update = function(delta) {
       }
 
 
+<<<<<<< HEAD
       function CheckForBulletHit(playerx, playery, bulletx, bullety) {
         var circleradius = 60;
         var dx = playerx - bullety;
@@ -1283,6 +1301,9 @@ var update = function(delta) {
 
 
    
+=======
+
+>>>>>>> fb9ea6ce3439fa2b74a9c896e6ef1c2bc61e6d6c
 
 
 
@@ -1303,6 +1324,7 @@ var update = function(delta) {
         // }
 
         // }
+    }
 
 
 
