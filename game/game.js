@@ -157,12 +157,12 @@ var bluetowersdata = [];
 
 var orangetowers = [];
 
-<<<<<<< HEAD
+
 var blueshots = [];
 var blueshotsdata =[];
-=======
+
 var orangetowersdata = [];
->>>>>>> FETCH_HEAD
+
 
 for(var i = 0; i < 5; i++)
 {
@@ -789,6 +789,13 @@ function animate() {
     {
         // console
         bluetowers[i].position = new PIXI.Point(bluetowersdata[i].position.x - (player.position.x - 500),bluetowersdata[i].position.y - (player.position.y - 300));
+        // console.log(bluetowers[i].position);
+    }
+
+    for(var i = 0; i < orangetowers.length; i++)
+    {
+        // console
+        orangetowers[i].position = new PIXI.Point(orangetowersdata[i].position.x - (player.position.x - 500),orangetowersdata[i].position.y - (player.position.y - 300));
         // console.log(bluetowers[i].position);
     }
 

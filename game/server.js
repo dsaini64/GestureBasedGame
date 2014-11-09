@@ -232,8 +232,8 @@ for(var i = 0; i < 6; i++)
     //mid right most tower
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1400;
-    playerdata.position.y = 1000;
+    playerdata.position.x = 4000;
+    playerdata.position.y = 4000;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
     }
@@ -248,7 +248,7 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position.x = 1980;
     playerdata.position.y = 1000;
     // playerdata.keysDown = {};
-    orangeowers[i] = playerdata;
+    orangetowers[i] = playerdata;
 
     }
     if(i == 1) {
@@ -259,10 +259,10 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position.x = 1980;
     playerdata.position.y = 1500;
     // playerdata.keysDown = {};
-    orangeowers[i] = playerdata;
+    orangetowers[i] = playerdata;
 
     }
-    if(i == 2 {
+    if(i == 2 ){
 
     //mid 1st tower
     var playerdata = {};
@@ -270,17 +270,17 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position.x = 1970;
     playerdata.position.y = 1000;
     // playerdata.keysDown = {};
-    orangeowers[i] = playerdata;
+    orangetowers[i] = playerdata;
 
     }
     if(i == 3) {
         //mid 2nd tower
     var playerdata = {};
     playerdata.position = {};
-    playerdata.position.x = 1500;
-    playerdata.position.y = 1300;
+    playerdata.position.x = 4000;
+    playerdata.position.y = 4000;
     // playerdata.keysDown = {};
-    orangeowers[i] = playerdata;
+    orangetowers[i] = playerdata;
 
     }
     if(i == 4) {
@@ -291,7 +291,7 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position.x = 1970;
     playerdata.position.y = 540;
     // playerdata.keysDown = {};
-    orangeowers[i] = playerdata;
+    orangetowers[i] = playerdata;
 
     }
     if(i == 5) {
@@ -301,7 +301,7 @@ for(var i=0; i < 6; i++ ) {
     playerdata.position.x = 1170;
     playerdata.position.y = 540;
     // playerdata.keysDown = {};
-    orangeowers[i] = playerdata;
+    orangetowers[i] = playerdata;
 
     }
 }
@@ -348,12 +348,11 @@ io.sockets.on('connection', function (socket) {
         data2.minionsblueteam3 = minionsblueteam3;
         data2.minionsorangeteam3 = minionsorangeteam3;
         data2.bluetowers = bluetowers;
-<<<<<<< HEAD
         data2.blueshots = blueshots;
         // console.log(data2.blueshots);
-=======
+
         data2.orangetowers = orangetowers;
->>>>>>> FETCH_HEAD
+
 
         socket.emit('information', data2);
 
@@ -383,28 +382,28 @@ var update = function(delta) {
         {
             if(blueteam[i].position.x > 50)
             {
-                blueteam[i].position.x -= 8;
+                blueteam[i].position.x -= 80;
             }
         }
         if(blueteam[i].keysDown.right == true)
         {
             if(blueteam[i].position.x < 2400)
             {
-                blueteam[i].position.x += 8;
+                blueteam[i].position.x += 80;
             }
         }
         if(blueteam[i].keysDown.up == true)
         {
             if(blueteam[i].position.y < 1950)
             {
-                blueteam[i].position.y += 8;
+                blueteam[i].position.y += 80;
             }
         }
         if(blueteam[i].keysDown.down == true)
         {
             if(blueteam[i].position.y > 550)
             {
-                blueteam[i].position.y -= 8;
+                blueteam[i].position.y -= 80;
             }
         }
         if(blueteam[i].keysDown.q == true)
