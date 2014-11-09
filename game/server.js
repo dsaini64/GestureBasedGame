@@ -82,6 +82,9 @@ var blueshots = [];
 
 var playersConnected = 0;
 
+var obstacles;
+
+
 for(var i = 0; i < 5; i++)
 {
     var playerdata = {};
@@ -303,6 +306,54 @@ for(var i=0; i < 6; i++ ) {
     // playerdata.keysDown = {};
     orangetowers[i] = playerdata;
 
+    }
+}
+for (i = 0; i < 5; i++ ) {
+    if (i == 0) {
+
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 1170;
+    playerdata.position.y = 540;
+
+    obstacles[i] = playerdata;
+
+    }
+    if (i == 1) {
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 1170;
+    playerdata.position.y = 540;
+
+    obstacles[i] = playerdata;
+
+    }
+    if (i == 2) {
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 1170;
+    playerdata.position.y = 540;
+
+    obstacles[i] = playerdata;
+        
+    }
+    if (i == 3) {
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 1170;
+    playerdata.position.y = 540;
+
+    obstacles[i] = playerdata;
+        
+    }
+    if (i == 4) {
+    var playerdata = {};
+    playerdata.position = {};
+    playerdata.position.x = 1170;
+    playerdata.position.y = 540;
+
+    obstacles[i] = playerdata;
+        
     }
 }
 
@@ -577,7 +628,7 @@ var update = function(delta) {
 
         //     var blueCircle = {radius: minionsblueteam[j].radius, x: minionsblueteam[j].position.x, y: minionsblueteam.position.y};
         //     var orangeCircle = {radius: minionsorangeteam[j].radius, x: minionsorangeteam[j].position.x, y: minionsorangeteam.position.y};
-
+3
 
         //     var dx = blueCircle.x - orangeCircle.x;
         //     var dy = blueCircle.y - orangeCircle.y;
