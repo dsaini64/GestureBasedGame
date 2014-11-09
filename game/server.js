@@ -178,7 +178,7 @@ for(var i = 0; i < 6; i++)
     // playerdata.position.x = 70;
     // playerdata.position.y = 1990;
      playerdata.position.x = 2050;
-    playerdata.position.y = 600;
+    playerdata.position.y = 1990;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
  }
@@ -188,7 +188,7 @@ for(var i = 0; i < 6; i++)
      var playerdata = {};
     playerdata.position = {};
     playerdata.position.x = 1400;
-    playerdata.position.y = 600;
+    playerdata.position.y = 1990;
     // playerdata.keysDown = {};
     bluetowers[i] = playerdata;
 
