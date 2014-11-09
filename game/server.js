@@ -589,11 +589,11 @@ var update = function(delta) {
         bluetowers[i].cooldown -= 1;
     }
 
-
+    var thingsToDelete = [];
 
     for(var i = 0; i < blueshots.length; i++)
       {
-        for(var j = 0; j < minionsorangeteam.length; i++)
+        for(var j = 0; j < minionsorangeteam.length; j++)
         {
             console.log("Asdaishdioasdhas");
             var circle1 = {radius: 100, x: minionsorangeteam[j].position.x, y: minionsorangeteam[j].position.y};
@@ -605,15 +605,25 @@ var update = function(delta) {
 
             // if(i == 0 && j == 0)
             // {
-            console.log(distance);
+            // console.log(distance);
             // }
 
             if (distance < circle1.radius + circle2.radius)
             {
-                minionsorangeteam.splice(i,1);
+                console.log("death");
+                // thingsToDelete.push(i);
+                // minionsorangeteam[]
+                // break;
             }
         }
       }
+
+      // for(var i = 0; i < thingsToDelete.length; i++)
+      // {
+      //   if(thingsToDelete[i])
+      // }
+
+
 
 
 
