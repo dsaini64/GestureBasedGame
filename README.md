@@ -1,4 +1,4 @@
-Moba
+GestureBasedGame
 ====
 
-TBD
+Made at CodeDay Silicon Valley, fall 2014. 
